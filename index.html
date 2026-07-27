@@ -5,10 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Uptest | NDT rope access</title>
     
-    <!-- Tailwind CSS (CDN for quick setup) -->
+    <!-- Pridėtas Favicon -->
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Optional: Google Fonts for a modern look -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
@@ -17,8 +20,8 @@
 </head>
 <body class="bg-gray-50 text-gray-800 antialiased">
 
-    <!-- TOP BAR (Viršutinė juostelė) -->
-    <div class="bg-blue-600 text-white text-sm py-2">
+    <!-- TOP BAR (Žydra paletė) -->
+    <div class="bg-cyan-600 text-white text-sm py-2">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
             
             <!-- Language Selector -->
@@ -33,15 +36,15 @@
 
             <!-- Secondary Links -->
             <div class="hidden sm:flex space-x-6">
-                <a href="/certificates/" class="hover:text-blue-200 transition-colors">Our certificates</a>
-                <a href="/gallery/" class="hover:text-blue-200 transition-colors">Gallery</a>
-                <a href="/lt/" class="hover:text-blue-200 transition-colors font-medium">Lietuviškai</a>
+                <a href="/certificates/" class="hover:text-cyan-200 transition-colors">Our certificates</a>
+                <a href="/gallery/" class="hover:text-cyan-200 transition-colors">Gallery</a>
+                <a href="/lt/" class="hover:text-cyan-200 transition-colors font-medium">Lietuviškai</a>
             </div>
             
         </div>
     </div>
 
-    <!-- MAIN HEADER (Pagrindinė navigacija) -->
+    <!-- MAIN HEADER -->
     <header class="bg-white shadow-md sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
@@ -55,17 +58,17 @@
 
                 <!-- Desktop Menu -->
                 <nav class="hidden md:flex space-x-8">
-                    <a href="/about-us/" class="text-gray-600 hover:text-blue-600 font-medium transition-colors border-b-2 border-transparent hover:border-blue-600 pb-1">About Us</a>
-                    <a href="/non-destructive-testing/" class="text-gray-600 hover:text-blue-600 font-medium transition-colors border-b-2 border-transparent hover:border-blue-600 pb-1">Non-Destructive Testing</a>
-                    <a href="/rope-access/" class="text-gray-600 hover:text-blue-600 font-medium transition-colors border-b-2 border-transparent hover:border-blue-600 pb-1">Rope Access</a>
-                    <a href="/equipment/" class="text-gray-600 hover:text-blue-600 font-medium transition-colors border-b-2 border-transparent hover:border-blue-600 pb-1">NDT equipment</a>
-                    <a href="/career/" class="text-gray-600 hover:text-blue-600 font-medium transition-colors border-b-2 border-transparent hover:border-blue-600 pb-1">Jobs & Careers</a>
-                    <a href="/contacts/" class="text-gray-600 hover:text-blue-600 font-medium transition-colors border-b-2 border-transparent hover:border-blue-600 pb-1">Contacts</a>
+                    <a href="/about-us/" class="text-gray-600 hover:text-cyan-600 font-medium transition-colors border-b-2 border-transparent hover:border-cyan-600 pb-1">About Us</a>
+                    <a href="/non-destructive-testing/" class="text-gray-600 hover:text-cyan-600 font-medium transition-colors border-b-2 border-transparent hover:border-cyan-600 pb-1">Non-Destructive Testing</a>
+                    <a href="/rope-access/" class="text-gray-600 hover:text-cyan-600 font-medium transition-colors border-b-2 border-transparent hover:border-cyan-600 pb-1">Rope Access</a>
+                    <a href="/equipment/" class="text-gray-600 hover:text-cyan-600 font-medium transition-colors border-b-2 border-transparent hover:border-cyan-600 pb-1">NDT equipment</a>
+                    <a href="/career/" class="text-gray-600 hover:text-cyan-600 font-medium transition-colors border-b-2 border-transparent hover:border-cyan-600 pb-1">Jobs & Careers</a>
+                    <a href="/contacts/" class="text-gray-600 hover:text-cyan-600 font-medium transition-colors border-b-2 border-transparent hover:border-cyan-600 pb-1">Contacts</a>
                 </nav>
 
-                <!-- Mobile Menu Button (Hamburger) -->
+                <!-- Mobile Menu Button -->
                 <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-button" type="button" class="text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 p-2">
+                    <button id="mobile-menu-button" type="button" class="text-gray-500 hover:text-cyan-600 focus:outline-none focus:text-cyan-600 p-2">
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                         </svg>
@@ -75,35 +78,103 @@
             </div>
         </div>
 
-        <!-- Mobile Menu Panel (Hidden by default) -->
+        <!-- Mobile Menu Panel -->
         <div id="mobile-menu-panel" class="hidden md:hidden bg-white border-t border-gray-100 shadow-lg absolute w-full">
             <div class="px-4 pt-2 pb-4 space-y-1 sm:px-3">
-                <a href="/about-us/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">About Us</a>
-                <a href="/non-destructive-testing/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Non-Destructive Testing</a>
-                <a href="/rope-access/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Rope Access</a>
-                <a href="/equipment/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">NDT equipment</a>
-                <a href="/career/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Jobs & Careers</a>
-                <a href="/contacts/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Contacts</a>
-                
-                <!-- Secondary links for mobile -->
-                <div class="border-t border-gray-200 mt-4 pt-4 pb-2">
-                    <a href="/certificates/" class="block px-3 py-2 text-sm text-gray-500 hover:text-blue-600">Our certificates</a>
-                    <a href="/gallery/" class="block px-3 py-2 text-sm text-gray-500 hover:text-blue-600">Gallery</a>
-                </div>
+                <a href="/about-us/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-cyan-600 hover:bg-gray-50">About Us</a>
+                <a href="/non-destructive-testing/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-cyan-600 hover:bg-gray-50">Non-Destructive Testing</a>
+                <a href="/rope-access/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-cyan-600 hover:bg-gray-50">Rope Access</a>
+                <a href="/equipment/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-cyan-600 hover:bg-gray-50">NDT equipment</a>
+                <a href="/career/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-cyan-600 hover:bg-gray-50">Jobs & Careers</a>
+                <a href="/contacts/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-cyan-600 hover:bg-gray-50">Contacts</a>
             </div>
         </div>
     </header>
 
-    <!-- Rest of your page content goes here... -->
+    <!-- HERO SLIDER SECTION -->
+    <div class="relative w-full h-[400px] md:h-[600px] bg-gray-900 overflow-hidden">
+        
+        <!-- Pirmas Slide[cite: 1] -->
+        <div class="slide absolute inset-0 opacity-100 transition-opacity duration-1000 ease-in-out">
+            <div class="absolute inset-0 bg-black/50 z-10"></div> <!-- Tamsus perdengimas -->
+            <img src="https://www.uptest.no/wp-content/uploads/2016/10/uptest-neardomoji-kontrole-1.jpg" class="absolute w-full h-full object-cover z-0" alt="Rope access rigging">
+            <div class="relative z-20 h-full flex items-center justify-center">
+                <h2 class="text-white text-4xl md:text-6xl font-bold tracking-wide drop-shadow-lg text-center px-4">Rope access rigging</h2>
+            </div>
+        </div>
 
-    <!-- Simple script for mobile menu toggle -->
+        <!-- Antras Slide[cite: 1] -->
+        <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
+            <div class="absolute inset-0 bg-black/50 z-10"></div>
+            <img src="https://www.uptest.no/wp-content/uploads/2016/10/uptest-neardomoji-kontrole-3.jpg" class="absolute w-full h-full object-cover z-0" alt="Rope Access">
+            <div class="relative z-20 h-full flex items-center justify-center">
+                <h2 class="text-white text-4xl md:text-6xl font-bold tracking-wide drop-shadow-lg text-center px-4">Rope Access</h2>
+            </div>
+        </div>
+
+        <!-- Trečias Slide[cite: 1] -->
+        <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
+            <div class="absolute inset-0 bg-black/50 z-10"></div>
+            <img src="https://www.uptest.no/wp-content/uploads/2016/10/uptest-neardomoji-kontrole-2.jpg" class="absolute w-full h-full object-cover z-0" alt="Non-Destructive Testing">
+            <div class="relative z-20 h-full flex items-center justify-center">
+                <h2 class="text-white text-4xl md:text-6xl font-bold tracking-wide drop-shadow-lg text-center px-4">Non-Destructive Testing</h2>
+            </div>
+        </div>
+
+        <!-- Ketvirtas Slide[cite: 1] -->
+        <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
+            <div class="absolute inset-0 bg-black/50 z-10"></div>
+            <img src="https://www.uptest.no/wp-content/uploads/2016/10/uptest-neardomoji-kontrole-4.jpg" class="absolute w-full h-full object-cover z-0" alt="NDT Inspection">
+            <div class="relative z-20 h-full flex items-center justify-center">
+                <h2 class="text-white text-4xl md:text-6xl font-bold tracking-wide drop-shadow-lg text-center px-4">Professional Inspections</h2>
+            </div>
+        </div>
+        
+        <!-- Penktas Slide[cite: 1] -->
+        <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
+            <div class="absolute inset-0 bg-black/50 z-10"></div>
+            <img src="https://www.uptest.no/wp-content/uploads/2016/10/uptest-neardomoji-kontrole-5.jpg" class="absolute w-full h-full object-cover z-0" alt="Industrial Services">
+            <div class="relative z-20 h-full flex items-center justify-center">
+                <h2 class="text-white text-4xl md:text-6xl font-bold tracking-wide drop-shadow-lg text-center px-4">Industrial Solutions</h2>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Rest of your page content -->
+
+    <!-- Skriptai -->
     <script>
+        // Mobiliojo meniu logika
         const btn = document.getElementById('mobile-menu-button');
         const menu = document.getElementById('mobile-menu-panel');
 
         btn.addEventListener('click', () => {
             menu.classList.toggle('hidden');
         });
+
+        // Hero Slider logika
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+        const slideInterval = 4000; // Keičiame kas 4 sekundes
+
+        function nextSlide() {
+            // Paslepiame dabartinę skaidrę
+            slides[currentSlide].classList.remove('opacity-100');
+            slides[currentSlide].classList.add('opacity-0');
+            
+            // Pereiname prie kitos skaidrės
+            currentSlide = (currentSlide + 1) % slides.length;
+            
+            // Parodome naują skaidrę
+            slides[currentSlide].classList.remove('opacity-0');
+            slides[currentSlide].classList.add('opacity-100');
+        }
+
+        // Paleidžiame automatinį sukimąsi
+        if(slides.length > 1) {
+            setInterval(nextSlide, slideInterval);
+        }
     </script>
 </body>
 </html>
