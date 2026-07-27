@@ -157,17 +157,29 @@
             <div class="absolute inset-0 bg-gradient-to-t from-slatebrand-900/95 via-slatebrand-900/50 to-slatebrand-900/30"></div>
         </div>
 
-        <!-- Vertikalus minimalistinis slaiderio valdiklis dešinėje pusėje -->
-        <div class="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-30 flex flex-col items-center gap-2 bg-slatebrand-900/70 backdrop-blur-md border border-white/10 p-2 rounded-full shadow-2xl">
-            <button id="prev-slide" class="text-slate-300 hover:text-white transition-colors p-1.5 cursor-pointer rounded-full hover:bg-white/10" aria-label="Previous slide">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 15l7-7 7 7"/></svg>
-            </button>
+        <!-- Modernus "cool" slaiderio valdiklis apačioje dešinėje (skaitliukas, progresas ir rodyklės) -->
+        <div class="absolute right-4 sm:right-8 bottom-6 sm:bottom-8 z-30 flex items-center gap-3 sm:gap-4 bg-slatebrand-900/80 backdrop-blur-md border border-white/10 px-4 py-2.5 rounded-2xl shadow-2xl">
+            <!-- Skaitliukas -->
+            <div class="text-xs font-bold text-white tracking-widest tabular-nums flex items-center gap-1">
+                <span class="text-brand-400" id="current-num">01</span>
+                <span class="text-slate-600">/</span>
+                <span class="text-slate-400" id="total-num">05</span>
+            </div>
             
-            <div class="flex flex-col space-y-2 items-center py-1" id="dots-container"></div>
-            
-            <button id="next-slide" class="text-slate-300 hover:text-white transition-colors p-1.5 cursor-pointer rounded-full hover:bg-white/10" aria-label="Next slide">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
-            </button>
+            <!-- Progreso juosta -->
+            <div class="w-16 sm:w-24 h-1 bg-white/10 rounded-full overflow-hidden">
+                <div id="slide-progress" class="h-full bg-brand-400 w-0 transition-all duration-300"></div>
+            </div>
+
+            <!-- Rodyklės -->
+            <div class="flex items-center gap-1 border-l border-white/10 pl-3">
+                <button id="prev-slide" class="text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-lg hover:bg-white/10" aria-label="Previous slide">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                </button>
+                <button id="next-slide" class="text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-lg hover:bg-white/10" aria-label="Next slide">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                </button>
+            </div>
         </div>
 
         <!-- Pagrindinis išdėstymas -->
@@ -315,26 +327,17 @@
         const slideTexts = document.querySelectorAll('.slide-text');
         const prevBtn = document.getElementById('prev-slide');
         const nextBtn = document.getElementById('next-slide');
-        const dotsContainer = document.getElementById('dots-container');
+        const currentNumEl = document.getElementById('current-num');
+        const totalNumEl = document.getElementById('total-num');
+        const slideProgress = document.getElementById('slide-progress');
         const heroSlider = document.getElementById('hero-slider');
         
         let currentSlide = 0;
         let slideTimer;
+        let progressInterval;
+        const slideIntervalTime = 5000; // 5 sekundės
 
-        // Sukuriame vertikalius indikatorius (brūkšnelius)
-        bgSlides.forEach((_, index) => {
-            const dot = document.createElement('button');
-            dot.className = index === 0 
-                ? 'w-1.5 h-5 rounded-full bg-brand-400 transition-all duration-300 cursor-pointer' 
-                : 'w-1.5 h-1.5 rounded-full bg-white/40 hover:bg-white/70 transition-all duration-300 cursor-pointer';
-            dot.addEventListener('click', (e) => {
-                e.stopPropagation();
-                goToSlide(index);
-            });
-            dotsContainer.appendChild(dot);
-        });
-
-        const dots = dotsContainer.querySelectorAll('button');
+        totalNumEl.textContent = String(bgSlides.length).padStart(2, '0');
 
         function updateSlideClasses() {
             // Atnaujiname fono nuotraukas
@@ -354,12 +357,23 @@
                 }
             });
 
-            // Atnaujiname vertikalių indikatorių būseną (aktyvus brūkšnelis ilgesnis)
-            dots.forEach((dot, index) => {
-                dot.className = index === currentSlide 
-                    ? 'w-1.5 h-5 rounded-full bg-brand-400 transition-all duration-300 cursor-pointer' 
-                    : 'w-1.5 h-1.5 rounded-full bg-white/40 hover:bg-white/70 transition-all duration-300 cursor-pointer';
-            });
+            // Atnaujiname skaitliuką
+            currentNumEl.textContent = String(currentSlide + 1).padStart(2, '0');
+        }
+
+        function startProgress() {
+            clearInterval(progressInterval);
+            let startTime = Date.now();
+            slideProgress.style.width = '0%';
+
+            progressInterval = setInterval(() => {
+                let elapsed = Date.now() - startTime;
+                let percent = (elapsed / slideIntervalTime) * 100;
+                if (percent >= 100) {
+                    percent = 100;
+                }
+                slideProgress.style.width = percent + '%';
+            }, 50);
         }
 
         function goToSlide(index) {
@@ -371,16 +385,19 @@
         function nextSlide() {
             currentSlide = (currentSlide + 1) % bgSlides.length;
             updateSlideClasses();
+            startProgress();
         }
 
         function prevSlide() {
             currentSlide = (currentSlide - 1 + bgSlides.length) % bgSlides.length;
             updateSlideClasses();
+            startProgress();
         }
 
         function resetTimer() {
             clearInterval(slideTimer);
-            slideTimer = setInterval(nextSlide, 5000);
+            startProgress();
+            slideTimer = setInterval(nextSlide, slideIntervalTime);
         }
 
         if (nextBtn && prevBtn) {
@@ -423,6 +440,7 @@
             }
         }, {passive: true});
 
+        updateSlideClasses();
         resetTimer();
     </script>
 </body>
