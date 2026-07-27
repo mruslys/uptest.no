@@ -1,117 +1,203 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US" class="js">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    
     <title>Uptest | NDT rope access</title>
-    <meta name="description" content="Uptest - NDT rope access">
-    <link rel="icon" href="images/favicon.png" sizes="32x32">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap">
-    <link rel="stylesheet" href="index.css">
-</head>
-<body>
+    <meta name="description" content="Uptest - NDT rope access" />
+    <meta name="keywords" content="Uptest, ndt, non-destructive testing, aukštalipiai, aukstalipiai, rope access, ndt equipment, neardomoji kontrole, darbai aukstyje, vizualine kontrole, sukuriniu sroviu metodas" />
 
-    <!-- Top Header Bar -->
-    <div id="top-header">
-        <div class="container clearfix">
-            <div class="lang_sel_list_vertical">
-                <ul>
-                    <li><a href="/lt/"><img class="iclflag" src="images/flags/lt.png" alt="LT"></a></li>
-                    <li><a href="/"><img class="iclflag" src="images/flags/en.png" alt="EN"></a></li>
-                </ul>
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,latin-ext" type="text/css" media="all" />
+    
+    <!-- Originalūs Divi stiliai (Atsisiųsti į css aplanką) -->
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/et-core.css" type="text/css" media="all" />
+
+    <!-- Papildomi stiliai kalbų pasirinkimui ir fonui (ištraukti iš originalo head) -->
+    <style type="text/css">
+        body.custom-background { background-color: #ffffff; }
+        #lang_sel_list a.lang_sel_sel, #lang_sel_list a.lang_sel_sel:visited { color:#444444; background-color:#ffffff; }
+        #lang_sel_list a:hover, #lang_sel_list a.lang_sel_sel:hover { color:#000000; background-color:#eeeeee; }
+        #lang_sel_list ul a.lang_sel_other, #lang_sel_list ul a.lang_sel_other:visited { color:#444444; background-color:#ffffff; }
+        #lang_sel_list ul a.lang_sel_other:hover { color:#000000; background-color:#eeeeee; }
+        #lang_sel_list a, #lang_sel_list a:visited { border-color:#cdcdcd; }
+        #lang_sel_list ul { border-top:1px solid #cdcdcd; list-style: none; padding: 0; margin: 0; display: flex; gap: 5px; }
+        .lang_sel_list_vertical { display: inline-block; }
+        .iclflag { width: 18px; height: 12px; }
+    </style>
+
+    <!-- Ikona -->
+    <link rel="icon" href="images/favicon.png" sizes="32x32" />
+    <link rel="apple-touch-icon-precomposed" href="images/favicon.png" />
+</head>
+<body class="home page page-template-default custom-background et_pb_button_helper_class et_fullwidth_nav et_fullwidth_secondary_nav et_fixed_nav et_show_nav et_cover_background et_secondary_nav_enabled et_secondary_nav_only_menu et_pb_gutter osx et_pb_gutters3 et_primary_nav_dropdown_animation_fade et_secondary_nav_dropdown_animation_fade et_pb_footer_columns4 et_header_style_left et_pb_pagebuilder_layout et_smooth_scroll et_right_sidebar et_divi_theme et-db et_minified_css">
+    
+    <div id="page-container">
+        
+        <!-- Top Header -->
+        <div id="top-header">
+            <div class="container clearfix">
+                <div id="et-info">
+                    <div id="lang_sel_list" class="lang_sel_list_vertical">
+                        <ul>
+                            <li class="icl-lt"><a href="/lt/" class="lang_sel_other"><img class="iclflag" src="images/lt.png" alt="lt" title="Lietuvos" /></a></li>
+                            <li class="icl-en"><a href="/" class="lang_sel_sel"><img class="iclflag" src="images/en.png" alt="en" title="English" /></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="et-secondary-menu">
+                    <ul id="et-secondary-nav" class="menu">
+                        <li class="menu-item"><a href="/certificates/">Our certificates</a></li>
+                        <li class="menu-item"><a href="/gallery/">Gallery</a></li>
+                        <li class="menu-item"><a href="/lt/">Lietuviškai</a></li>
+                    </ul>
+                </div>
             </div>
-            <div id="et-secondary-menu">
-                <ul id="et-secondary-nav">
-                    <li><a href="/certificates/">Our certificates</a></li>
-                    <li><a href="/gallery/">Gallery</a></li>
-                    <li><a href="/lt/">Lietuviškai</a></li>
-                </ul>
+        </div>
+        
+        <!-- Main Header -->
+        <header id="main-header" data-height-onload="123">
+            <div class="container clearfix et_menu_container">
+                <div class="logo_container">
+                    <span class="logo_helper"></span>
+                    <a href="/">
+                        <img src="images/uptest-logo.png" alt="Uptest" id="logo" data-height-percentage="54" />
+                    </a>
+                </div>
+                <div id="et-top-navigation" data-height="123" data-fixed-height="80">
+                    <nav id="top-menu-nav">
+                        <ul id="top-menu" class="nav">
+                            <li class="menu-item"><a href="/about-us/">About Us</a></li>
+                            <li class="menu-item"><a href="/non-destructive-testing/">Non-Destructive Testing</a></li>
+                            <li class="menu-item"><a href="/rope-access/">Rope Access</a></li>
+                            <li class="menu-item"><a href="/equipment/">NDT equipment</a></li>
+                            <li class="menu-item"><a href="/career/">Jobs & Careers</a></li>
+                            <li class="menu-item"><a href="/contacts/">Contacts</a></li>
+                        </ul>
+                    </nav>
+                    <div id="et_mobile_nav_menu">
+                        <div class="mobile_nav closed">
+                            <span class="select_page">Select Page</span>
+                            <span class="mobile_menu_bar mobile_menu_bar_toggle"></span>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </header>
+
+        <!-- Main Content -->
+        <div id="et-main-area">
+            <div id="main-content">
+                <article class="post-1489 page type-page status-publish hentry">
+                    <div class="entry-content">
+                        <div id="et-boc" class="et-boc">
+                            <div class="et_builder_inner_content et_pb_gutters3">
+                                
+                                <!-- Slider Section -->
+                                <div class="et_pb_section et_pb_section_0 et_pb_with_background et_pb_fullwidth_section et_section_regular">
+                                    <div class="et_pb_module et_pb_fullwidth_slider_0 et_hover_enabled et_pb_slider et_slider_auto et_slider_speed_4000">
+                                        <div class="et_pb_slides">
+                                            <div class="et_pb_slide et_pb_slide_0 et_pb_bg_layout_dark et_pb_media_alignment_center et_pb_slider_with_overlay et-pb-active-slide">
+                                                <div class="et_pb_slide_overlay_container"></div>
+                                                <div class="et_pb_container clearfix">
+                                                    <div class="et_pb_slider_container_inner">
+                                                        <div class="et_pb_slide_description">
+                                                            <h2 class="et_pb_slide_title">Rope access rigging</h2>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="et_pb_slide et_pb_slide_1 et_pb_bg_layout_dark et_pb_media_alignment_center et_pb_slider_with_overlay">
+                                                <div class="et_pb_slide_overlay_container"></div>
+                                                <div class="et_pb_container clearfix">
+                                                    <div class="et_pb_slider_container_inner">
+                                                        <div class="et_pb_slide_description">
+                                                            <h2 class="et_pb_slide_title">Rope Access</h2>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Galite pridėti likusias skaidres čia -->
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Contact Blurps Section -->
+                                <div class="et_pb_section et_pb_section_2 dnv et_animated et_pb_with_background et_pb_section_parallax et_section_regular">
+                                    <div class="et_pb_row et_pb_row_0">
+                                        
+                                        <!-- Phone -->
+                                        <div class="et_pb_column et_pb_column_1_3 et_pb_column_0 et_pb_css_mix_blend_mode_passthrough">
+                                            <div class="et_pb_module et_pb_blurb et_pb_blurb_0 et_pb_bg_layout_light et_pb_text_align_left et_pb_blurb_position_left">
+                                                <div class="et_pb_blurb_content">
+                                                    <div class="et_pb_main_blurb_image">
+                                                        <a href="tel:+37068889229"><span class="et_pb_image_wrap"><span class="et-pb-icon">&#xe090;</span></span></a>
+                                                    </div>
+                                                    <div class="et_pb_blurb_container">
+                                                        <h4 class="et_pb_module_header"><a href="tel:+37068889229">Phone:</a></h4>
+                                                        <div class="et_pb_blurb_description">
+                                                            <p><a href="tel:+37068889229">+370 (688) 89229</a></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Email -->
+                                        <div class="et_pb_column et_pb_column_1_3 et_pb_column_1 et_pb_css_mix_blend_mode_passthrough">
+                                            <div class="et_pb_module et_pb_blurb et_pb_blurb_1 et_pb_bg_layout_light et_pb_text_align_left et_pb_blurb_position_left">
+                                                <div class="et_pb_blurb_content">
+                                                    <div class="et_pb_main_blurb_image">
+                                                        <a href="mailto:info@uptest.no"><span class="et_pb_image_wrap"><span class="et-pb-icon">&#xe076;</span></span></a>
+                                                    </div>
+                                                    <div class="et_pb_blurb_container">
+                                                        <h4 class="et_pb_module_header"><a href="mailto:info@uptest.no">E-mail:</a></h4>
+                                                        <div class="et_pb_blurb_description">
+                                                            <p><a href="mailto:info@uptest.no">info@uptest.no</a></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Location -->
+                                        <div class="et_pb_column et_pb_column_1_3 et_pb_column_2 et_pb_css_mix_blend_mode_passthrough">
+                                            <div class="et_pb_module et_pb_blurb et_pb_blurb_2 et_pb_bg_layout_light et_pb_text_align_left et_pb_blurb_position_left">
+                                                <div class="et_pb_blurb_content">
+                                                    <div class="et_pb_main_blurb_image">
+                                                        <a href="/kontaktai/"><span class="et_pb_image_wrap"><span class="et-pb-icon">&#xe081;</span></span></a>
+                                                    </div>
+                                                    <div class="et_pb_blurb_container">
+                                                        <h4 class="et_pb_module_header"><a href="/kontaktai/">Our location:</a></h4>
+                                                        <div class="et_pb_blurb_description">
+                                                            <p><a href="/kontaktai/">Vanagupes st. 22-31, LT-00172 Palanga, Lithuania.</a></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Footer -->
+            <footer id="main-footer">
+                <div id="footer-bottom">
+                    <div class="container clearfix">
+                        <p id="footer-info">© 2026 <strong>UAB "Uptest"</strong>. Visos teisės saugomos. Interneto svetainių kūrimas ir nuoma: <a href="http://www.svetainesnemokamai.lt" target="_blank">www.svetainesnemokamai.lt</a>.</p>
+                    </div>
+                </div>
+            </footer>
         </div>
     </div>
-
-    <!-- Main Navigation Header -->
-    <header id="main-header">
-        <div class="container et_menu_container">
-            <div class="logo_container">
-                <a href="/"><img src="images/uptest-logo.png" alt="Uptest" id="logo"></a>
-            </div>
-            <nav id="top-menu-nav">
-                <ul id="top-menu">
-                    <li><a href="/about-us/">About Us</a></li>
-                    <li><a href="/non-destructive-testing/">Non-Destructive Testing</a></li>
-                    <li><a href="/rope-access/">Rope Access</a></li>
-                    <li><a href="/equipment/">NDT equipment</a></li>
-                    <li><a href="/career/">Jobs & Careers</a></li>
-                    <li><a href="/contacts/">Contacts</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Main Content -->
-    <main>
-        <!-- Hero Slider Section -->
-        <section class="et_pb_slider">
-            <div class="et_pb_slide" style="background-image: url('images/hero-slide-1.jpg');">
-                <div class="et_pb_slide_overlay_container"></div>
-                <div class="container">
-                    <h2 class="et_pb_slide_title">Rope access rigging</h2>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Info Section -->
-        <section class="et_pb_section_2">
-            <div class="container">
-                <div class="et_pb_row">
-                    <div class="et_pb_column_1_3">
-                        <div class="et_pb_blurb">
-                            <div class="et_pb_blurb_content">
-                                <div class="et_pb_blurb_container">
-                                    <h4 class="et_pb_module_header"><a href="tel:+37068889229">Phone:</a></h4>
-                                    <div class="et_pb_blurb_description">
-                                        <p><a href="tel:+37068889229">+370 (688) 89229</a></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="et_pb_column_1_3">
-                        <div class="et_pb_blurb">
-                            <div class="et_pb_blurb_content">
-                                <div class="et_pb_blurb_container">
-                                    <h4 class="et_pb_module_header"><a href="mailto:info@uptest.no">E-mail:</a></h4>
-                                    <div class="et_pb_blurb_description">
-                                        <p><a href="mailto:info@uptest.no">info@uptest.no</a></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="et_pb_column_1_3">
-                        <div class="et_pb_blurb">
-                            <div class="et_pb_blurb_content">
-                                <div class="et_pb_blurb_container">
-                                    <h4 class="et_pb_module_header">Our location:</h4>
-                                    <div class="et_pb_blurb_description">
-                                        <p>Vanagupes st. 22-31, LT-00172 Palanga, Lithuania.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer id="main-footer">
-        <div class="container">
-            <p id="footer-info">© 2026 <strong>UAB "Uptest"</strong>. Visos teisės saugomos.</p>
-        </div>
-    </footer>
-
 </body>
 </html>
