@@ -26,6 +26,7 @@
                             700: '#235560',
                             800: '#1e444d',
                             900: '#1a3a42',
+                            950: '#0f242b',
                         },
                         slatebrand: {
                             500: '#5a656b',
@@ -131,7 +132,7 @@
         </header>
     </div>
 
-    <!-- HERO SLIDER / CONTENT AREA (Pakeistas min-h į adaptyvų, kad tilptų mobiliajame ekrane) -->
+    <!-- HERO SLIDER / CONTENT AREA -->
     <section id="hero-slider" class="relative flex-grow flex flex-col justify-between w-full min-h-[380px] sm:min-h-[520px] bg-slatebrand-900 overflow-hidden cursor-pointer sm:cursor-default">
         
         <!-- Fono Slaideris -->
@@ -157,8 +158,8 @@
             <div class="absolute inset-0 bg-gradient-to-t from-slatebrand-900/95 via-slatebrand-900/50 to-slatebrand-900/30"></div>
         </div>
 
-        <!-- Desktop Slaiderio valdiklis (apačioje dešinėje) -->
-        <div class="hidden lg:flex absolute right-8 bottom-8 z-30 items-center gap-4 bg-slatebrand-900/80 backdrop-blur-md border border-white/10 px-4 py-2.5 rounded-2xl shadow-2xl">
+        <!-- Desktop Slaiderio valdiklis (apačioje dešinėje) - Cyan tema -->
+        <div class="hidden lg:flex absolute right-8 bottom-8 z-30 items-center gap-4 bg-brand-950/85 backdrop-blur-md border border-brand-500/30 px-4 py-2.5 rounded-2xl shadow-2xl">
             <!-- Skaitliukas -->
             <div class="text-xs font-bold text-white tracking-widest tabular-nums flex items-center gap-1">
                 <span class="text-brand-400" id="current-num-desktop">01</span>
@@ -172,11 +173,11 @@
             </div>
 
             <!-- Rodyklės -->
-            <div class="flex items-center gap-1 border-l border-white/10 pl-3">
-                <button class="prev-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-lg hover:bg-white/10" aria-label="Previous slide">
+            <div class="flex items-center gap-1 border-l border-brand-500/30 pl-3">
+                <button class="prev-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-lg hover:bg-brand-500/20" aria-label="Previous slide">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
                 </button>
-                <button class="next-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-lg hover:bg-white/10" aria-label="Next slide">
+                <button class="next-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-lg hover:bg-brand-500/20" aria-label="Next slide">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                 </button>
             </div>
@@ -255,8 +256,8 @@
                 </div>
             </div>
 
-            <!-- Mobilus / Tablet (MD) slaiderio valdiklis per vidurį -->
-            <div class="lg:hidden flex items-center gap-3 sm:gap-4 bg-slatebrand-900/85 backdrop-blur-md border border-white/10 px-4 py-2 rounded-2xl shadow-2xl mt-3 sm:mt-6 mx-auto w-fit">
+            <!-- Mobilus / Tablet (MD) slaiderio valdiklis per vidurį - Cyan tema -->
+            <div class="lg:hidden flex items-center gap-3 sm:gap-4 bg-brand-950/85 backdrop-blur-md border border-brand-500/30 px-4 py-2 rounded-2xl shadow-2xl mt-3 sm:mt-6 mx-auto w-fit">
                 <!-- Skaitliukas -->
                 <div class="text-xs font-bold text-white tracking-widest tabular-nums flex items-center gap-1">
                     <span class="text-brand-400" id="current-num-mobile">01</span>
@@ -270,11 +271,11 @@
                 </div>
 
                 <!-- Rodyklės -->
-                <div class="flex items-center gap-1 border-l border-white/10 pl-3">
-                    <button class="prev-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-lg hover:bg-white/10" aria-label="Previous slide">
+                <div class="flex items-center gap-1 border-l border-brand-500/30 pl-3">
+                    <button class="prev-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-lg hover:bg-brand-500/20" aria-label="Previous slide">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
                     </button>
-                    <button class="next-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-lg hover:bg-white/10" aria-label="Next slide">
+                    <button class="next-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-lg hover:bg-brand-500/20" aria-label="Next slide">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                     </button>
                 </div>
@@ -335,7 +336,7 @@
     <footer class="bg-slatebrand-900 text-slate-400 text-xs py-3 sm:py-5 border-t border-slate-800/60 flex-shrink-0 z-30">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-2 text-center sm:text-left">
             <p class="text-[11px] text-slate-400">
-                © 2026 <strong class="text-slate-200 font-semibold">UAB "Uptest"</strong>. Visos teisės saugomos.
+                © 2026 <strong class="text-slate-200 font-semibold">UAB "Uptest"</strong>. All rights reserved.
             </p>
             <p class="text-[11px] text-slate-500">
                 Svetainių kūrimas ir nuoma: 
