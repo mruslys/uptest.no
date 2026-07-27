@@ -48,7 +48,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-<body class="bg-slatebrand-900 text-slate-800 antialiased font-sans flex flex-col min-h-[100dvh] justify-between">
+<body class="bg-slatebrand-900 text-slate-800 antialiased font-sans flex flex-col min-h-[100svh] justify-between">
 
     <!-- VIRŠUTINĖ DALIS (Top Bar + Header) -->
     <div class="flex-shrink-0">
@@ -158,10 +158,10 @@
         </div>
 
         <!-- Pagrindinis išdėstymas -->
-        <div class="relative z-20 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-6 flex flex-col justify-between flex-grow">
+        <div class="relative z-20 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-4 sm:py-6 flex flex-col justify-between flex-grow">
             
-            <!-- Centrinė dalis: Tekstas + Slaiderio valdymas po juo -->
-            <div class="w-full max-w-xl text-left my-auto space-y-6">
+            <!-- Centrinė dalis: Tekstas + iškart po juo esantis slaiderio valdymas -->
+            <div class="w-full max-w-xl text-left my-auto space-y-3">
                 
                 <!-- 1. TEKSTAS -->
                 <div class="relative min-h-[140px] sm:min-h-[160px]">
@@ -233,8 +233,8 @@
 
                 </div>
 
-                <!-- 2. SLAIDERIO VALDYMAS (Dottai ir mygtukai po tekstu) -->
-                <div class="flex items-center justify-start space-x-4 pt-2">
+                <!-- 2. SLAIDERIO VALDYMAS (Iškart po tekstu, centruotas horizontaliai) -->
+                <div class="flex items-center justify-center space-x-4 pt-1">
                     <button id="prev-slide" class="p-2 rounded-full bg-slatebrand-900/80 text-white/80 hover:text-white hover:bg-brand-400 border border-white/10 backdrop-blur-md transition-all flex items-center justify-center shadow-md cursor-pointer">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
                     </button>
@@ -250,7 +250,7 @@
             </div>
 
             <!-- 3. KONTAKTAI APAČIOJE -->
-            <div class="w-full mt-6">
+            <div class="w-full mt-4">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
                     
                     <!-- Telefonas -->
@@ -302,8 +302,8 @@
 
     </section>
 
-    <!-- FOOTER BOTTOM (Padidintas padding padėtis: py-5 sm:py-6) -->
-    <footer class="bg-slatebrand-900 text-slate-400 text-xs py-5 sm:py-6 border-t border-slate-800/60 flex-shrink-0 z-30">
+    <!-- FOOTER BOTTOM -->
+    <footer class="bg-slatebrand-900 text-slate-400 text-xs py-3 sm:py-4 border-t border-slate-800/60 flex-shrink-0 z-30">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-2 text-center sm:text-left">
             <p class="text-[11px] text-slate-400">
                 © 2026 <strong class="text-slate-200 font-semibold">UAB "Uptest"</strong>. Visos teisės saugomos.
