@@ -134,7 +134,7 @@
     <!-- HERO SLIDER / CONTENT AREA -->
     <section id="hero-slider" class="relative flex-grow flex flex-col justify-between w-full min-h-[520px] bg-slatebrand-900 overflow-hidden cursor-pointer sm:cursor-default">
         
-        <!-- Fono Slaideris (Nuotraukos keičiasi fone) -->
+        <!-- Fono Slaideris -->
         <div class="absolute inset-0 z-0">
             <div class="bg-slide absolute inset-0 opacity-100 transition-opacity duration-700 ease-in-out">
                 <img src="https://www.uptest.no/wp-content/uploads/2016/10/uptest-neardomoji-kontrole-1.jpg" class="w-full h-full object-cover object-center" alt="Rope Access Rigging">
@@ -152,31 +152,31 @@
                 <img src="https://www.uptest.no/wp-content/uploads/2016/10/uptest-neardomoji-kontrole-5.jpg" class="w-full h-full object-cover object-center" alt="Industrial Solutions">
             </div>
             
-            <!-- Gradientai tekstui ir elementams išsiskirti -->
+            <!-- Gradientai -->
             <div class="absolute inset-0 bg-gradient-to-r from-slatebrand-900/95 via-slatebrand-900/75 to-slatebrand-900/40"></div>
             <div class="absolute inset-0 bg-gradient-to-t from-slatebrand-900/95 via-slatebrand-900/50 to-slatebrand-900/30"></div>
         </div>
 
-        <!-- Modernus slaiderio valdiklis apačioje dešinėje (skaitliukas, progresas ir rodyklės) -->
-        <div class="absolute right-4 sm:right-8 bottom-6 sm:bottom-8 z-30 flex items-center gap-3 sm:gap-4 bg-slatebrand-900/80 backdrop-blur-md border border-white/10 px-4 py-2.5 rounded-2xl shadow-2xl">
+        <!-- Desktop Slaiderio valdiklis (apačioje dešinėje) -->
+        <div class="hidden lg:flex absolute right-8 bottom-8 z-30 items-center gap-4 bg-slatebrand-900/80 backdrop-blur-md border border-white/10 px-4 py-2.5 rounded-2xl shadow-2xl">
             <!-- Skaitliukas -->
             <div class="text-xs font-bold text-white tracking-widest tabular-nums flex items-center gap-1">
-                <span class="text-brand-400" id="current-num">01</span>
+                <span class="text-brand-400" id="current-num-desktop">01</span>
                 <span class="text-slate-600">/</span>
-                <span class="text-slate-400" id="total-num">05</span>
+                <span class="text-slate-400" id="total-num-desktop">05</span>
             </div>
             
             <!-- Progreso juosta -->
-            <div class="w-16 sm:w-24 h-1 bg-white/10 rounded-full overflow-hidden">
-                <div id="slide-progress" class="h-full bg-brand-400 w-0 transition-all duration-300"></div>
+            <div class="w-24 h-1 bg-white/10 rounded-full overflow-hidden">
+                <div id="slide-progress-desktop" class="h-full bg-brand-400 w-0"></div>
             </div>
 
             <!-- Rodyklės -->
             <div class="flex items-center gap-1 border-l border-white/10 pl-3">
-                <button id="prev-slide" class="text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-lg hover:bg-white/10" aria-label="Previous slide">
+                <button class="prev-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-lg hover:bg-white/10" aria-label="Previous slide">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
                 </button>
-                <button id="next-slide" class="text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-lg hover:bg-white/10" aria-label="Next slide">
+                <button class="next-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-lg hover:bg-white/10" aria-label="Next slide">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                 </button>
             </div>
@@ -187,10 +187,7 @@
             
             <!-- Centrinė dalis: Tekstas -->
             <div class="w-full max-w-xl text-left my-auto pr-8 sm:pr-12">
-                
-                <!-- TEKSTAS -->
                 <div class="relative min-h-[140px] sm:min-h-[160px]">
-                    
                     <!-- Slide Text 1 -->
                     <div class="slide-text transition-opacity duration-500 opacity-100 absolute inset-0" data-index="0">
                         <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-brand-400/20 text-brand-300 border border-brand-400/30 backdrop-blur-md mb-2 sm:mb-3">
@@ -255,29 +252,13 @@
                             Partnering with industry leaders to maintain safe and efficient operations.
                         </p>
                     </div>
-
                 </div>
-
             </div>
 
-            <!-- KONTAKTAI IR LOKACIJA APAČIOJE (3 stulpeliai: Location, Phone, Email) -->
-            <div class="w-full max-w-4xl mt-4 pr-8 sm:pr-12">
+            <!-- KONTAKTAI IR LOKACIJA APAČIOJE (3 stulpeliai: Phone, Email, Our Location) -->
+            <div class="w-full max-w-4xl mt-4 lg:pr-8">
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                     
-                    <!-- Lokacija -->
-                    <div class="p-3 sm:p-3.5 rounded-xl bg-slatebrand-900/85 border border-slate-700/60 backdrop-blur-md shadow-lg flex items-center gap-3">
-                        <div class="p-2 rounded-lg bg-brand-400/15 text-brand-400 flex-shrink-0">
-                            <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Location</h4>
-                            <p class="text-xs sm:text-sm font-bold text-white">Klaipėda, Lithuania</p>
-                        </div>
-                    </div>
-
                     <!-- Telefonas -->
                     <a href="tel:+37068889229" class="p-3 sm:p-3.5 rounded-xl bg-slatebrand-900/85 hover:bg-slate-800/95 border border-slate-700/60 hover:border-brand-400/50 backdrop-blur-md transition-all duration-200 group shadow-lg flex items-center gap-3">
                         <div class="p-2 rounded-lg bg-brand-400/15 text-brand-400 group-hover:bg-brand-400 group-hover:text-white transition-all flex-shrink-0">
@@ -304,7 +285,47 @@
                         </div>
                     </a>
 
+                    <!-- Our Location -->
+                    <div class="p-3 sm:p-3.5 rounded-xl bg-slatebrand-900/85 border border-slate-700/60 backdrop-blur-md shadow-lg flex items-center gap-3">
+                        <div class="p-2 rounded-lg bg-brand-400/15 text-brand-400 flex-shrink-0">
+                            <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Our location</h4>
+                            <p class="text-xs sm:text-sm font-bold text-white">Palanga, Lithuania</p>
+                        </div>
+                    </div>
+
                 </div>
+
+                <!-- Mobilus / Tablet (MD) slaiderio valdiklis po kontaktais, per vidurį -->
+                <div class="lg:hidden flex items-center justify-center gap-3 sm:gap-4 bg-slatebrand-900/85 backdrop-blur-md border border-white/10 px-4 py-2.5 rounded-2xl shadow-2xl mt-4 mx-auto w-fit">
+                    <!-- Skaitliukas -->
+                    <div class="text-xs font-bold text-white tracking-widest tabular-nums flex items-center gap-1">
+                        <span class="text-brand-400" id="current-num-mobile">01</span>
+                        <span class="text-slate-600">/</span>
+                        <span class="text-slate-400" id="total-num-mobile">05</span>
+                    </div>
+                    
+                    <!-- Progreso juosta -->
+                    <div class="w-20 sm:w-24 h-1 bg-white/10 rounded-full overflow-hidden">
+                        <div id="slide-progress-mobile" class="h-full bg-brand-400 w-0"></div>
+                    </div>
+
+                    <!-- Rodyklės -->
+                    <div class="flex items-center gap-1 border-l border-white/10 pl-3">
+                        <button class="prev-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-lg hover:bg-white/10" aria-label="Previous slide">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                        </button>
+                        <button class="next-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-lg hover:bg-white/10" aria-label="Next slide">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </button>
+                    </div>
+                </div>
+
             </div>
 
         </div>
@@ -339,19 +360,25 @@
         // Hero Slider Logika
         const bgSlides = document.querySelectorAll('.bg-slide');
         const slideTexts = document.querySelectorAll('.slide-text');
-        const prevBtn = document.getElementById('prev-slide');
-        const nextBtn = document.getElementById('next-slide');
-        const currentNumEl = document.getElementById('current-num');
-        const totalNumEl = document.getElementById('total-num');
-        const slideProgress = document.getElementById('slide-progress');
+        const prevBtns = document.querySelectorAll('.prev-slide-btn');
+        const nextBtns = document.querySelectorAll('.next-slide-btn');
+        
+        const currentNumDesktop = document.getElementById('current-num-desktop');
+        const totalNumDesktop = document.getElementById('total-num-desktop');
+        const slideProgressDesktop = document.getElementById('slide-progress-desktop');
+
+        const currentNumMobile = document.getElementById('current-num-mobile');
+        const totalNumMobile = document.getElementById('total-num-mobile');
+        const slideProgressMobile = document.getElementById('slide-progress-mobile');
+
         const heroSlider = document.getElementById('hero-slider');
         
         let currentSlide = 0;
         let slideTimer;
-        let progressInterval;
         const slideIntervalTime = 5000; // 5 sekundės
 
-        totalNumEl.textContent = String(bgSlides.length).padStart(2, '0');
+        totalNumDesktop.textContent = String(bgSlides.length).padStart(2, '0');
+        totalNumMobile.textContent = String(bgSlides.length).padStart(2, '0');
 
         function updateSlideClasses() {
             // Atnaujiname fono nuotraukas
@@ -371,29 +398,22 @@
                 }
             });
 
-            // Atnaujiname skaitliuką
-            currentNumEl.textContent = String(currentSlide + 1).padStart(2, '0');
+            // Atnaujiname skaitliukus
+            const currentStr = String(currentSlide + 1).padStart(2, '0');
+            currentNumDesktop.textContent = currentStr;
+            currentNumMobile.textContent = currentStr;
         }
 
         function startProgress() {
-            clearInterval(progressInterval);
-            let startTime = Date.now();
-            slideProgress.style.width = '0%';
-
-            progressInterval = setInterval(() => {
-                let elapsed = Date.now() - startTime;
-                let percent = (elapsed / slideIntervalTime) * 100;
-                if (percent >= 100) {
-                    percent = 100;
-                }
-                slideProgress.style.width = percent + '%';
-            }, 50);
-        }
-
-        function goToSlide(index) {
-            currentSlide = index;
-            updateSlideClasses();
-            resetTimer();
+            // Sklandi progreso juosta su CSS transition be stutero
+            [slideProgressDesktop, slideProgressMobile].forEach(bar => {
+                if (!bar) return;
+                bar.style.transition = 'none';
+                bar.style.width = '0%';
+                void bar.offsetWidth; // Trigger reflow
+                bar.style.transition = `width ${slideIntervalTime}ms linear`;
+                bar.style.width = '100%';
+            });
         }
 
         function nextSlide() {
@@ -414,10 +434,13 @@
             slideTimer = setInterval(nextSlide, slideIntervalTime);
         }
 
-        if (nextBtn && prevBtn) {
-            nextBtn.addEventListener('click', (e) => { e.stopPropagation(); nextSlide(); resetTimer(); });
-            prevBtn.addEventListener('click', (e) => { e.stopPropagation(); prevSlide(); resetTimer(); });
-        }
+        nextBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => { e.stopPropagation(); nextSlide(); resetTimer(); });
+        });
+
+        prevBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => { e.stopPropagation(); prevSlide(); resetTimer(); });
+        });
 
         // Tap ir Swipe palaikymas mobiliesiems
         let touchStartX = 0;
