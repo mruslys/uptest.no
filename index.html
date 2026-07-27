@@ -185,7 +185,7 @@
         <!-- Pagrindinis išdėstymas -->
         <div class="relative z-20 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-4 sm:py-6 flex flex-col justify-between flex-grow">
             
-            <!-- Centrinė dalis: Tekstas + Mobilus valdiklis per vidurį po juo -->
+            <!-- Centrinė dalis: Tekstas + Mobilus valdiklis dešinėje po slide textu -->
             <div class="w-full max-w-xl text-left my-auto pr-8 sm:pr-12">
                 <div class="relative min-h-[140px] sm:min-h-[160px]">
                     <!-- Slide Text 1 -->
@@ -254,18 +254,13 @@
                     </div>
                 </div>
 
-                <!-- Mobilus / Tablet (MD) slaiderio valdiklis per vidurį po slide textu -->
-                <div class="lg:hidden flex items-center gap-3 sm:gap-4 bg-slatebrand-900/85 backdrop-blur-md border border-white/10 px-4 py-2.5 rounded-2xl shadow-2xl mt-8 sm:mt-12 mx-auto w-fit">
+                <!-- Mobilus / Tablet (MD) slaiderio valdiklis dešinėje po slide textu (be progress bar) -->
+                <div class="lg:hidden flex items-center gap-3 bg-slatebrand-900/85 backdrop-blur-md border border-white/10 px-4 py-2.5 rounded-2xl shadow-2xl mt-8 sm:mt-12 ml-auto w-fit">
                     <!-- Skaitliukas -->
                     <div class="text-xs font-bold text-white tracking-widest tabular-nums flex items-center gap-1">
                         <span class="text-brand-400" id="current-num-mobile">01</span>
                         <span class="text-slate-600">/</span>
                         <span class="text-slate-400" id="total-num-mobile">05</span>
-                    </div>
-                    
-                    <!-- Progreso juosta -->
-                    <div class="w-20 sm:w-24 h-1 bg-white/10 rounded-full overflow-hidden">
-                        <div id="slide-progress-mobile" class="h-full bg-brand-400 w-0"></div>
                     </div>
 
                     <!-- Rodyklės -->
@@ -368,7 +363,6 @@
 
         const currentNumMobile = document.getElementById('current-num-mobile');
         const totalNumMobile = document.getElementById('total-num-mobile');
-        const slideProgressMobile = document.getElementById('slide-progress-mobile');
 
         const heroSlider = document.getElementById('hero-slider');
         
@@ -404,15 +398,12 @@
         }
 
         function startProgress() {
-            // Sklandi progreso juosta su CSS transition be stutero
-            [slideProgressDesktop, slideProgressMobile].forEach(bar => {
-                if (!bar) return;
-                bar.style.transition = 'none';
-                bar.style.width = '0%';
-                void bar.offsetWidth; // Trigger reflow
-                bar.style.transition = `width ${slideIntervalTime}ms linear`;
-                bar.style.width = '100%';
-            });
+            if (!slideProgressDesktop) return;
+            slideProgressDesktop.style.transition = 'none';
+            slideProgressDesktop.style.width = '0%';
+            void slideProgressDesktop.offsetWidth; // Trigger reflow
+            slideProgressDesktop.style.transition = `width ${slideIntervalTime}ms linear`;
+            slideProgressDesktop.style.width = '100%';
         }
 
         function nextSlide() {
