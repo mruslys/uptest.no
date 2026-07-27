@@ -1,0 +1,109 @@
+/* Base & Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #666666;
+    background-color: #ffffff;
+}
+
+.container {
+    width: 80%;
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+/* Header & Top Bar */
+#top-header {
+    background-color: #2ea3f2;
+    font-size: 12px;
+    color: #ffffff;
+    padding: 8px 0;
+}
+
+#main-header {
+    background-color: #ffffff;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+}
+
+.et_menu_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+}
+
+#top-menu {
+    list-style: none;
+    display: flex;
+    gap: 22px;
+}
+
+#top-menu li a {
+    color: #333333;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Hero / Slider Section */
+.et_pb_slider {
+    position: relative;
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+.et_pb_slide {
+    background-size: cover;
+    background-position: center;
+    padding: 120px 0;
+    text-align: center;
+}
+
+.et_pb_slide_title {
+    font-size: 42px;
+    font-weight: 700;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+/* Contact Blurb Cards */
+.et_pb_section_2 {
+    padding: 60px 0;
+    background-color: #f8f9fa;
+}
+
+.et_pb_row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.et_pb_column_1_3 {
+    flex: 1;
+    min-width: 280px;
+}
+
+.et_pb_blurb {
+    background: #ffffff;
+    padding: 30px 20px;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* Footer */
+#main-footer {
+    background-color: #222222;
+    color: #aaaaaa;
+    padding: 25px 0;
+    font-size: 12px;
+    text-align: center;
+}
