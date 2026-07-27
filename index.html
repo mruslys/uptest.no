@@ -160,8 +160,8 @@
         <!-- Pagrindinis išdėstymas -->
         <div class="relative z-20 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-4 sm:py-6 flex flex-col justify-between flex-grow">
             
-            <!-- Centrinė dalis: Tekstas + iškart po juo esantis slaiderio valdymas -->
-            <div class="w-full max-w-xl text-left my-auto space-y-3">
+            <!-- Centrinė dalis: Tekstas + modernus valdiklis iškart po juo -->
+            <div class="w-full max-w-xl text-left my-auto">
                 
                 <!-- 1. TEKSTAS -->
                 <div class="relative min-h-[140px] sm:min-h-[160px]">
@@ -233,17 +233,21 @@
 
                 </div>
 
-                <!-- 2. SLAIDERIO VALDYMAS (Iškart po tekstu, centruotas horizontaliai) -->
-                <div class="flex items-center justify-center space-x-4 pt-1">
-                    <button id="prev-slide" class="p-2 rounded-full bg-slatebrand-900/80 text-white/80 hover:text-white hover:bg-brand-400 border border-white/10 backdrop-blur-md transition-all flex items-center justify-center shadow-md cursor-pointer">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                <!-- 2. MODERNUS SLAIDERIO VALDYMAS (Iškart po tekstu su adekvačiu padding) -->
+                <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-slatebrand-900/75 backdrop-blur-md border border-white/10 shadow-xl mt-4 sm:mt-5">
+                    <button id="prev-slide" class="text-slate-300 hover:text-white transition-colors p-1 cursor-pointer" aria-label="Previous slide">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
                     </button>
                     
-                    <!-- Indicators (Dots) -->
-                    <div class="flex space-x-2" id="dots-container"></div>
+                    <div class="h-3 w-px bg-white/20"></div>
                     
-                    <button id="next-slide" class="p-2 rounded-full bg-slatebrand-900/80 text-white/80 hover:text-white hover:bg-brand-400 border border-white/10 backdrop-blur-md transition-all flex items-center justify-center shadow-md cursor-pointer">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    <!-- Modernūs indikatoriai (Brūkšneliai) -->
+                    <div class="flex items-center space-x-2" id="dots-container"></div>
+                    
+                    <div class="h-3 w-px bg-white/20"></div>
+                    
+                    <button id="next-slide" class="text-slate-300 hover:text-white transition-colors p-1 cursor-pointer" aria-label="Next slide">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
                     </button>
                 </div>
 
@@ -338,10 +342,12 @@
         let currentSlide = 0;
         let slideTimer;
 
-        // Sukuriame taškus (dots)
+        // Sukuriame modernius indikatorius (brūkšnelius)
         bgSlides.forEach((_, index) => {
             const dot = document.createElement('button');
-            dot.className = `w-2.5 h-2.5 rounded-full transition-all cursor-pointer ${index === 0 ? 'bg-brand-400 ring-2 ring-brand-400/40' : 'bg-white/40 hover:bg-white/70'}`;
+            dot.className = index === 0 
+                ? 'h-1.5 w-5 rounded-full bg-brand-400 transition-all duration-300 cursor-pointer' 
+                : 'h-1.5 w-1.5 rounded-full bg-white/40 hover:bg-white/70 transition-all duration-300 cursor-pointer';
             dot.addEventListener('click', (e) => {
                 e.stopPropagation();
                 goToSlide(index);
@@ -369,11 +375,11 @@
                 }
             });
 
-            // Atnaujiname taškų būseną
+            // Atnaujiname indikatorių būseną (aktyvus brūkšnelis ilgesnis)
             dots.forEach((dot, index) => {
                 dot.className = index === currentSlide 
-                    ? 'w-2.5 h-2.5 rounded-full bg-brand-400 ring-2 ring-brand-400/40 transition-all cursor-pointer' 
-                    : 'w-2.5 h-2.5 rounded-full bg-white/40 hover:bg-white/70 transition-all cursor-pointer';
+                    ? 'h-1.5 w-5 rounded-full bg-brand-400 transition-all duration-300 cursor-pointer' 
+                    : 'h-1.5 w-1.5 rounded-full bg-white/40 hover:bg-white/70 transition-all duration-300 cursor-pointer';
             });
         }
 
