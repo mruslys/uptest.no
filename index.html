@@ -1,195 +1,109 @@
 <!DOCTYPE html>
-<html lang="en-US" class="js">
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Uptest | NDT rope access</title>
-    <meta name="description" content="Uptest - NDT rope access" />
-
-    <!-- Tiesioginės nuorodos į originalius šriftus ir CSS iš Jūsų serverio -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,latin-ext" type="text/css" media="all" />
-    <link rel="stylesheet" href="https://www.uptest.no/wp-content/themes/DiviChild/style.css?ver=3.19.12" type="text/css" media="all" />
-    <link rel="stylesheet" href="https://www.uptest.no/wp-content/cache/et/1489/et-core-unified-17827239998002.min.css" type="text/css" media="all" />
     
-    <!-- Kalbų perjungėjo stiliai -->
-    <style type="text/css">
-        body.custom-background { background-color: #ffffff; }
-        #lang_sel_list a.lang_sel_sel, #lang_sel_list a.lang_sel_sel:visited { color:#444444; background-color:#ffffff; }
-        #lang_sel_list a:hover, #lang_sel_list a.lang_sel_sel:hover { color:#000000; background-color:#eeeeee; }
-        #lang_sel_list ul a.lang_sel_other, #lang_sel_list ul a.lang_sel_other:visited { color:#444444; background-color:#ffffff; }
-        #lang_sel_list ul a.lang_sel_other:hover { color:#000000; background-color:#eeeeee; }
-        #lang_sel_list a, #lang_sel_list a:visited { border-color:#cdcdcd; }
-        #lang_sel_list ul { border-top:1px solid #cdcdcd; list-style: none; padding:0; margin:0; }
-        .lang_sel_list_vertical ul { display: flex; gap: 10px; }
-        .iclflag { width: 18px; height: 12px; }
+    <!-- Tailwind CSS (CDN for quick setup) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Optional: Google Fonts for a modern look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
     </style>
-
-    <link rel="icon" href="https://www.uptest.no/wp-content/uploads/2016/11/favicon-1.png" sizes="32x32" />
 </head>
-<body class="home page page-template-default custom-background et_pb_button_helper_class et_fullwidth_nav et_fullwidth_secondary_nav et_fixed_nav et_show_nav et_cover_background et_secondary_nav_enabled et_secondary_nav_only_menu et_pb_gutter osx et_pb_gutters3 et_primary_nav_dropdown_animation_fade et_secondary_nav_dropdown_animation_fade et_pb_footer_columns4 et_header_style_left et_pb_pagebuilder_layout et_smooth_scroll et_right_sidebar et_divi_theme et-db et_minified_css">
-    
-    <div id="page-container">
-        
-        <!-- Top Header -->
-        <div id="top-header">
-            <div class="container clearfix">
-                <div id="et-info">
-                    <div id="lang_sel_list" class="lang_sel_list_vertical">
-                        <ul>
-                            <li class="icl-lt"><a href="/lt/" class="lang_sel_other"><img class="iclflag" src="https://www.uptest.no/wp-content/plugins/sitepress-multilingual-cms/res/flags/lt.png" alt="lt" /></a></li>
-                            <li class="icl-en"><a href="/" class="lang_sel_sel"><img class="iclflag" src="https://www.uptest.no/wp-content/plugins/sitepress-multilingual-cms/res/flags/en.png" alt="en" /></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div id="et-secondary-menu">
-                    <ul id="et-secondary-nav" class="menu">
-                        <li class="menu-item"><a href="/certificates/">Our certificates</a></li>
-                        <li class="menu-item"><a href="/gallery/">Gallery</a></li>
-                        <li class="menu-item"><a href="/lt/">Lietuviškai</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Main Header -->
-        <header id="main-header" data-height-onload="123">
-            <div class="container clearfix et_menu_container">
-                <div class="logo_container">
-                    <span class="logo_helper"></span>
-                    <a href="/">
-                        <img src="https://www.uptest.no/wp-content/uploads/2016/12/uptest-logo.png" alt="Uptest" id="logo" data-height-percentage="54" />
-                    </a>
-                </div>
-                <div id="et-top-navigation" data-height="123" data-fixed-height="80">
-                    <nav id="top-menu-nav">
-                        <ul id="top-menu" class="nav">
-                            <li class="menu-item"><a href="/about-us/">About Us</a></li>
-                            <li class="menu-item"><a href="/non-destructive-testing/">Non-Destructive Testing</a></li>
-                            <li class="menu-item"><a href="/rope-access/">Rope Access</a></li>
-                            <li class="menu-item"><a href="/equipment/">NDT equipment</a></li>
-                            <li class="menu-item"><a href="/career/">Jobs & Careers</a></li>
-                            <li class="menu-item"><a href="/contacts/">Contacts</a></li>
-                        </ul>
-                    </nav>
-                    <div id="et_mobile_nav_menu">
-                        <div class="mobile_nav closed">
-                            <span class="select_page">Select Page</span>
-                            <span class="mobile_menu_bar mobile_menu_bar_toggle"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
+<body class="bg-gray-50 text-gray-800 antialiased">
 
-        <!-- Main Content -->
-        <div id="et-main-area">
-            <div id="main-content">
-                <article class="post-1489 page type-page status-publish hentry">
-                    <div class="entry-content">
-                        <div id="et-boc" class="et-boc">
-                            <div class="et_builder_inner_content et_pb_gutters3">
-                                
-                                <!-- Slider Section -->
-                                <div class="et_pb_section et_pb_section_0 et_pb_with_background et_pb_fullwidth_section et_section_regular">
-                                    <div class="et_pb_module et_pb_fullwidth_slider_0 et_hover_enabled et_pb_slider et_slider_auto et_slider_speed_4000">
-                                        <div class="et_pb_slides">
-                                            <div class="et_pb_slide et_pb_slide_0 et_pb_bg_layout_dark et_pb_media_alignment_center et_pb_slider_with_overlay et-pb-active-slide">
-                                                <div class="et_pb_slide_overlay_container"></div>
-                                                <div class="et_pb_container clearfix">
-                                                    <div class="et_pb_slider_container_inner">
-                                                        <div class="et_pb_slide_description">
-                                                            <h2 class="et_pb_slide_title">Rope access rigging</h2>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="et_pb_slide et_pb_slide_1 et_pb_bg_layout_dark et_pb_media_alignment_center et_pb_slider_with_overlay">
-                                                <div class="et_pb_slide_overlay_container"></div>
-                                                <div class="et_pb_container clearfix">
-                                                    <div class="et_pb_slider_container_inner">
-                                                        <div class="et_pb_slide_description">
-                                                            <h2 class="et_pb_slide_title">Rope Access</h2>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- Additional Slides as needed -->
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Contact Info -->
-                                <div class="et_pb_section et_pb_section_2 dnv et_animated et_pb_with_background et_pb_section_parallax et_section_regular">
-                                    <div class="et_pb_row et_pb_row_0">
-                                        <div class="et_pb_column et_pb_column_1_3 et_pb_column_0 et_pb_css_mix_blend_mode_passthrough">
-                                            <div class="et_pb_module et_pb_blurb et_pb_blurb_0 et_pb_bg_layout_light et_pb_text_align_left et_pb_blurb_position_left">
-                                                <div class="et_pb_blurb_content">
-                                                    <div class="et_pb_main_blurb_image">
-                                                        <a href="tel:+37068889229"><span class="et_pb_image_wrap"><span class="et-pb-icon">&#xe090;</span></span></a>
-                                                    </div>
-                                                    <div class="et_pb_blurb_container">
-                                                        <h4 class="et_pb_module_header"><a href="tel:+37068889229">Phone:</a></h4>
-                                                        <div class="et_pb_blurb_description">
-                                                            <p><a href="tel:+37068889229">+370 (688) 89229</a></p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="et_pb_column et_pb_column_1_3 et_pb_column_1 et_pb_css_mix_blend_mode_passthrough">
-                                            <div class="et_pb_module et_pb_blurb et_pb_blurb_1 et_pb_bg_layout_light et_pb_text_align_left et_pb_blurb_position_left">
-                                                <div class="et_pb_blurb_content">
-                                                    <div class="et_pb_main_blurb_image">
-                                                        <a href="mailto:info@uptest.no"><span class="et_pb_image_wrap"><span class="et-pb-icon">&#xe076;</span></span></a>
-                                                    </div>
-                                                    <div class="et_pb_blurb_container">
-                                                        <h4 class="et_pb_module_header"><a href="mailto:info@uptest.no">E-mail:</a></h4>
-                                                        <div class="et_pb_blurb_description">
-                                                            <p><a href="mailto:info@uptest.no">info@uptest.no</a></p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="et_pb_column et_pb_column_1_3 et_pb_column_2 et_pb_css_mix_blend_mode_passthrough">
-                                            <div class="et_pb_module et_pb_blurb et_pb_blurb_2 et_pb_bg_layout_light et_pb_text_align_left et_pb_blurb_position_left">
-                                                <div class="et_pb_blurb_content">
-                                                    <div class="et_pb_main_blurb_image">
-                                                        <a href="/kontaktai/"><span class="et_pb_image_wrap"><span class="et-pb-icon">&#xe081;</span></span></a>
-                                                    </div>
-                                                    <div class="et_pb_blurb_container">
-                                                        <h4 class="et_pb_module_header"><a href="/kontaktai/">Our location:</a></h4>
-                                                        <div class="et_pb_blurb_description">
-                                                            <a href="/kontaktai/">Vanagupes st. 22-31, LT-00172 Palanga, Lithuania.</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
+    <!-- TOP BAR (Viršutinė juostelė) -->
+    <div class="bg-blue-600 text-white text-sm py-2">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            
+            <!-- Language Selector -->
+            <div class="flex items-center space-x-3">
+                <a href="/lt/" class="hover:opacity-80 transition-opacity">
+                    <img src="https://www.uptest.no/wp-content/plugins/sitepress-multilingual-cms/res/flags/lt.png" alt="LT" class="w-5 h-3 shadow-sm rounded-sm">
+                </a>
+                <a href="/" class="hover:opacity-80 transition-opacity">
+                    <img src="https://www.uptest.no/wp-content/plugins/sitepress-multilingual-cms/res/flags/en.png" alt="EN" class="w-5 h-3 shadow-sm rounded-sm ring-1 ring-white/50">
+                </a>
             </div>
 
-            <!-- Footer -->
-            <footer id="main-footer">
-                <div id="footer-bottom">
-                    <div class="container clearfix">
-                        <p id="footer-info">© 2026 <strong>UAB "Uptest"</strong>. Visos teisės saugomos. Interneto svetainių kūrimas ir nuoma: <a href="http://www.svetainesnemokamai.lt" target="_blank">www.svetainesnemokamai.lt</a>.</p>
-                    </div>
-                </div>
-            </footer>
+            <!-- Secondary Links -->
+            <div class="hidden sm:flex space-x-6">
+                <a href="/certificates/" class="hover:text-blue-200 transition-colors">Our certificates</a>
+                <a href="/gallery/" class="hover:text-blue-200 transition-colors">Gallery</a>
+                <a href="/lt/" class="hover:text-blue-200 transition-colors font-medium">Lietuviškai</a>
+            </div>
+            
         </div>
     </div>
 
-    <!-- Privalomi Divi skriptai (būtini meniu veikimui ir slider'iui) -->
-    <script type="text/javascript" src="https://www.uptest.no/wp-includes/js/jquery/jquery.js?ver=1.12.4"></script>
-    <script type="text/javascript" src="https://www.uptest.no/wp-content/themes/Divi/js/custom.min.js?ver=3.19.12"></script>
+    <!-- MAIN HEADER (Pagrindinė navigacija) -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="/">
+                        <img class="h-12 w-auto object-contain" src="https://www.uptest.no/wp-content/uploads/2016/12/uptest-logo.png" alt="Uptest Logo">
+                    </a>
+                </div>
 
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="/about-us/" class="text-gray-600 hover:text-blue-600 font-medium transition-colors border-b-2 border-transparent hover:border-blue-600 pb-1">About Us</a>
+                    <a href="/non-destructive-testing/" class="text-gray-600 hover:text-blue-600 font-medium transition-colors border-b-2 border-transparent hover:border-blue-600 pb-1">Non-Destructive Testing</a>
+                    <a href="/rope-access/" class="text-gray-600 hover:text-blue-600 font-medium transition-colors border-b-2 border-transparent hover:border-blue-600 pb-1">Rope Access</a>
+                    <a href="/equipment/" class="text-gray-600 hover:text-blue-600 font-medium transition-colors border-b-2 border-transparent hover:border-blue-600 pb-1">NDT equipment</a>
+                    <a href="/career/" class="text-gray-600 hover:text-blue-600 font-medium transition-colors border-b-2 border-transparent hover:border-blue-600 pb-1">Jobs & Careers</a>
+                    <a href="/contacts/" class="text-gray-600 hover:text-blue-600 font-medium transition-colors border-b-2 border-transparent hover:border-blue-600 pb-1">Contacts</a>
+                </nav>
+
+                <!-- Mobile Menu Button (Hamburger) -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" type="button" class="text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 p-2">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel (Hidden by default) -->
+        <div id="mobile-menu-panel" class="hidden md:hidden bg-white border-t border-gray-100 shadow-lg absolute w-full">
+            <div class="px-4 pt-2 pb-4 space-y-1 sm:px-3">
+                <a href="/about-us/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">About Us</a>
+                <a href="/non-destructive-testing/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Non-Destructive Testing</a>
+                <a href="/rope-access/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Rope Access</a>
+                <a href="/equipment/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">NDT equipment</a>
+                <a href="/career/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Jobs & Careers</a>
+                <a href="/contacts/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Contacts</a>
+                
+                <!-- Secondary links for mobile -->
+                <div class="border-t border-gray-200 mt-4 pt-4 pb-2">
+                    <a href="/certificates/" class="block px-3 py-2 text-sm text-gray-500 hover:text-blue-600">Our certificates</a>
+                    <a href="/gallery/" class="block px-3 py-2 text-sm text-gray-500 hover:text-blue-600">Gallery</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Rest of your page content goes here... -->
+
+    <!-- Simple script for mobile menu toggle -->
+    <script>
+        const btn = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu-panel');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>
