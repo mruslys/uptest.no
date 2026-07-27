@@ -185,8 +185,8 @@
         <!-- Pagrindinis išdėstymas -->
         <div class="relative z-20 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-4 sm:py-6 flex flex-col justify-between flex-grow">
             
-            <!-- Centrinė dalis: Tekstas + Mobilus valdiklis per vidurį su mažesniu tarpu -->
-            <div class="w-full max-w-xl text-left my-auto pr-8 sm:pr-12">
+            <!-- Centrinė dalis: Tekstas -->
+            <div class="w-full max-w-xl text-left my-auto">
                 <div class="relative min-h-[140px] sm:min-h-[160px]">
                     <!-- Slide Text 1 -->
                     <div class="slide-text transition-opacity duration-500 opacity-100 absolute inset-0" data-index="0">
@@ -253,35 +253,35 @@
                         </p>
                     </div>
                 </div>
+            </div>
 
-                <!-- Mobilus / Tablet (MD) slaiderio valdiklis per vidurį su progress baru ir mažesniu tarpu -->
-                <div class="lg:hidden flex items-center gap-3 sm:gap-4 bg-slatebrand-900/85 backdrop-blur-md border border-white/10 px-4 py-2.5 rounded-2xl shadow-2xl mt-4 sm:mt-6 mx-auto w-fit">
-                    <!-- Skaitliukas -->
-                    <div class="text-xs font-bold text-white tracking-widest tabular-nums flex items-center gap-1">
-                        <span class="text-brand-400" id="current-num-mobile">01</span>
-                        <span class="text-slate-600">/</span>
-                        <span class="text-slate-400" id="total-num-mobile">05</span>
-                    </div>
-                    
-                    <!-- Progreso juosta -->
-                    <div class="w-16 sm:w-20 h-1 bg-white/10 rounded-full overflow-hidden">
-                        <div id="slide-progress-mobile" class="h-full bg-brand-400 w-0"></div>
-                    </div>
+            <!-- Mobilus / Tablet (MD) slaiderio valdiklis per vidurį (išorinis blokas idealiam centravimui) -->
+            <div class="lg:hidden flex items-center gap-3 sm:gap-4 bg-slatebrand-900/85 backdrop-blur-md border border-white/10 px-4 py-2.5 rounded-2xl shadow-2xl mt-4 sm:mt-6 mx-auto w-fit">
+                <!-- Skaitliukas -->
+                <div class="text-xs font-bold text-white tracking-widest tabular-nums flex items-center gap-1">
+                    <span class="text-brand-400" id="current-num-mobile">01</span>
+                    <span class="text-slate-600">/</span>
+                    <span class="text-slate-400" id="total-num-mobile">05</span>
+                </div>
+                
+                <!-- Progreso juosta -->
+                <div class="w-16 sm:w-20 h-1 bg-white/10 rounded-full overflow-hidden">
+                    <div id="slide-progress-mobile" class="h-full bg-brand-400 w-0"></div>
+                </div>
 
-                    <!-- Rodyklės -->
-                    <div class="flex items-center gap-1 border-l border-white/10 pl-3">
-                        <button class="prev-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-lg hover:bg-white/10" aria-label="Previous slide">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-                        </button>
-                        <button class="next-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-lg hover:bg-white/10" aria-label="Next slide">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                        </button>
-                    </div>
+                <!-- Rodyklės -->
+                <div class="flex items-center gap-1 border-l border-white/10 pl-3">
+                    <button class="prev-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-lg hover:bg-white/10" aria-label="Previous slide">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                    </button>
+                    <button class="next-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-lg hover:bg-white/10" aria-label="Next slide">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </button>
                 </div>
             </div>
 
             <!-- KONTAKTAI IR LOKACIJA APAČIOJE (3 stulpeliai, su etiketėmis) -->
-            <div class="w-full max-w-4xl mt-6 lg:pr-8">
+            <div class="w-full max-w-4xl mt-6">
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                     
                     <!-- Telefonas -->
