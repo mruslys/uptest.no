@@ -181,9 +181,8 @@
         <!-- Pagrindinis turinys -->
         <div class="relative z-20 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-3 sm:py-6 flex flex-col justify-between flex-grow">
             
-            <!-- Centrinė dalis: Tekstas ir po juo esantis mobilus valdiklis, sulygiuotas dešinėje -->
+            <!-- Centrinė dalis: Tekstas -->
             <div class="w-full max-w-xl text-left my-auto">
-                
                 <div class="relative min-h-[130px] sm:min-h-[160px]">
                     <!-- Slide Text 1 -->
                     <div class="slide-text transition-opacity duration-500 opacity-100 absolute inset-0" data-index="0">
@@ -250,33 +249,32 @@
                         </p>
                     </div>
                 </div>
+            </div>
 
-                <!-- Mobilus slaiderio valdiklis (rodomas tik mobile PO tekstu, sulygiuotas dešinėje) -->
-                <div class="flex lg:hidden justify-end mt-4">
-                    <div class="inline-flex items-center gap-3 bg-brand-950/85 backdrop-blur-md border border-brand-500/25 px-3.5 py-2 rounded-xl shadow-xl">
-                        <div class="text-[11px] font-bold text-white tracking-wider tabular-nums flex items-center gap-1">
-                            <span class="text-brand-400 current-num">01</span>
-                            <span class="text-slate-600">/</span>
-                            <span class="text-slate-400 total-num">05</span>
-                        </div>
-                        <div class="w-20 h-0.5 bg-white/10 rounded-full overflow-hidden">
-                            <div class="slide-progress h-full bg-brand-400 w-0"></div>
-                        </div>
-                        <div class="flex items-center gap-1 border-l border-brand-500/25 pl-2.5">
-                            <button class="prev-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-md hover:bg-brand-500/20" aria-label="Previous slide">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-                            </button>
-                            <button class="next-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-md hover:bg-brand-500/20" aria-label="Next slide">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                            </button>
-                        </div>
+            <!-- MOBILUS VALDIKLIS (Nuleistas žemyn, prie pat kontaktų kortelių, sulygiuotas dešinėje) -->
+            <div class="w-full max-w-4xl mt-3 flex justify-end lg:hidden">
+                <div class="inline-flex items-center gap-3 bg-brand-950/85 backdrop-blur-md border border-brand-500/25 px-3.5 py-2 rounded-xl shadow-xl">
+                    <div class="text-[11px] font-bold text-white tracking-wider tabular-nums flex items-center gap-1">
+                        <span class="text-brand-400 current-num">01</span>
+                        <span class="text-slate-600">/</span>
+                        <span class="text-slate-400 total-num">05</span>
+                    </div>
+                    <div class="w-20 h-0.5 bg-white/10 rounded-full overflow-hidden">
+                        <div class="slide-progress h-full bg-brand-400 w-0"></div>
+                    </div>
+                    <div class="flex items-center gap-1 border-l border-brand-500/25 pl-2.5">
+                        <button class="prev-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-md hover:bg-brand-500/20" aria-label="Previous slide">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                        </button>
+                        <button class="next-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-md hover:bg-brand-500/20" aria-label="Next slide">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </button>
                     </div>
                 </div>
-
             </div>
 
             <!-- KONTAKTAI IR LOKACIJA APAČIOJE -->
-            <div class="w-full max-w-4xl mt-4 sm:mt-6">
+            <div class="w-full max-w-4xl mt-2 sm:mt-4">
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3">
                     
                     <!-- Telefonas -->
