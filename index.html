@@ -47,7 +47,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
         /* Pridedame permatomumo efektą, kol nepaspaudžiama / neužvedama pelė */
@@ -147,7 +147,7 @@
     </div>
 
     <!-- HERO SLIDER / CONTENT AREA -->
-    <section id="hero-slider" class="relative flex-grow flex flex-col justify-between w-full min-h-[380px] sm:min-h-[520px] bg-slatebrand-900 overflow-hidden cursor-pointer sm:cursor-default">
+    <section id="hero-slider" class="relative flex-grow flex flex-col justify-between w-full min-h-[420px] sm:min-h-[520px] bg-slatebrand-900 overflow-hidden cursor-pointer sm:cursor-default">
         
         <!-- Fono Slaideris -->
         <div class="absolute inset-0 z-0">
@@ -192,11 +192,11 @@
             </div>
         </div>
 
-        <!-- Pagrindinis turinys -->
-        <div class="relative z-20 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-3 sm:py-6 flex flex-col justify-between flex-grow">
+        <!-- Pagrindinis turinys (Vertikaliai centre sulygiuotas tekstas ir apačioje prispausti kontaktai) -->
+        <div class="relative z-20 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-4 sm:py-6 flex flex-col justify-center flex-grow">
             
             <!-- Centrinė dalis: Tekstas -->
-            <div class="w-full max-w-xl text-left my-auto">
+            <div class="w-full max-w-xl text-left">
                 <div class="relative min-h-[130px] sm:min-h-[160px]">
                     <!-- Slide Text 1 -->
                     <div class="slide-text transition-opacity duration-500 opacity-100 absolute inset-0" data-index="0">
@@ -265,30 +265,31 @@
                 </div>
             </div>
 
-            <!-- MOBILUS VALDIKLIS (Slaiderio apačioje, prie pat kontaktų kortelių, dešinėje) - Be fono / lengvas -->
-            <div class="slider-controller w-full max-w-4xl mt-3 flex justify-end lg:hidden">
-                <div class="inline-flex items-center gap-3 px-1 py-1">
-                    <div class="text-[11px] font-bold text-white tracking-wider tabular-nums flex items-center gap-1">
-                        <span class="text-brand-400 current-num">01</span>
-                        <span class="text-slate-600">/</span>
-                        <span class="text-slate-400 total-num">05</span>
-                    </div>
-                    <div class="w-20 h-0.5 bg-white/20 rounded-full overflow-hidden">
-                        <div class="slide-progress h-full bg-brand-400 w-0"></div>
-                    </div>
-                    <div class="flex items-center gap-1">
-                        <button class="prev-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-md hover:bg-white/10" aria-label="Previous slide">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-                        </button>
-                        <button class="next-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-md hover:bg-white/10" aria-label="Next slide">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                        </button>
+            <!-- APATINĖ DALIS (Mobilus valdiklis + Kontaktai) -->
+            <div class="w-full max-w-4xl mt-auto pt-4 sm:pt-6">
+                <!-- Mobiliame ekrane valdiklis virš kontaktų kortelių -->
+                <div class="slider-controller w-full flex justify-end lg:hidden mb-2 px-1">
+                    <div class="inline-flex items-center gap-3">
+                        <div class="text-[11px] font-bold text-white tracking-wider tabular-nums flex items-center gap-1">
+                            <span class="text-brand-400 current-num">01</span>
+                            <span class="text-slate-600">/</span>
+                            <span class="text-slate-400 total-num">05</span>
+                        </div>
+                        <div class="w-20 h-0.5 bg-white/20 rounded-full overflow-hidden">
+                            <div class="slide-progress h-full bg-brand-400 w-0"></div>
+                        </div>
+                        <div class="flex items-center gap-1">
+                            <button class="prev-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-md hover:bg-white/10" aria-label="Previous slide">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                            </button>
+                            <button class="next-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-md hover:bg-white/10" aria-label="Next slide">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- KONTAKTAI IR LOKACIJA APAČIOJE -->
-            <div class="w-full max-w-4xl mt-2 sm:mt-4">
+                <!-- KONTAKTAI IR LOKACIJA -->
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3">
                     
                     <!-- Telefonas -->
@@ -339,13 +340,13 @@
     </section>
 
     <!-- FOOTER BOTTOM -->
-    <footer class="bg-slatebrand-900 text-slate-400 text-xs py-3 sm:py-5 border-t border-slate-800/60 flex-shrink-0 z-30">
+    <footer class="bg-slatebrand-900 text-xs py-3 sm:py-5 border-t border-slate-800/60 flex-shrink-0 z-30">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-2 text-center sm:text-left">
-            <p class="text-[11px] text-slate-400">
-                © 2026 <strong class="text-slate-200 font-semibold">UAB "Uptest"</strong>. All rights reserved.
+            <p class="text-[11px] text-slate-500 font-light">
+                © 2026 <strong class="text-slate-200 font-semibold">UAB "Uptest"</strong><span class="text-slate-500 font-normal">. All rights reserved.</span>
             </p>
-            <p class="text-xs text-brand-400">
-                Facelift by
+            <p class="text-xs flex items-center gap-1.5">
+                <span class="text-slate-500 font-normal opacity-80">Facelift by</span>
                 <a href="https://æx7.com" target="_blank" rel="noopener noreferrer" class="text-brand-400 hover:text-brand-300 transition-colors font-bold">
                     Æx7
                 </a>
