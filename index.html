@@ -317,9 +317,9 @@
                         </div>
                     </a>
 
-                    <!-- Our Location -->
-                    <div class="flex p-2.5 sm:p-3.5 rounded-xl bg-slatebrand-900/85 border border-slate-700/60 backdrop-blur-md shadow-lg items-center gap-3">
-                        <div class="p-2 rounded-lg bg-brand-400/15 text-brand-400 flex-shrink-0">
+                    <!-- Our Location (Nuoroda į Google Maps) -->
+                    <a href="https://maps.app.goo.gl/hGXkK35Qdv2JQvNU6" target="_blank" rel="noopener noreferrer" class="p-2.5 sm:p-3.5 rounded-xl bg-slatebrand-900/85 hover:bg-slate-800/95 border border-slate-700/60 hover:border-brand-400/50 backdrop-blur-md transition-all duration-200 group shadow-lg flex items-center gap-3">
+                        <div class="p-2 rounded-lg bg-brand-400/15 text-brand-400 group-hover:bg-brand-400 group-hover:text-white transition-all flex-shrink-0">
                             <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
@@ -327,9 +327,9 @@
                         </div>
                         <div>
                             <h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Our location</h4>
-                            <p class="text-xs sm:text-sm font-bold text-white">Palanga, Lithuania</p>
+                            <p class="text-xs sm:text-sm font-bold text-white group-hover:text-brand-300 transition-colors">Palanga, Lithuania</p>
                         </div>
-                    </div>
+                    </a>
 
                 </div>
             </div>
@@ -458,8 +458,8 @@
         }, {passive: true});
 
         heroSlider.addEventListener('touchend', e => {
-            // Ignoruojame, jei paspausta ant valdiklio mygtukų
-            if (e.target.closest('button') || e.target.closest('.slider-controller')) {
+            // Ignoruojame, jei paspausta ant mygtukų, nuorodų ar valdiklio
+            if (e.target.closest('button') || e.target.closest('a') || e.target.closest('.slider-controller')) {
                 return;
             }
 
