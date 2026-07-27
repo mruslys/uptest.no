@@ -158,27 +158,27 @@
             <div class="absolute inset-0 bg-gradient-to-t from-slatebrand-900/95 via-slatebrand-900/50 to-slatebrand-900/30"></div>
         </div>
 
-        <!-- Desktop Slaiderio valdiklis (apačioje dešinėje) - Cyan tema -->
-        <div class="hidden lg:flex absolute right-8 bottom-8 z-30 items-center gap-4 bg-brand-950/85 backdrop-blur-md border border-brand-500/30 px-4 py-2.5 rounded-2xl shadow-2xl">
+        <!-- Kompaktiškas bendras slaiderio valdiklis (apačioje dešinėje tiek mob, tiek desktop) -->
+        <div class="flex absolute right-4 sm:right-8 bottom-3 sm:bottom-8 z-30 items-center gap-3 bg-brand-950/80 backdrop-blur-md border border-brand-500/25 px-3 py-2 rounded-xl shadow-xl">
             <!-- Skaitliukas -->
-            <div class="text-xs font-bold text-white tracking-widest tabular-nums flex items-center gap-1">
-                <span class="text-brand-400" id="current-num-desktop">01</span>
+            <div class="text-[11px] font-bold text-white tracking-wider tabular-nums flex items-center gap-1">
+                <span class="text-brand-400" id="current-num">01</span>
                 <span class="text-slate-600">/</span>
-                <span class="text-slate-400" id="total-num-desktop">05</span>
+                <span class="text-slate-400" id="total-num">05</span>
             </div>
             
             <!-- Progreso juosta -->
-            <div class="w-24 h-1 bg-white/10 rounded-full overflow-hidden">
-                <div id="slide-progress-desktop" class="h-full bg-brand-400 w-0"></div>
+            <div class="w-12 sm:w-16 h-0.5 bg-white/10 rounded-full overflow-hidden">
+                <div id="slide-progress" class="h-full bg-brand-400 w-0"></div>
             </div>
 
             <!-- Rodyklės -->
-            <div class="flex items-center gap-1 border-l border-brand-500/30 pl-3">
-                <button class="prev-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-lg hover:bg-brand-500/20" aria-label="Previous slide">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+            <div class="flex items-center gap-0.5 border-l border-brand-500/25 pl-2">
+                <button class="prev-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-md hover:bg-brand-500/20" aria-label="Previous slide">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
                 </button>
-                <button class="next-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-lg hover:bg-brand-500/20" aria-label="Next slide">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <button class="next-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-md hover:bg-brand-500/20" aria-label="Next slide">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                 </button>
             </div>
         </div>
@@ -187,7 +187,7 @@
         <div class="relative z-20 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-3 sm:py-6 flex flex-col justify-between flex-grow">
             
             <!-- Centrinė dalis: Tekstas -->
-            <div class="w-full max-w-xl text-left my-auto">
+            <div class="w-full max-w-xl text-left my-auto pr-16 sm:pr-0">
                 <div class="relative min-h-[130px] sm:min-h-[160px]">
                     <!-- Slide Text 1 -->
                     <div class="slide-text transition-opacity duration-500 opacity-100 absolute inset-0" data-index="0">
@@ -253,31 +253,6 @@
                             Partnering with industry leaders to maintain safe and efficient operations.
                         </p>
                     </div>
-                </div>
-            </div>
-
-            <!-- Mobilus / Tablet (MD) slaiderio valdiklis per vidurį - Cyan tema -->
-            <div class="lg:hidden flex items-center gap-3 sm:gap-4 bg-brand-950/85 backdrop-blur-md border border-brand-500/30 px-4 py-2 rounded-2xl shadow-2xl mt-3 sm:mt-6 mx-auto w-fit">
-                <!-- Skaitliukas -->
-                <div class="text-xs font-bold text-white tracking-widest tabular-nums flex items-center gap-1">
-                    <span class="text-brand-400" id="current-num-mobile">01</span>
-                    <span class="text-slate-600">/</span>
-                    <span class="text-slate-400" id="total-num-mobile">05</span>
-                </div>
-                
-                <!-- Progreso juosta -->
-                <div class="w-16 sm:w-20 h-1 bg-white/10 rounded-full overflow-hidden">
-                    <div id="slide-progress-mobile" class="h-full bg-brand-400 w-0"></div>
-                </div>
-
-                <!-- Rodyklės -->
-                <div class="flex items-center gap-1 border-l border-brand-500/30 pl-3">
-                    <button class="prev-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-lg hover:bg-brand-500/20" aria-label="Previous slide">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-                    </button>
-                    <button class="next-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-lg hover:bg-brand-500/20" aria-label="Next slide">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                    </button>
                 </div>
             </div>
 
@@ -363,13 +338,9 @@
         const prevBtns = document.querySelectorAll('.prev-slide-btn');
         const nextBtns = document.querySelectorAll('.next-slide-btn');
         
-        const currentNumDesktop = document.getElementById('current-num-desktop');
-        const totalNumDesktop = document.getElementById('total-num-desktop');
-        const slideProgressDesktop = document.getElementById('slide-progress-desktop');
-
-        const currentNumMobile = document.getElementById('current-num-mobile');
-        const totalNumMobile = document.getElementById('total-num-mobile');
-        const slideProgressMobile = document.getElementById('slide-progress-mobile');
+        const currentNum = document.getElementById('current-num');
+        const totalNum = document.getElementById('total-num');
+        const slideProgress = document.getElementById('slide-progress');
 
         const heroSlider = document.getElementById('hero-slider');
         
@@ -377,8 +348,7 @@
         let slideTimer;
         const slideIntervalTime = 5000; // 5 sekundės
 
-        totalNumDesktop.textContent = String(bgSlides.length).padStart(2, '0');
-        totalNumMobile.textContent = String(bgSlides.length).padStart(2, '0');
+        totalNum.textContent = String(bgSlides.length).padStart(2, '0');
 
         function updateSlideClasses() {
             // Atnaujiname fono nuotraukas
@@ -398,22 +368,17 @@
                 }
             });
 
-            // Atnaujiname skaitliukus
-            const currentStr = String(currentSlide + 1).padStart(2, '0');
-            currentNumDesktop.textContent = currentStr;
-            currentNumMobile.textContent = currentStr;
+            // Atnaujiname skaitliuką
+            currentNum.textContent = String(currentSlide + 1).padStart(2, '0');
         }
 
         function startProgress() {
-            // Sklandi progreso juosta su CSS transition be stutero
-            [slideProgressDesktop, slideProgressMobile].forEach(bar => {
-                if (!bar) return;
-                bar.style.transition = 'none';
-                bar.style.width = '0%';
-                void bar.offsetWidth; // Trigger reflow
-                bar.style.transition = `width ${slideIntervalTime}ms linear`;
-                bar.style.width = '100%';
-            });
+            if (!slideProgress) return;
+            slideProgress.style.transition = 'none';
+            slideProgress.style.width = '0%';
+            void slideProgress.offsetWidth; // Trigger reflow
+            slideProgress.style.transition = `width ${slideIntervalTime}ms linear`;
+            slideProgress.style.width = '100%';
         }
 
         function nextSlide() {
