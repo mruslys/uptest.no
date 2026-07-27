@@ -458,6 +458,11 @@
         }, {passive: true});
 
         heroSlider.addEventListener('touchend', e => {
+            // Ignoruojame, jei paspausta ant valdiklio mygtukų
+            if (e.target.closest('button') || e.target.closest('.slider-controller')) {
+                return;
+            }
+
             const touchEndX = e.changedTouches[0].screenX;
             const touchEndY = e.changedTouches[0].screenY;
             const touchEndTime = new Date().getTime();
