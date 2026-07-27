@@ -48,7 +48,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-<body class="bg-slatebrand-900 text-slate-800 antialiased font-sans flex flex-col min-h-screen justify-between">
+<body class="bg-slatebrand-900 text-slate-800 antialiased font-sans flex flex-col min-h-[100dvh] justify-between">
 
     <!-- VIRŠUTINĖ DALIS (Top Bar + Header) -->
     <div>
@@ -249,7 +249,7 @@
 
     <!-- APATINĖ DALIS (Kontaktai + Futeris) -->
     <div>
-        <!-- PRE-FOOTER -->
+        <!-- PRE-FOOTER (Visos 3 kortelės rodomos ir mobiliajame) -->
         <section class="bg-slatebrand-900 text-white py-4 sm:py-6 border-t border-slate-800">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4">
@@ -280,9 +280,9 @@
                         </div>
                     </a>
 
-                    <!-- Adresas (Paslėptas mobiliajame, rodomas tik nuo 'md' ekrano) -->
-                    <a href="/contacts/" class="hidden md:flex items-center gap-4 p-4 rounded-xl bg-slate-800/50 hover:bg-slate-800/90 border border-slate-700/60 hover:border-red-400/50 transition-all duration-200 group shadow-sm">
-                        <div class="p-3 rounded-lg bg-red-500/10 text-red-400 group-hover:bg-red-500 group-hover:text-white transition-all flex-shrink-0">
+                    <!-- Adresas -->
+                    <a href="/contacts/" class="flex items-center gap-3.5 p-3.5 sm:p-4 rounded-xl bg-slate-800/50 hover:bg-slate-800/90 border border-slate-700/60 hover:border-brand-400/50 transition-all duration-200 group shadow-sm">
+                        <div class="p-2.5 sm:p-3 rounded-lg bg-brand-400/10 text-brand-400 group-hover:bg-brand-400 group-hover:text-white transition-all flex-shrink-0">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
@@ -290,7 +290,7 @@
                         </div>
                         <div>
                             <h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-0.5">Our location</h4>
-                            <p class="text-xs font-medium text-slate-200 group-hover:text-white transition-colors leading-snug">
+                            <p class="text-xs sm:text-sm font-medium text-slate-200 group-hover:text-white transition-colors leading-snug">
                                 Vanagupės g. 22-31, Palanga, Lithuania.
                             </p>
                         </div>
