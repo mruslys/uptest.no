@@ -50,13 +50,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
-        /* Pridedame permatomumo efektą, kol nepaspaudžiama */
+        /* Pridedame permatomumo efektą, kol nepaspaudžiama / neužvedama pelė */
         .slider-controller {
             opacity: 0.6;
             transition: opacity 0.3s ease-in-out;
         }
         
-        /* Kai užvedama pelė arba slideris aktyvus (mob.), tampa ryškus */
+        /* Kai užvedama pelė ant sliderio arba valdiklis aktyvus, tampa ryškus */
         #hero-slider:hover .slider-controller,
         .slider-controller:active {
             opacity: 1;
@@ -203,4 +203,286 @@
                         <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-brand-400/20 text-brand-300 border border-brand-400/30 backdrop-blur-md mb-2 sm:mb-3">
                             Industrial Services
                         </span>
-                        <h1
+                        <h1 class="text-white text-xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-1 sm:mb-2 drop-shadow-md">
+                            Rope Access Rigging
+                        </h1>
+                        <p class="text-slate-200 text-[11px] sm:text-sm lg:text-base font-normal max-w-lg leading-relaxed">
+                            Certified high-altitude inspection and maintenance solutions tailored for challenging environments.
+                        </p>
+                    </div>
+
+                    <!-- Slide Text 2 -->
+                    <div class="slide-text transition-opacity duration-500 opacity-0 absolute inset-0 pointer-events-none" data-index="1">
+                        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-brand-400/20 text-brand-300 border border-brand-400/30 backdrop-blur-md mb-2 sm:mb-3">
+                            Safety & Precision
+                        </span>
+                        <h2 class="text-white text-xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-1 sm:mb-2 drop-shadow-md">
+                            Advanced Rope Access
+                        </h2>
+                        <p class="text-slate-200 text-[11px] sm:text-sm lg:text-base font-normal max-w-lg leading-relaxed">
+                            Efficient, safe, and cost-effective access techniques for onshore and offshore structures.
+                        </p>
+                    </div>
+
+                    <!-- Slide Text 3 -->
+                    <div class="slide-text transition-opacity duration-500 opacity-0 absolute inset-0 pointer-events-none" data-index="2">
+                        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-brand-400/20 text-brand-300 border border-brand-400/30 backdrop-blur-md mb-2 sm:mb-3">
+                            Quality Assurance
+                        </span>
+                        <h2 class="text-white text-xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-1 sm:mb-2 drop-shadow-md">
+                            Non-Destructive Testing
+                        </h2>
+                        <p class="text-slate-200 text-[11px] sm:text-sm lg:text-base font-normal max-w-lg leading-relaxed">
+                            Comprehensive NDT evaluations ensuring structural integrity without causing damage.
+                        </p>
+                    </div>
+
+                    <!-- Slide Text 4 -->
+                    <div class="slide-text transition-opacity duration-500 opacity-0 absolute inset-0 pointer-events-none" data-index="3">
+                        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-brand-400/20 text-brand-300 border border-brand-400/30 backdrop-blur-md mb-2 sm:mb-3">
+                            Certified Expertise
+                        </span>
+                        <h2 class="text-white text-xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-1 sm:mb-2 drop-shadow-md">
+                            Professional Inspections
+                        </h2>
+                        <p class="text-slate-200 text-[11px] sm:text-sm lg:text-base font-normal max-w-lg leading-relaxed">
+                            Delivering reliable diagnostics and technical reporting according to international standards.
+                        </p>
+                    </div>
+
+                    <!-- Slide Text 5 -->
+                    <div class="slide-text transition-opacity duration-500 opacity-0 absolute inset-0 pointer-events-none" data-index="4">
+                        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-brand-400/20 text-brand-300 border border-brand-400/30 backdrop-blur-md mb-2 sm:mb-3">
+                            Complete Coverage
+                        </span>
+                        <h2 class="text-white text-xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-1 sm:mb-2 drop-shadow-md">
+                            Industrial Solutions
+                        </h2>
+                        <p class="text-slate-200 text-[11px] sm:text-sm lg:text-base font-normal max-w-lg leading-relaxed">
+                            Partnering with industry leaders to maintain safe and efficient operations.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MOBILUS VALDIKLIS (Slaiderio apačioje, prie pat kontaktų kortelių, dešinėje) -->
+            <div class="slider-controller w-full max-w-4xl mt-3 flex justify-end lg:hidden">
+                <div class="inline-flex items-center gap-3 bg-brand-950/85 backdrop-blur-md border border-brand-500/25 px-3.5 py-2 rounded-xl shadow-xl">
+                    <div class="text-[11px] font-bold text-white tracking-wider tabular-nums flex items-center gap-1">
+                        <span class="text-brand-400 current-num">01</span>
+                        <span class="text-slate-600">/</span>
+                        <span class="text-slate-400 total-num">05</span>
+                    </div>
+                    <div class="w-20 h-0.5 bg-white/10 rounded-full overflow-hidden">
+                        <div class="slide-progress h-full bg-brand-400 w-0"></div>
+                    </div>
+                    <div class="flex items-center gap-1 border-l border-brand-500/25 pl-2.5">
+                        <button class="prev-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-md hover:bg-brand-500/20" aria-label="Previous slide">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                        </button>
+                        <button class="next-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-md hover:bg-brand-500/20" aria-label="Next slide">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KONTAKTAI IR LOKACIJA APAČIOJE -->
+            <div class="w-full max-w-4xl mt-2 sm:mt-4">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3">
+                    
+                    <!-- Telefonas -->
+                    <a href="tel:+37068889229" class="p-2.5 sm:p-3.5 rounded-xl bg-slatebrand-900/85 hover:bg-slate-800/95 border border-slate-700/60 hover:border-brand-400/50 backdrop-blur-md transition-all duration-200 group shadow-lg flex items-center gap-3">
+                        <div class="p-2 rounded-lg bg-brand-400/15 text-brand-400 group-hover:bg-brand-400 group-hover:text-white transition-all flex-shrink-0">
+                            <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Phone</h4>
+                            <p class="text-xs sm:text-sm font-bold text-white group-hover:text-brand-300 transition-colors">+370 (688) 89229</p>
+                        </div>
+                    </a>
+
+                    <!-- El. paštas -->
+                    <a href="mailto:info@uptest.no" class="p-2.5 sm:p-3.5 rounded-xl bg-slatebrand-900/85 hover:bg-slate-800/95 border border-slate-700/60 hover:border-brand-400/50 backdrop-blur-md transition-all duration-200 group shadow-lg flex items-center gap-3">
+                        <div class="p-2 rounded-lg bg-brand-400/15 text-brand-400 group-hover:bg-brand-400 group-hover:text-white transition-all flex-shrink-0">
+                            <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">E-mail</h4>
+                            <p class="text-xs sm:text-sm font-bold text-white group-hover:text-brand-300 transition-colors">info@uptest.no</p>
+                        </div>
+                    </a>
+
+                    <!-- Our Location -->
+                    <div class="flex p-2.5 sm:p-3.5 rounded-xl bg-slatebrand-900/85 border border-slate-700/60 backdrop-blur-md shadow-lg items-center gap-3">
+                        <div class="p-2 rounded-lg bg-brand-400/15 text-brand-400 flex-shrink-0">
+                            <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Our location</h4>
+                            <p class="text-xs sm:text-sm font-bold text-white">Palanga, Lithuania</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER BOTTOM -->
+    <footer class="bg-slatebrand-900 text-slate-400 text-xs py-3 sm:py-5 border-t border-slate-800/60 flex-shrink-0 z-30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-2 text-center sm:text-left">
+            <p class="text-[11px] text-slate-400">
+                © 2026 <strong class="text-slate-200 font-semibold">UAB "Uptest"</strong>. All rights reserved.
+            </p>
+            <p class="text-[11px] text-slate-500">
+                In collaboration with AI and 
+                <a href="https://www.facebook.com/m.ruslys/" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-brand-400 transition-colors underline decoration-slate-700 underline-offset-2 font-medium">
+                    @mruslys
+                </a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- SKRIPTAI -->
+    <script>
+        // Mobiliojo meniu atidarymas / uždarymas
+        const mobileBtn = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu-panel');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Hero Slider Logika
+        const bgSlides = document.querySelectorAll('.bg-slide');
+        const slideTexts = document.querySelectorAll('.slide-text');
+        const prevBtns = document.querySelectorAll('.prev-slide-btn');
+        const nextBtns = document.querySelectorAll('.next-slide-btn');
+        
+        const currentNumEls = document.querySelectorAll('.current-num');
+        const totalNumEls = document.querySelectorAll('.total-num');
+        const slideProgressEls = document.querySelectorAll('.slide-progress');
+
+        const heroSlider = document.getElementById('hero-slider');
+        
+        let currentSlide = 0;
+        let slideTimer;
+        const slideIntervalTime = 5000; // 5 sekundės
+
+        totalNumEls.forEach(el => el.textContent = String(bgSlides.length).padStart(2, '0'));
+
+        function updateSlideClasses() {
+            bgSlides.forEach((slide, index) => {
+                slide.classList.toggle('opacity-100', index === currentSlide);
+                slide.classList.toggle('opacity-0', index !== currentSlide);
+            });
+
+            slideTexts.forEach((textBlock, index) => {
+                if (index === currentSlide) {
+                    textBlock.classList.remove('opacity-0', 'pointer-events-none');
+                    textBlock.classList.add('opacity-100');
+                } else {
+                    textBlock.classList.remove('opacity-100');
+                    textBlock.classList.add('opacity-0', 'pointer-events-none');
+                }
+            });
+
+            const currentStr = String(currentSlide + 1).padStart(2, '0');
+            currentNumEls.forEach(el => el.textContent = currentStr);
+        }
+
+        function startProgress() {
+            slideProgressEls.forEach(bar => {
+                if (!bar) return;
+                bar.style.transition = 'none';
+                bar.style.width = '0%';
+                void bar.offsetWidth; // Trigger reflow
+                bar.style.transition = `width ${slideIntervalTime}ms linear`;
+                bar.style.width = '100%';
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % bgSlides.length;
+            updateSlideClasses();
+            startProgress();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + bgSlides.length) % bgSlides.length;
+            updateSlideClasses();
+            startProgress();
+        }
+
+        function resetTimer() {
+            clearInterval(slideTimer);
+            startProgress();
+            slideTimer = setInterval(nextSlide, slideIntervalTime);
+        }
+
+        nextBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => { 
+                e.stopPropagation(); 
+                nextSlide(); 
+                resetTimer(); 
+            });
+        });
+
+        prevBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => { 
+                e.stopPropagation(); 
+                prevSlide(); 
+                resetTimer(); 
+            });
+        });
+
+        // Tap ir Swipe palaikymas mobiliesiems
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchTime = 0;
+
+        heroSlider.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+            touchTime = new Date().getTime();
+        }, {passive: true});
+
+        heroSlider.addEventListener('touchend', e => {
+            const touchEndX = e.changedTouches[0].screenX;
+            const touchEndY = e.changedTouches[0].screenY;
+            const touchEndTime = new Date().getTime();
+            
+            const diffX = touchEndX - touchStartX;
+            const diffY = touchEndY - touchStartY;
+            const dist = Math.sqrt(diffX * diffX + diffY * diffY);
+            
+            if (dist < 10 && (touchEndTime - touchTime) < 300) {
+                nextSlide();
+                resetTimer();
+            } else {
+                const threshold = 50; 
+                if (touchEndX < touchStartX - threshold) {
+                    nextSlide();
+                    resetTimer();
+                } else if (touchEndX > touchStartX + threshold) {
+                    prevSlide();
+                    resetTimer();
+                }
+            }
+        }, {passive: true});
+
+        updateSlideClasses();
+        resetTimer();
+    </script>
+</body>
+</html>
