@@ -131,7 +131,7 @@
         </header>
 
         <!-- HERO SLIDER -->
-        <section class="relative w-full h-[280px] sm:h-[340px] lg:h-[400px] bg-slatebrand-900 overflow-hidden group">
+        <section id="hero-slider" class="relative w-full h-[280px] sm:h-[340px] lg:h-[400px] bg-slatebrand-900 overflow-hidden group">
             
             <div class="absolute inset-0 bg-gradient-to-r from-slatebrand-900/95 via-slatebrand-900/70 to-slatebrand-900/30 z-10"></div>
             <div class="absolute inset-0 bg-gradient-to-t from-slatebrand-900/90 via-transparent to-black/30 z-10"></div>
@@ -139,7 +139,7 @@
             <!-- Slide 1 -->
             <div class="slide absolute inset-0 opacity-100 transition-opacity duration-1000 ease-in-out">
                 <img src="https://www.uptest.no/wp-content/uploads/2016/10/uptest-neardomoji-kontrole-1.jpg" class="absolute w-full h-full object-cover object-center z-0" alt="Rope Access Rigging">
-                <div class="relative z-20 max-w-7xl mx-auto h-full px-12 sm:px-16 lg:px-8 flex items-center">
+                <div class="relative z-20 max-w-7xl mx-auto h-full px-6 lg:px-8 flex items-center">
                     <div class="max-w-xl text-left">
                         <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-brand-400/20 text-brand-300 border border-brand-400/30 backdrop-blur-md mb-3">
                             Industrial Services
@@ -157,7 +157,7 @@
             <!-- Slide 2 -->
             <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
                 <img src="https://www.uptest.no/wp-content/uploads/2016/10/uptest-neardomoji-kontrole-3.jpg" class="absolute w-full h-full object-cover object-center z-0" alt="Rope Access">
-                <div class="relative z-20 max-w-7xl mx-auto h-full px-12 sm:px-16 lg:px-8 flex items-center">
+                <div class="relative z-20 max-w-7xl mx-auto h-full px-6 lg:px-8 flex items-center">
                     <div class="max-w-xl text-left">
                         <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-brand-400/20 text-brand-300 border border-brand-400/30 backdrop-blur-md mb-3">
                             Safety & Precision
@@ -175,7 +175,7 @@
             <!-- Slide 3 -->
             <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
                 <img src="https://www.uptest.no/wp-content/uploads/2016/10/uptest-neardomoji-kontrole-2.jpg" class="absolute w-full h-full object-cover object-center z-0" alt="Non-Destructive Testing">
-                <div class="relative z-20 max-w-7xl mx-auto h-full px-12 sm:px-16 lg:px-8 flex items-center">
+                <div class="relative z-20 max-w-7xl mx-auto h-full px-6 lg:px-8 flex items-center">
                     <div class="max-w-xl text-left">
                         <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-brand-400/20 text-brand-300 border border-brand-400/30 backdrop-blur-md mb-3">
                             Quality Assurance
@@ -193,7 +193,7 @@
             <!-- Slide 4 -->
             <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
                 <img src="https://www.uptest.no/wp-content/uploads/2016/10/uptest-neardomoji-kontrole-4.jpg" class="absolute w-full h-full object-cover object-center z-0" alt="Professional Inspections">
-                <div class="relative z-20 max-w-7xl mx-auto h-full px-12 sm:px-16 lg:px-8 flex items-center">
+                <div class="relative z-20 max-w-7xl mx-auto h-full px-6 lg:px-8 flex items-center">
                     <div class="max-w-xl text-left">
                         <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-brand-400/20 text-brand-300 border border-brand-400/30 backdrop-blur-md mb-3">
                             Certified Expertise
@@ -211,7 +211,7 @@
             <!-- Slide 5 -->
             <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
                 <img src="https://www.uptest.no/wp-content/uploads/2016/10/uptest-neardomoji-kontrole-5.jpg" class="absolute w-full h-full object-cover object-center z-0" alt="Industrial Solutions">
-                <div class="relative z-20 max-w-7xl mx-auto h-full px-12 sm:px-16 lg:px-8 flex items-center">
+                <div class="relative z-20 max-w-7xl mx-auto h-full px-6 lg:px-8 flex items-center">
                     <div class="max-w-xl text-left">
                         <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-brand-400/20 text-brand-300 border border-brand-400/30 backdrop-blur-md mb-3">
                             Complete Coverage
@@ -226,15 +226,15 @@
                 </div>
             </div>
 
-            <!-- Navigation buttons (Matomi mobiliajame, o kompiuteryje rodomi užvedus pelytę) -->
-            <button id="prev-slide" class="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 z-30 p-2 sm:p-2.5 rounded-full bg-slatebrand-900/60 text-white hover:text-white hover:bg-brand-400 border border-white/15 backdrop-blur-sm transition-all opacity-75 sm:opacity-0 sm:group-hover:opacity-100">
+            <!-- Navigation buttons (Matomi tik nuo 'sm' ekrano dydžio ir viršuje, paslėpti mobiliajame) -->
+            <button id="prev-slide" class="absolute left-3 top-1/2 -translate-y-1/2 z-30 p-2.5 rounded-full bg-slatebrand-900/50 text-white/80 hover:text-white hover:bg-brand-400 border border-white/10 backdrop-blur-sm transition-all hidden sm:flex items-center justify-center opacity-0 group-hover:opacity-100">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
             </button>
-            <button id="next-slide" class="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 z-30 p-2 sm:p-2.5 rounded-full bg-slatebrand-900/60 text-white hover:text-white hover:bg-brand-400 border border-white/15 backdrop-blur-sm transition-all opacity-75 sm:opacity-0 sm:group-hover:opacity-100">
+            <button id="next-slide" class="absolute right-3 top-1/2 -translate-y-1/2 z-30 p-2.5 rounded-full bg-slatebrand-900/50 text-white/80 hover:text-white hover:bg-brand-400 border border-white/10 backdrop-blur-sm transition-all hidden sm:flex items-center justify-center opacity-0 group-hover:opacity-100">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
             </button>
 
-            <!-- Indicators (Vienodi tvarkingi taškai be ištempimo) -->
+            <!-- Indicators -->
             <div class="absolute bottom-3 left-1/2 -translate-x-1/2 z-30 flex space-x-2" id="dots-container"></div>
 
         </section>
@@ -324,6 +324,7 @@
         const prevBtn = document.getElementById('prev-slide');
         const nextBtn = document.getElementById('next-slide');
         const dotsContainer = document.getElementById('dots-container');
+        const heroSlider = document.getElementById('hero-slider');
         
         let currentSlide = 0;
         let slideTimer;
@@ -371,8 +372,35 @@
             slideTimer = setInterval(nextSlide, 5000);
         }
 
-        nextBtn.addEventListener('click', () => { nextSlide(); resetTimer(); });
-        prevBtn.addEventListener('click', () => { prevSlide(); resetTimer(); });
+        if (nextBtn && prevBtn) {
+            nextBtn.addEventListener('click', () => { nextSlide(); resetTimer(); });
+            prevBtn.addEventListener('click', () => { prevSlide(); resetTimer(); });
+        }
+
+        // Braukimo pirštu (Touch/Swipe) palaikymas mobiliesiems
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        heroSlider.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, {passive: true});
+
+        heroSlider.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, {passive: true});
+
+        function handleSwipe() {
+            const threshold = 50; // minimalus atstumas pikseliais braukimui užskaityti
+            if (touchEndX < touchStartX - threshold) {
+                nextSlide();
+                resetTimer();
+            }
+            if (touchEndX > touchStartX + threshold) {
+                prevSlide();
+                resetTimer();
+            }
+        }
 
         resetTimer();
     </script>
