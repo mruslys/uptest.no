@@ -6,7 +6,7 @@
     <title>Uptest | NDT & Rope Access Inspections</title>
     
     <!-- Favicon -->
-    <link rel="icon" href="./images/favicon.png" type="image/png">    
+    <link rel="icon" href="./images/favicon.png" type="image/png">
     
     <!-- Tailwind CSS su logotipo spalvų palete -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -52,25 +52,17 @@
 
     <!-- VIRŠUTINĖ DALIS (Top Bar + Header) -->
     <div>
-        <!-- TOP BAR (Minimalistinis kalbų pasirinkimas be vėliavėlių) -->
+        <!-- TOP BAR (Minimalistinis kalbų pasirinkimas) -->
         <div class="bg-slatebrand-900 text-slate-300 text-xs py-1.5 border-b border-slate-800">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
                 
                 <!-- Kalbos: EN / NO / LT -->
                 <div class="flex items-center space-x-3">
                     <span class="text-slate-400 font-medium mr-1 hidden sm:inline">Language:</span>
-                    
-                    <!-- EN (Default / Active) -->
                     <a href="/" class="font-bold text-brand-400 hover:text-brand-300 transition-colors">EN</a>
-                    
                     <span class="text-slate-700">|</span>
-                    
-                    <!-- NO -->
                     <a href="/no/" class="font-medium text-slate-300 hover:text-brand-400 transition-colors">NO</a>
-                    
                     <span class="text-slate-700">|</span>
-                    
-                    <!-- LT -->
                     <a href="/lt/" class="font-medium text-slate-300 hover:text-brand-400 transition-colors">LT</a>
                 </div>
 
@@ -138,24 +130,25 @@
             </div>
         </header>
 
-        <!-- HERO SLIDER -->
-        <section class="relative w-full h-[240px] sm:h-[300px] lg:h-[360px] bg-slatebrand-900 overflow-hidden group">
+        <!-- HERO SLIDER (Patobulintos proporcijos ir skaitomumas) -->
+        <section class="relative w-full h-[280px] sm:h-[340px] lg:h-[400px] bg-slatebrand-900 overflow-hidden group">
             
-            <div class="absolute inset-0 bg-gradient-to-r from-slatebrand-900/90 via-slatebrand-900/60 to-transparent z-10"></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-slatebrand-900/80 via-transparent to-black/20 z-10"></div>
+            <!-- Geresnis tamsus perėjimas tekstui išsiskirti -->
+            <div class="absolute inset-0 bg-gradient-to-r from-slatebrand-900/95 via-slatebrand-900/70 to-slatebrand-900/30 z-10"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-slatebrand-900/90 via-transparent to-black/30 z-10"></div>
 
             <!-- Slide 1 -->
             <div class="slide absolute inset-0 opacity-100 transition-opacity duration-1000 ease-in-out">
-                <img src="https://www.uptest.no/wp-content/uploads/2016/10/uptest-neardomoji-kontrole-1.jpg" class="absolute w-full h-full object-cover z-0" alt="Rope Access Rigging">
+                <img src="https://www.uptest.no/wp-content/uploads/2016/10/uptest-neardomoji-kontrole-1.jpg" class="absolute w-full h-full object-cover object-center z-0" alt="Rope Access Rigging">
                 <div class="relative z-20 max-w-7xl mx-auto h-full px-6 lg:px-8 flex items-center">
                     <div class="max-w-xl text-left">
-                        <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-brand-400/20 text-brand-300 border border-brand-400/30 backdrop-blur-md mb-2">
+                        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-brand-400/20 text-brand-300 border border-brand-400/30 backdrop-blur-md mb-3">
                             Industrial Services
                         </span>
                         <h1 class="text-white text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-2 drop-shadow-md">
                             Rope Access Rigging
                         </h1>
-                        <p class="text-slate-300 text-xs sm:text-base font-normal max-w-md line-clamp-2">
+                        <p class="text-slate-200 text-xs sm:text-sm lg:text-base font-normal max-w-lg leading-relaxed">
                             Certified high-altitude inspection and maintenance solutions tailored for challenging environments.
                         </p>
                     </div>
@@ -164,16 +157,16 @@
 
             <!-- Slide 2 -->
             <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
-                <img src="https://www.uptest.no/wp-content/uploads/2016/10/uptest-neardomoji-kontrole-3.jpg" class="absolute w-full h-full object-cover z-0" alt="Rope Access">
+                <img src="https://www.uptest.no/wp-content/uploads/2016/10/uptest-neardomoji-kontrole-3.jpg" class="absolute w-full h-full object-cover object-center z-0" alt="Rope Access">
                 <div class="relative z-20 max-w-7xl mx-auto h-full px-6 lg:px-8 flex items-center">
                     <div class="max-w-xl text-left">
-                        <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-brand-400/20 text-brand-300 border border-brand-400/30 backdrop-blur-md mb-2">
+                        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-brand-400/20 text-brand-300 border border-brand-400/30 backdrop-blur-md mb-3">
                             Safety & Precision
                         </span>
                         <h2 class="text-white text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-2 drop-shadow-md">
                             Advanced Rope Access
                         </h2>
-                        <p class="text-slate-300 text-xs sm:text-base font-normal max-w-md line-clamp-2">
+                        <p class="text-slate-200 text-xs sm:text-sm lg:text-base font-normal max-w-lg leading-relaxed">
                             Efficient, safe, and cost-effective access techniques for onshore and offshore structures.
                         </p>
                     </div>
@@ -182,16 +175,16 @@
 
             <!-- Slide 3 -->
             <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
-                <img src="https://www.uptest.no/wp-content/uploads/2016/10/uptest-neardomoji-kontrole-2.jpg" class="absolute w-full h-full object-cover z-0" alt="Non-Destructive Testing">
+                <img src="https://www.uptest.no/wp-content/uploads/2016/10/uptest-neardomoji-kontrole-2.jpg" class="absolute w-full h-full object-cover object-center z-0" alt="Non-Destructive Testing">
                 <div class="relative z-20 max-w-7xl mx-auto h-full px-6 lg:px-8 flex items-center">
                     <div class="max-w-xl text-left">
-                        <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-brand-400/20 text-brand-300 border border-brand-400/30 backdrop-blur-md mb-2">
+                        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-brand-400/20 text-brand-300 border border-brand-400/30 backdrop-blur-md mb-3">
                             Quality Assurance
                         </span>
                         <h2 class="text-white text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-2 drop-shadow-md">
                             Non-Destructive Testing
                         </h2>
-                        <p class="text-slate-300 text-xs sm:text-base font-normal max-w-md line-clamp-2">
+                        <p class="text-slate-200 text-xs sm:text-sm lg:text-base font-normal max-w-lg leading-relaxed">
                             Comprehensive NDT evaluations ensuring structural integrity without causing damage.
                         </p>
                     </div>
@@ -200,16 +193,16 @@
 
             <!-- Slide 4 -->
             <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
-                <img src="https://www.uptest.no/wp-content/uploads/2016/10/uptest-neardomoji-kontrole-4.jpg" class="absolute w-full h-full object-cover z-0" alt="Professional Inspections">
+                <img src="https://www.uptest.no/wp-content/uploads/2016/10/uptest-neardomoji-kontrole-4.jpg" class="absolute w-full h-full object-cover object-center z-0" alt="Professional Inspections">
                 <div class="relative z-20 max-w-7xl mx-auto h-full px-6 lg:px-8 flex items-center">
                     <div class="max-w-xl text-left">
-                        <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-brand-400/20 text-brand-300 border border-brand-400/30 backdrop-blur-md mb-2">
+                        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-brand-400/20 text-brand-300 border border-brand-400/30 backdrop-blur-md mb-3">
                             Certified Expertise
                         </span>
                         <h2 class="text-white text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-2 drop-shadow-md">
                             Professional Inspections
                         </h2>
-                        <p class="text-slate-300 text-xs sm:text-base font-normal max-w-md line-clamp-2">
+                        <p class="text-slate-200 text-xs sm:text-sm lg:text-base font-normal max-w-lg leading-relaxed">
                             Delivering reliable diagnostics and technical reporting according to international standards.
                         </p>
                     </div>
@@ -218,16 +211,16 @@
 
             <!-- Slide 5 -->
             <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
-                <img src="https://www.uptest.no/wp-content/uploads/2016/10/uptest-neardomoji-kontrole-5.jpg" class="absolute w-full h-full object-cover z-0" alt="Industrial Solutions">
+                <img src="https://www.uptest.no/wp-content/uploads/2016/10/uptest-neardomoji-kontrole-5.jpg" class="absolute w-full h-full object-cover object-center z-0" alt="Industrial Solutions">
                 <div class="relative z-20 max-w-7xl mx-auto h-full px-6 lg:px-8 flex items-center">
                     <div class="max-w-xl text-left">
-                        <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-brand-400/20 text-brand-300 border border-brand-400/30 backdrop-blur-md mb-2">
+                        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-brand-400/20 text-brand-300 border border-brand-400/30 backdrop-blur-md mb-3">
                             Complete Coverage
                         </span>
                         <h2 class="text-white text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-2 drop-shadow-md">
                             Industrial Solutions
                         </h2>
-                        <p class="text-slate-300 text-xs sm:text-base font-normal max-w-md line-clamp-2">
+                        <p class="text-slate-200 text-xs sm:text-sm lg:text-base font-normal max-w-lg leading-relaxed">
                             Partnering with industry leaders to maintain safe and efficient operations.
                         </p>
                     </div>
@@ -235,10 +228,10 @@
             </div>
 
             <!-- Navigation buttons -->
-            <button id="prev-slide" class="absolute left-2 top-1/2 -translate-y-1/2 z-30 p-2 rounded-full bg-slatebrand-900/40 text-white/80 hover:text-white hover:bg-brand-400/80 border border-white/10 backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100">
+            <button id="prev-slide" class="absolute left-3 top-1/2 -translate-y-1/2 z-30 p-2.5 rounded-full bg-slatebrand-900/50 text-white/80 hover:text-white hover:bg-brand-400 border border-white/10 backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
             </button>
-            <button id="next-slide" class="absolute right-2 top-1/2 -translate-y-1/2 z-30 p-2 rounded-full bg-slatebrand-900/40 text-white/80 hover:text-white hover:bg-brand-400/80 border border-white/10 backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100">
+            <button id="next-slide" class="absolute right-3 top-1/2 -translate-y-1/2 z-30 p-2.5 rounded-full bg-slatebrand-900/50 text-white/80 hover:text-white hover:bg-brand-400 border border-white/10 backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
             </button>
 
@@ -250,48 +243,48 @@
 
     <!-- APATINĖ DALIS (Kontaktai + Futeris) -->
     <div>
-        <!-- PRE-FOOTER -->
+        <!-- PRE-FOOTER (Optimizuotos kontaktų kortelės) -->
         <section class="bg-slatebrand-900 text-white py-6 border-t border-slate-800">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                     
                     <!-- Telefonas -->
-                    <a href="tel:+37068889229" class="flex items-center gap-3.5 p-4 rounded-xl bg-slate-800/40 hover:bg-slate-800/80 border border-slate-700/50 hover:border-brand-400/40 transition-all duration-200 group">
-                        <div class="p-2.5 rounded-lg bg-brand-400/10 text-brand-400 group-hover:bg-brand-400 group-hover:text-white transition-all flex-shrink-0">
+                    <a href="tel:+37068889229" class="flex items-center gap-4 p-4 rounded-xl bg-slate-800/50 hover:bg-slate-800/90 border border-slate-700/60 hover:border-brand-400/50 transition-all duration-200 group shadow-sm">
+                        <div class="p-3 rounded-lg bg-brand-400/10 text-brand-400 group-hover:bg-brand-400 group-hover:text-white transition-all flex-shrink-0">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
                             </svg>
                         </div>
                         <div>
-                            <h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Phone</h4>
+                            <h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-0.5">Phone</h4>
                             <p class="text-base font-bold text-white group-hover:text-brand-300 transition-colors">+370 (688) 89229</p>
                         </div>
                     </a>
 
                     <!-- El. paštas -->
-                    <a href="mailto:info@uptest.no" class="flex items-center gap-3.5 p-4 rounded-xl bg-slate-800/40 hover:bg-slate-800/80 border border-slate-700/50 hover:border-brand-400/40 transition-all duration-200 group">
-                        <div class="p-2.5 rounded-lg bg-brand-400/10 text-brand-400 group-hover:bg-brand-400 group-hover:text-white transition-all flex-shrink-0">
+                    <a href="mailto:info@uptest.no" class="flex items-center gap-4 p-4 rounded-xl bg-slate-800/50 hover:bg-slate-800/90 border border-slate-700/60 hover:border-brand-400/50 transition-all duration-200 group shadow-sm">
+                        <div class="p-3 rounded-lg bg-brand-400/10 text-brand-400 group-hover:bg-brand-400 group-hover:text-white transition-all flex-shrink-0">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                             </svg>
                         </div>
                         <div>
-                            <h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">E-mail</h4>
+                            <h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-0.5">E-mail</h4>
                             <p class="text-base font-bold text-white group-hover:text-brand-300 transition-colors">info@uptest.no</p>
                         </div>
                     </a>
 
                     <!-- Adresas -->
-                    <a href="/contacts/" class="flex items-center gap-3.5 p-4 rounded-xl bg-slate-800/40 hover:bg-slate-800/80 border border-slate-700/50 hover:border-red-400/40 transition-all duration-200 group">
-                        <div class="p-2.5 rounded-lg bg-red-500/10 text-red-400 group-hover:bg-red-500 group-hover:text-white transition-all flex-shrink-0">
+                    <a href="/contacts/" class="flex items-center gap-4 p-4 rounded-xl bg-slate-800/50 hover:bg-slate-800/90 border border-slate-700/60 hover:border-red-400/50 transition-all duration-200 group shadow-sm">
+                        <div class="p-3 rounded-lg bg-red-500/10 text-red-400 group-hover:bg-red-500 group-hover:text-white transition-all flex-shrink-0">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
                             </svg>
                         </div>
                         <div>
-                            <h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Our location</h4>
-                            <p class="text-xs font-medium text-slate-200 group-hover:text-white transition-colors">
+                            <h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-0.5">Our location</h4>
+                            <p class="text-xs font-medium text-slate-200 group-hover:text-white transition-colors leading-snug">
                                 Vanagupės g. 22-31, Palanga, Lithuania.
                             </p>
                         </div>
@@ -302,7 +295,7 @@
         </section>
 
         <!-- FOOTER BOTTOM -->
-        <footer class="bg-slatebrand-900 text-slate-400 text-xs py-3 border-t border-slate-800/60">
+        <footer class="bg-slatebrand-900 text-slate-400 text-xs py-3.5 border-t border-slate-800/60">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-2 text-center sm:text-left">
                 <p class="text-[11px] text-slate-400">
                     © 2026 <strong class="text-slate-200 font-semibold">UAB "Uptest"</strong>. Visos teisės saugomos.
