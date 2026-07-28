@@ -59,7 +59,7 @@
     .slider-controller:active {
         opacity: 1;
     }
-</style>
+    </style>
 </head>
 <body class="bg-brand-950 text-slate-800 antialiased font-sans flex flex-col min-h-[100svh]">
 
@@ -124,7 +124,7 @@
                     <a href="/rope-access/" class="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-700 hover:text-brand-500 hover:bg-brand-50">Rope Access</a>
                     <a href="/equipment/" class="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-700 hover:text-brand-500 hover:bg-brand-50">NDT Equipment</a>
                     <a href="/career/" class="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-700 hover:text-brand-500 hover:bg-brand-50">Jobs & Careers</a>
-                    <a href="/contacts/" class="block px-3 py-2 rounded-lg text-sm font-semibold text-brand-500 bg-brand-50">Contacts</a>
+                    <a href="/contacts/" class="block px-3 py-2 rounded-lg text-sm font-bold text-brand-600 hover:bg-brand-50">Contacts</a>
                     
                     <div class="border-t border-gray-100 mt-2 pt-2 space-y-1">
                         <a href="/certificates/" class="block px-3 py-1.5 rounded-lg text-xs font-medium text-slate-500 hover:text-brand-500">Our Certificates</a>
@@ -177,7 +177,6 @@
                 <button class="prev-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-md hover:bg-white/10" aria-label="Previous slide">
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
                 </button>
-                <!-- Pauzės / Paleidimo mygtukas -->
                 <button class="pause-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-md hover:bg-white/10" aria-label="Pause/Play slide">
                     <svg class="w-3.5 h-3.5 pause-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6"/></svg>
                     <svg class="w-3.5 h-3.5 play-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/></svg>
@@ -305,7 +304,6 @@
                             <button class="prev-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-md hover:bg-white/10" aria-label="Previous slide">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
                             </button>
-                            <!-- Pauzės / Paleidimo mygtukas mobiliesiems -->
                             <button class="pause-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-md hover:bg-white/10" aria-label="Pause/Play slide">
                                 <svg class="w-4 h-4 pause-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6"/></svg>
                                 <svg class="w-4 h-4 play-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/></svg>
@@ -472,7 +470,6 @@
                     bar.style.width = computedWidth;
                 });
             } else {
-                // Kai paspaudžiamas play, pereiname į sekantį slide ir paleidžiame laikmatį
                 nextSlide();
                 resetTimer();
             }
@@ -490,83 +487,34 @@
             });
         }
 
+        pauseBtns.forEach(btn => {
+            btn.addEventListener('click', togglePlayPause);
+        });
+
         nextBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => { 
-                e.stopPropagation(); 
-                nextSlide(); 
-                resetTimer(); 
+            btn.addEventListener('click', () => {
+                nextSlide();
+                resetTimer();
             });
         });
 
         prevBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => { 
-                e.stopPropagation(); 
-                prevSlide(); 
-                resetTimer(); 
+            btn.addEventListener('click', () => {
+                prevSlide();
+                resetTimer();
             });
         });
 
-        pauseBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                togglePlayPause();
-            });
-        });
-
-        document.querySelectorAll('.contact-link, .slide-text a').forEach(link => {
-            link.addEventListener('touchstart', (e) => {
-                e.stopPropagation();
-            }, { passive: true });
-
-            link.addEventListener('touchend', (e) => {
-                e.stopPropagation();
-            }, { passive: true });
-
-            link.addEventListener('click', (e) => {
-                e.stopPropagation();
-            });
-        });
-
-        let touchStartX = 0;
-        let touchStartY = 0;
-        let touchTime = 0;
-
-        heroSlider.addEventListener('touchstart', e => {
-            touchStartX = e.changedTouches[0].screenX;
-            touchStartY = e.changedTouches[0].screenY;
-            touchTime = new Date().getTime();
-        }, {passive: true});
-
-        heroSlider.addEventListener('touchend', e => {
-            if (e.target.closest('button') || e.target.closest('a') || e.target.closest('.slider-controller')) {
-                return;
-            }
-
-            const touchEndX = e.changedTouches[0].screenX;
-            const touchEndY = e.changedTouches[0].screenY;
-            const touchEndTime = new Date().getTime();
-            
-            const diffX = touchEndX - touchStartX;
-            const diffY = touchEndY - touchStartY;
-            const dist = Math.sqrt(diffX * diffX + diffY * diffY);
-            
-            if (dist < 10 && (touchEndTime - touchTime) < 300) {
+        if (heroSlider) {
+            heroSlider.addEventListener('click', (e) => {
+                if (e.target.closest('button') || e.target.closest('a')) return;
                 nextSlide();
                 resetTimer();
-            } else {
-                const threshold = 50; 
-                if (touchEndX < touchStartX - threshold) {
-                    nextSlide();
-                    resetTimer();
-                } else if (touchEndX > touchStartX + threshold) {
-                    prevSlide();
-                    resetTimer();
-                }
-            }
-        }, {passive: true});
+            });
+        }
 
-        updateSlideClasses();
-        resetTimer();
+        slideTimer = setInterval(nextSlide, slideIntervalTime);
+        startProgress();
     </script>
 </body>
 </html>
