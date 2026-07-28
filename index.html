@@ -50,16 +50,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
-        .slider-controller {
-            opacity: 0.65;
-            transition: opacity 0.3s ease-in-out;
-        }
-        
-        #hero-slider:hover .slider-controller,
-        .slider-controller:active {
-            opacity: 1;
-        }
-    </style>
+    .slider-controller {
+        opacity: 0.65; /* <--- Pakeiskite į 1 arba ištrinkite šią eilutę */
+        transition: opacity 0.3s ease-in-out;
+    }
+    
+    #hero-slider:hover .slider-controller,
+    .slider-controller:active {
+        opacity: 1;
+    }
+</style>
+
+    
 </head>
 <body class="bg-brand-950 text-slate-800 antialiased font-sans flex flex-col min-h-[100svh] justify-between">
 
