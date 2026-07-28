@@ -8,7 +8,7 @@
     <!-- Favicon -->
     <link rel="icon" href="./images/favicon.png" type="image/png">
     
-    <!-- Tailwind CSS su logotipo spalvų palete -->
+    <!-- Tailwind CSS su atnaujinta, ryškesne Teal/Cyan palete -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -16,17 +16,17 @@
                 extend: {
                     colors: {
                         brand: {
-                            50: '#f0f9fa',
-                            100: '#e0f2f5',
-                            200: '#bce4eb',
-                            300: '#89ccda',
-                            400: '#4fa2ae', // Tiksli logotipo Teal spalva
-                            500: '#338593',
-                            600: '#286975',
-                            700: '#235560',
-                            800: '#1e444d',
-                            900: '#1a3a42',
-                            950: '#0f242b',
+                            50: '#ecfeff',
+                            100: '#cffafe',
+                            200: '#a5f3fc',
+                            300: '#67e8f9',
+                            400: '#22d3ee', // Ryškesnis, modernus Cyan/Teal akcentas
+                            500: '#06b6d4',
+                            600: '#0891b2',
+                            700: '#0e7490',
+                            800: '#155e75',
+                            900: '#164e63',
+                            950: '#083344',
                         },
                         slatebrand: {
                             500: '#5a656b',
@@ -50,13 +50,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
-        /* Pridedame permatomumo efektą, kol nepaspaudžiama / neužvedama pelė */
         .slider-controller {
-            opacity: 0.6;
+            opacity: 0.65;
             transition: opacity 0.3s ease-in-out;
         }
         
-        /* Kai užvedama pelė ant sliderio arba valdiklis aktyvus, tampa ryškus */
         #hero-slider:hover .slider-controller,
         .slider-controller:active {
             opacity: 1;
@@ -110,7 +108,7 @@
                         <a href="/equipment/" class="relative text-slate-700 hover:text-brand-500 font-semibold text-sm transition-colors py-2">NDT Equipment</a>
                         <a href="/career/" class="relative text-slate-700 hover:text-brand-500 font-semibold text-sm transition-colors py-2">Jobs & Careers</a>
                         
-                        <a href="/contacts/" class="ml-2 inline-flex items-center justify-center px-4 py-2 rounded-lg font-semibold text-xs text-white bg-brand-400 hover:bg-brand-500 shadow-sm transition-all">
+                        <a href="/contacts/" class="ml-2 inline-flex items-center justify-center px-4 py-2 rounded-lg font-semibold text-xs text-white bg-brand-500 hover:bg-brand-600 shadow-sm transition-all">
                             Contacts
                         </a>
                     </nav>
@@ -172,7 +170,7 @@
             <div class="absolute inset-0 bg-gradient-to-t from-slatebrand-900/95 via-slatebrand-900/50 to-slatebrand-900/30"></div>
         </div>
 
-        <!-- Desktop Slaiderio valdiklis (apačioje dešinėje) - Be fono / lengvas -->
+        <!-- Desktop Slaiderio valdiklis (apačioje dešinėje) -->
         <div class="slider-controller hidden lg:flex absolute right-8 bottom-8 z-30 items-center gap-3">
             <div class="text-[11px] font-bold text-white tracking-wider tabular-nums flex items-center gap-1">
                 <span class="text-brand-400 current-num">01</span>
@@ -192,10 +190,10 @@
             </div>
         </div>
 
-        <!-- Pagrindinis turinys (Tekstas centrizuotas vertikaliai per my-auto tarp header ir apačios) -->
+        <!-- Pagrindinis turinys -->
         <div class="relative z-20 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-4 sm:py-6 flex flex-col justify-between flex-grow">
             
-            <!-- Centrinė dalis: Tekstas (su my-auto, kad idealiai atsistotų į laisvos erdvės vidurį) -->
+            <!-- Centrinė dalis: Tekstas -->
             <div class="w-full max-w-xl text-left my-auto">
                 <div class="relative min-h-[130px] sm:min-h-[160px]">
                     <!-- Slide Text 1 -->
@@ -267,8 +265,8 @@
 
             <!-- APATINĖ DALIS (Mobilus valdiklis + Kontaktai) -->
             <div class="w-full max-w-4xl pt-4">
-                <!-- Mobiliame ekrane valdiklis virš kontaktų kortelių -->
-                <div class="slider-controller w-full flex justify-end lg:hidden mb-2 px-1">
+                <!-- Mobiliame ekrane valdiklis pakeltas ir atitrauktas virš kontaktų kortelių (dešinėje) -->
+                <div class="slider-controller w-full flex justify-end lg:hidden mb-3 px-1">
                     <div class="inline-flex items-center gap-3">
                         <div class="text-[11px] font-bold text-white tracking-wider tabular-nums flex items-center gap-1">
                             <span class="text-brand-400 current-num">01</span>
@@ -318,7 +316,7 @@
                         </div>
                     </a>
 
-                    <!-- Our Location (Nuoroda į Google Maps) -->
+                    <!-- Our Location -->
                     <a href="https://maps.app.goo.gl/hGXkK35Qdv2JQvNU6" target="_blank" rel="noopener noreferrer" class="contact-link p-2.5 sm:p-3.5 rounded-xl bg-slatebrand-900/85 hover:bg-slate-800/95 border border-slate-700/60 hover:border-brand-400/50 backdrop-blur-md transition-all duration-200 group shadow-lg flex items-center gap-3">
                         <div class="p-2 rounded-lg bg-brand-400/15 text-brand-400 group-hover:bg-brand-400 group-hover:text-white transition-all flex-shrink-0">
                             <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -339,24 +337,23 @@
 
     </section>
 
-    <!-- FOOTER BOTTOM -->
-    <footer class="bg-slatebrand-900 text-xs py-3 sm:py-5 border-t border-slate-800/60 flex-shrink-0 z-30">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-2 text-center sm:text-left">
-            <p class="text-[11px] text-slate-500 font-light">
+    <!-- FOOTER BOTTOM (Atnaujintas, švaresnis ir profesionalesnis dizainas) -->
+    <footer class="bg-slatebrand-900 py-4 sm:py-6 border-t border-slate-800/80 flex-shrink-0 z-30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-3 text-center sm:text-left">
+            <p class="text-xs text-slate-400 font-normal">
                 © 2026 <strong class="text-slate-200 font-semibold">UAB "Uptest"</strong>. All rights reserved.
             </p>
-            <p class="text-xs flex items-center gap-1">
-                <span class="text-brand-300 font-light">Rebuilt by</span>
-                <a href="https://æx7.com" target="_blank" rel="noopener noreferrer" class="text-brand-400 hover:text-brand-300 transition-colors font-bold">
+            <div class="flex items-center gap-2 text-xs text-slate-400">
+                <span class="font-light">Rebuilt by</span>
+                <a href="https://æx7.com" target="_blank" rel="noopener noreferrer" class="text-brand-400 hover:text-brand-300 transition-colors font-bold tracking-wide">
                     Æx7
                 </a>
-            </p>
+            </div>
         </div>
     </footer>
 
     <!-- SKRIPTAI -->
     <script>
-        // Mobiliojo meniu atidarymas / uždarymas
         const mobileBtn = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu-panel');
 
@@ -364,7 +361,6 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Hero Slider Logika
         const bgSlides = document.querySelectorAll('.bg-slide');
         const slideTexts = document.querySelectorAll('.slide-text');
         const prevBtns = document.querySelectorAll('.prev-slide-btn');
@@ -378,7 +374,7 @@
         
         let currentSlide = 0;
         let slideTimer;
-        const slideIntervalTime = 5000; // 5 sekundės
+        const slideIntervalTime = 5000;
 
         totalNumEls.forEach(el => el.textContent = String(bgSlides.length).padStart(2, '0'));
 
@@ -407,7 +403,7 @@
                 if (!bar) return;
                 bar.style.transition = 'none';
                 bar.style.width = '0%';
-                void bar.offsetWidth; // Trigger reflow
+                void bar.offsetWidth;
                 bar.style.transition = `width ${slideIntervalTime}ms linear`;
                 bar.style.width = '100%';
             });
@@ -447,7 +443,6 @@
             });
         });
 
-        // Pilnas kontaktų nuorodų įvykių izoliavimas mobiliesiems
         document.querySelectorAll('.contact-link').forEach(link => {
             link.addEventListener('touchstart', (e) => {
                 e.stopPropagation();
@@ -462,7 +457,6 @@
             });
         });
 
-        // Tap ir Swipe palaikymas mobiliesiems
         let touchStartX = 0;
         let touchStartY = 0;
         let touchTime = 0;
