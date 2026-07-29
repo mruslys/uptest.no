@@ -4,7 +4,7 @@
                 
                 <div class="flex items-center space-x-3">
                     <span class="text-slate-400 font-medium mr-1 hidden sm:inline">{{ data.common[page.lang].language }}:</span>
-                    
+                    <span>Dabartinis lang yra: {{ page.lang }}</span>
                     <!-- EN nuoroda -->
                     <a href="index.html" class="transition-colors {% if page.lang == 'en' %}font-bold text-brand-400{% else %}font-medium text-slate-300 hover:text-brand-400{% endif %}">EN</a>
                     
