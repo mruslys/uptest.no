@@ -1,4 +1,4 @@
-{% assign c = site.data.data.common[page.lang] %}
+{% assign data = site.data.data %}
 
 <!DOCTYPE html>
 <html lang="{{ page.lang }}" class="scroll-smooth">
@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    {% include seo.html %}
+    <title>{{ data.index.title.[page.lang] }}</title>
 
     <base href="/uptest.no/">
     
@@ -362,16 +362,16 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-4 text-center sm:text-left">
             
             <p class="text-[11px] text-slate-600 font-normal">
-                © 2026 <strong class="text-slate-900 font-semibold tracking-wide">{{ c.company }}</strong>. {{ c.rights }}
+                © 2026 <strong class="text-slate-900 font-semibold tracking-wide">{{ data.common[page.lang].company }}</strong>. {{ data.common[page.lang].rights }}
             </p>
             
             <div class="flex items-center gap-1.5 text-[11px] text-slate-500">
-                <span class="font-light">{{ c.rebuilt_by }}</span>
+                <span class="font-light">{{ data.common[page.lang].rebuilt_by }}</span>
                 <a href="https://æx7.com" target="_blank" rel="noopener noreferrer" class="text-brand-600 hover:text-brand-700 transition-colors font-semibold tracking-wide">
                     Æx7
                 </a>
                 [<a href="https://uptest.no" target="_blank" rel="noopener noreferrer" class="text-brand-600 hover:text-brand-700 transition-colors font-semibold tracking-wide">
-                    {{ c.old_version }}
+                    {{ data.common[page.lang].old_version }}
                 </a>]
             </div>
             
