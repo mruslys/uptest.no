@@ -1,9 +1,10 @@
 # _data/data.yaml
 
 index:
-  en: "Uptest | NDT & Rope Access Inspections"
-  lt: "Uptest | Neardomoji kontrolė ir darbai aukštyje"
-  no: "Uptest | NDT & Tilgangsteknikk Kontroll"
+  title:
+    en: "Uptest | NDT & Rope Access Inspections"
+    lt: "Uptest | Neardomoji kontrolė ir darbai aukštyje"
+    no: "Uptest | NDT & Tilgangsteknikk Kontroll"
   
 common:
   en:
