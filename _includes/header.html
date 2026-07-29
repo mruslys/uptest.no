@@ -3,7 +3,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
                 
                 <div class="flex items-center space-x-3">
-                    <span class="text-slate-400 font-medium mr-1 hidden sm:inline">Language:</span>
+                    <span class="text-slate-400 font-medium mr-1 hidden sm:inline">{{ data.common[page.lang].language }}:</span>
                     
                     <!-- EN nuoroda -->
                     <a href="index.html" class="transition-colors {% if page.lang == 'en' %}font-bold text-brand-400{% else %}font-medium text-slate-300 hover:text-brand-400{% endif %}">EN</a>
@@ -20,8 +20,8 @@
                 </div>
 
                 <div class="flex items-center space-x-6 text-xs font-medium">
-                    <a href="certificates/" class="hover:text-brand-400 transition-colors hidden sm:inline-block">Our certificates</a>
-                    <a href="gallery/" class="hover:text-brand-400 transition-colors hidden sm:inline-block">Gallery</a>
+                    <a href="{{ data.galleries.certificates.link[page.lang] }}" class="hover:text-brand-400 transition-colors hidden sm:inline-block">{{ data.galleries.certificates.title[page.lang] }}</a>
+                    <a href="{{ data.galleries.images.link[page.lang] }}" class="hover:text-brand-400 transition-colors hidden sm:inline-block">{{ data.galleries.images.title[page.lang] }}</a>
                 </div>
                 
             </div>
