@@ -33,7 +33,7 @@ galleries:
     title:
       en: "Our certificates"
       lt: "Mūsų sertifikatai"
-      no: "Våre sertifikater"
+      "no": "Våre sertifikater"
     link:
       en: "certificates/"
       lt: "lt/sertificatai/"
@@ -42,7 +42,7 @@ galleries:
     title:
       en: "Galery"
       lt: "Galerija"
-      no: "Galleri"
+      "no": "Galleri"
     link:
       en: "gallery/"
       lt: "lt/galerija/"
@@ -53,7 +53,7 @@ pages:
     badge: 
       en: "Certified Expertise"
       lt:
-      no:
+      "no":
     title: 
       en: "Professional Inspections & Solutions"
     desc: 
