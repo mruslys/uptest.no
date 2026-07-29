@@ -4,7 +4,7 @@ index:
   title:
     en: "Uptest | NDT & Rope Access Inspections"
     lt: "Uptest | Neardomoji kontrolė ir darbai aukštyje"
-    no: "Uptest | NDT & Tilgangsteknikk Kontroll"
+    "no": "Uptest | NDT & Tilgangsteknikk Kontroll"
   
 common:
   en:
@@ -21,7 +21,7 @@ common:
     rebuilt_by: "Atnaujino"
     old_version: "Senoji versija"
   
-  no:
+  "no":
     language: "Språk"
     company: "Uptest, NUF"
     rights: "Alle rettigheter reservert."
@@ -37,7 +37,7 @@ galleries:
     link:
       en: "certificates/"
       lt: "lt/sertificatai/"
-      no: "no/sertifikater/"
+      "no": "no/sertifikater/"
   images:
     title:
       en: "Galery"
@@ -46,7 +46,7 @@ galleries:
     link:
       en: "gallery/"
       lt: "lt/galerija/"
-      no: "no/galleri/"
+      "no": "no/galleri/"
   
 pages:
   about:
