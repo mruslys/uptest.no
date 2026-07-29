@@ -1,5 +1,10 @@
 # _data/data.yaml
 
+index:
+  en: "Uptest | NDT & Rope Access Inspections"
+  lt: "Uptest | Neardomoji kontrolė ir darbai aukštyje"
+  no: "Uptest | NDT & Tilgangsteknikk Kontroll"
+  
 common:
   en:
     company: "Uptest, Ltd"
@@ -20,20 +25,19 @@ common:
     old_version: "Gammel versjon"
   
 pages:
-  home:
-    badge: "Certified Expertise"
-    title: "Professional Inspections & Solutions"
-    desc: "Delivering reliable non-destructive testing and rope access solutions backed by years of international offshore experience."
-    btn_text: "About Us"
-    link: "about-us/"
-    image: "images/uptest-neardomoji-kontrole-1.jpg"
-
   about:
-    badge: "Our Company"
-    title: "About Us"
-    desc: "Learn more about our team, certification, and long-standing experience in industrial inspections."
-    btn_text: "Contacts"
-    link: "contacts/"
+    badge: 
+      en: "Certified Expertise"
+      lt:
+      no:
+    title: 
+      en: "Professional Inspections & Solutions"
+    desc: 
+      en: "Delivering reliable non-destructive testing and rope access solutions backed by years of international offshore experience."
+    btn_text: 
+      en: "About Us"
+    link: 
+      en: "about-us/"
     image: "images/uptest-neardomoji-kontrole-1.jpg"
 
   ndt:
