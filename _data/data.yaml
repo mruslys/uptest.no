@@ -36,8 +36,8 @@ galleries:
       no: "Våre sertifikater"
     link:
       en: "certificates/"
-      lt: "sertificatai/"
-      no: "sertifikater/"
+      lt: "lt/sertificatai/"
+      no: "no/sertifikater/"
   images:
     title:
       en: "Galery"
@@ -45,8 +45,8 @@ galleries:
       no: "Galleri"
     link:
       en: "gallery/"
-      lt: "galerija/"
-      no: "galleri/"
+      lt: "lt/galerija/"
+      no: "no/galleri/"
   
 pages:
   about:
