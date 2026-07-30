@@ -71,14 +71,16 @@
     </div>
 
     <!-- Pagrindinis navigacijos meniu -->
+    <!-- Pagrindinis navigacijos meniu -->
     <header class="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
+            <!-- Pakeistas aukštis iš h-16 į dinaminį h-16 sm:h-20, kad logotipas ir meniu elementai turėtų pakankamai erdvės -->
+            <div class="flex justify-between items-center h-16 sm:h-20">
                 
                 <div class="flex-shrink-0 flex items-center">
-                    <!-- Logotipas dabar naudoja apskaičiuotą home_link pagal page.lang -->
+                    <!-- Logotipas padidintas organiškai: telefonuose h-10, o nuo sm dydžio ekrano – h-12 -->
                     <a href="{{ site.baseurl }}/{{ home_link }}" class="group transition-transform duration-200 hover:scale-[1.02]">
-                        <img class="h-9 w-auto object-contain" src="{{ site.baseurl }}/images/uptest-logo.png" alt="Uptest Logo">
+                        <img class="h-10 sm:h-12 w-auto object-contain" src="{{ site.baseurl }}/images/uptest-logo.png" alt="Uptest Logo">
                     </a>
                 </div>
 
