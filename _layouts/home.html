@@ -36,8 +36,8 @@
     <!-- Headeris užslenka ant slaiderio (absolute) -->
     <header class="absolute top-0 left-0 w-full z-50 shadow-sm">
         
-        <!-- 1. Pagrindinė navigacijos juosta (su permatomu fonu / backdrop blur) -->
-        <div class="bg-white/80 backdrop-blur-md border-b border-gray-100/50">
+        <!-- 1. Pagrindinė navigacijos juosta (šviesi ir nepermatoma) -->
+        <div class="bg-white/95 backdrop-blur-md border-b border-gray-100">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between items-center h-24 sm:h-28">
                     
@@ -69,7 +69,7 @@
 
                     <!-- Padidinta hamburger ikona mobiliems -->
                     <div class="lg:hidden flex items-center">
-                        <button id="mobile-menu-button" type="button" class="text-slate-700 hover:text-brand-500 focus:outline-none p-2 rounded-lg hover:bg-slate-100/50">
+                        <button id="mobile-menu-button" type="button" class="text-slate-700 hover:text-brand-500 focus:outline-none p-2 rounded-lg hover:bg-slate-100">
                             <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M4 6h16M4 12h16M4 18h16"/>
                             </svg>
@@ -80,7 +80,7 @@
             </div>
         </div>
 
-        <!-- 2. Apatinė juosta (Kalbos + Secondary menu) su permatomu fonu -->
+        <!-- 2. Apatinė juosta (Kalbos + Secondary menu) – tamsi ir permatoma -->
         <div class="bg-brand-950/80 backdrop-blur-md text-slate-300 text-xs py-2">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
                 
@@ -119,8 +119,8 @@
             </div>
         </div>
 
-        <!-- Mobili versija: prasideda iškart po pagrindine juosta ir uždengia kalbų juostą -->
-        <div id="mobile-menu-panel" class="hidden lg:hidden bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-xl absolute w-full left-0 z-50">
+        <!-- Mobili versija: prasideda po pagrindine juosta ir uždengia kalbų juostą -->
+        <div id="mobile-menu-panel" class="hidden lg:hidden bg-white border-b border-gray-200 shadow-xl absolute w-full left-0 z-50">
             <div class="px-4 pt-3 pb-5 space-y-1.5">
                 {% for nav_item in data.nav %}
                     {% assign item = nav_item[1] %}
