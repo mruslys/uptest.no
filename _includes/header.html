@@ -19,7 +19,7 @@
                 </div>
 
                 <div class="flex items-center space-x-6 text-xs font-medium">
-                {% for item in site.data.secondary %}
+                {% for item in data.secondary %}
                   <a href="{{ item.link[page.lang] }}" class="hover:text-brand-400 transition-colors hidden sm:inline-block">
                     {{ item.title[page.lang] }}
                   </a>
