@@ -1,0 +1,111 @@
+---
+layout: page
+lang: "no"
+current_page: about
+title: "Om oss"
+header_image: "images/uptest-neardomoji-kontrole-1.jpg"
+---
+{% assign c = site.data.data.common[page.lang] %}
+
+<p class="text-base text-slate-600">
+    UAB Uptest er spesialisert innen ikke-destruktiv testing (visuell kontroll, virvelstrømkontroll, magnetpulverkontroll, ultralydkontroll og penetrantkontroll), samt arbeid i høyden og industriell tilgjøring med tau.
+</p>
+
+<p class="text-base text-slate-600">
+    For å sikre kontinuerlig forbedring har vi implementert et kvalitetsstyringssystem som samsvarer med standarden <strong class="text-slate-800">ISO 9001</strong>.
+</p>
+
+<div class="bg-brand-50/50 rounded-2xl p-6 sm:p-8 border border-brand-100 space-y-6">
+    <div>
+        <h3 class="text-lg font-bold text-slate-900 mb-3">Våre viktigste prioriteringer er:</h3>
+        <ul class="space-y-2 list-disc list-inside text-slate-700">
+            <li>Å innfri og overgå kundenes forventninger.</li>
+            <li>Å sikre de høyeste standardene for sikkerhet.</li>
+            <li>Å levere pålitelige tjenester av høy kvalitet.</li>
+        </ul>
+    </div>
+
+    <div>
+        <h3 class="text-lg font-bold text-slate-900 mb-3">Vi legger spesiell vekt på:</h3>
+        <ul class="space-y-2 list-disc list-inside text-slate-700">
+            <li>Utvikling av ansattes kompetanse og kontinuerlig opplæring.</li>
+            <li>Nøye vurdering av leverandører og underleverandører.</li>
+            <li>Effektiv kvalitetskontroll.</li>
+            <li>Effektiv og tidsriktig gjennomføring av prosjekter.</li>
+        </ul>
+    </div>
+</div>
+
+<p class="text-base text-slate-600">
+    Hvert år fastsetter vi kvalitetsmål og jobber systematisk for å oppnå dem.
+</p>
+
+<div>
+    <h3 class="text-lg font-bold text-slate-900 mb-3">Vi forplikter oss til:</h3>
+    <ul class="space-y-3 list-disc list-inside text-slate-700">
+        <li>Å overholde kravene i vårt kvalitetsstyringssystem samt alle gjeldende lover og forskrifter.</li>
+        <li>Å kontinuerlig forbedre effektiviteten til kvalitetsstyringssystemet.</li>
+        <li>Å tildele nødvendige ressurser for å sikre effektiv drift og kontinuerlig forbedring av kvalitetsstyringssystemet.</li>
+    </ul>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <!-- NDT -->
+    <div class="bg-brand-50/50 rounded-2xl p-6 sm:p-8 border border-brand-100 flex flex-col justify-between space-y-4">
+        <div class="space-y-2">
+            <h3 class="text-xl font-bold text-slate-900">Ikke-destruktiv testing (NDT)</h3>
+            <p class="text-base text-slate-700">Omfattende NDT-inspeksjonsmetoder for å vurdere materialintegritet uten skade.</p>
+        </div>
+        <div>
+            <a href="ndt/" class="inline-flex items-center text-sm font-semibold text-brand-900 hover:text-brand-700 transition-colors">
+                Les mer &rarr;
+            </a>
+        </div>
+    </div>
+
+    <!-- Rope Access -->
+    <div class="bg-brand-50/50 rounded-2xl p-6 sm:p-8 border border-brand-100 flex flex-col justify-between space-y-4">
+        <div class="space-y-2">
+            <h3 class="text-xl font-bold text-slate-900">Industriell klatring</h3>
+            <p class="text-base text-slate-700">Sikre og effektive løsninger for arbeid i høyden ved hjelp av industriell tilgjøring med tau.</p>
+        </div>
+        <div>
+            <a href="rope/" class="inline-flex items-center text-sm font-semibold text-brand-900 hover:text-brand-700 transition-colors">
+                Les mer &rarr;
+            </a>
+        </div>
+    </div>
+
+    <!-- Equipment Rental -->
+    <div class="bg-brand-50/50 rounded-2xl p-6 sm:p-8 border border-brand-100 flex flex-col justify-between space-y-4">
+        <div class="space-y-2">
+            <h3 class="text-xl font-bold text-slate-900">Utleie av NDT-utstyr</h3>
+            <p class="text-base text-slate-700">Pålitelig og kalibrert inspeksjonsutstyr tilgjengelig for fleksible leieperioder.</p>
+        </div>
+        <div>
+            <a href="equipment/" class="inline-flex items-center text-sm font-semibold text-brand-900 hover:text-brand-700 transition-colors">
+                Les mer &rarr;
+            </a>
+        </div>
+    </div>
+
+    <!-- Career -->
+    <div class="bg-brand-50/50 rounded-2xl p-6 sm:p-8 border border-brand-100 flex flex-col justify-between space-y-4">
+        <div class="space-y-2">
+            <h3 class="text-xl font-bold text-slate-900">Jobb og karriere</h3>
+            <p class="text-base text-slate-700">Bli en del av vårt voksende team med sertifiserte spesialister og sikkerhetsfokuserte fagfolk.</p>
+        </div>
+        <div>
+            <a href="career/" class="inline-flex items-center text-sm font-semibold text-brand-900 hover:text-brand-700 transition-colors">
+                Les mer &rarr;
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Call to Action -->
+{% include cta-box.html 
+    title="Klar til å jobbe med oss?"
+    description="Enten du trenger eksperthjelp til inspeksjon, utleie av utstyr, eller ønsker å bli en del av teamet vårt, ta kontakt med Uptest i dag."
+    btn_text="Kontakt oss"
+%}
