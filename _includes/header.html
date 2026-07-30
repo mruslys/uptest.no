@@ -37,15 +37,19 @@
                     </div>
 
                     <nav class="hidden lg:flex items-center space-x-6">
-                        <a href="about-us/" class="relative text-slate-700 hover:text-brand-500 font-semibold text-sm transition-colors py-2">About Us</a>
-                        <a href="non-destructive-testing/" class="relative text-slate-700 hover:text-brand-500 font-semibold text-sm transition-colors py-2">Non-Destructive Testing</a>
-                        <a href="rope-access/" class="relative text-slate-700 hover:text-brand-500 font-semibold text-sm transition-colors py-2">Rope Access</a>
-                        <a href="equipment/" class="relative text-slate-700 hover:text-brand-500 font-semibold text-sm transition-colors py-2">NDT Equipment</a>
-                        <a href="career/" class="relative text-slate-700 hover:text-brand-500 font-semibold text-sm transition-colors py-2">Jobs & Careers</a>
-                        
-                        <a href="contacts/" class="ml-2 inline-flex items-center justify-center px-4 py-2 rounded-lg font-semibold text-xs text-white bg-brand-500 hover:bg-brand-600 shadow-sm transition-all">
-                            Contacts
-                        </a>
+                        {% for nav_item in data.nav %}
+                            {% assign item = nav_item[1] %}
+                            
+                            {% if item.highlight %}
+                                <a href="{{ item.link[page.lang] }}" class="ml-2 inline-flex items-center justify-center px-4 py-2 rounded-lg font-semibold text-xs text-white bg-brand-500 hover:bg-brand-600 shadow-sm transition-all">
+                                    {{ item.title[page.lang] }}
+                                </a>
+                            {% else %}
+                                <a href="{{ item.link[page.lang] }}" class="relative text-slate-700 hover:text-brand-500 font-semibold text-sm transition-colors py-2">
+                                    {{ item.title[page.lang] }}
+                                </a>
+                            {% endif %}
+                        {% endfor %}
                     </nav>
 
                     <div class="lg:hidden flex items-center">
