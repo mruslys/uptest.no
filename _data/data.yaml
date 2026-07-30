@@ -3,7 +3,7 @@
 languages:
   - code: "en"
     label: "EN"
-    link: "index.html"
+    link: "/"
   - code: "lt"
     label: "LT"
     link: "lt/"
