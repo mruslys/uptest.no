@@ -28,9 +28,8 @@ common:
     rebuilt_by: "Gjenoppbygd av"
     old_version: "Gammel versjon"
 
-galleries:
-  certificates:
-    title:
+secondary:
+  - title:
       en: "Our certificates"
       lt: "Mūsų sertifikatai"
       "no": "Våre sertifikater"
@@ -38,12 +37,11 @@ galleries:
       en: "certificates/"
       lt: "lt/sertificatai/"
       "no": "no/sertifikater/"
-  images:
-    title:
+  - title:
       en: "Galery"
       lt: "Galerija"
       "no": "Galleri"
-    link:
+  link:
       en: "gallery/"
       lt: "lt/galerija/"
       "no": "no/galleri/"
