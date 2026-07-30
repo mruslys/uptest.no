@@ -58,50 +58,118 @@ home:
     lt: "Uptest | Neardomoji kontrolė ir darbai aukštyje"
     "no": "Uptest | NDT & Tilgangsteknikk Kontroll"
     
-pages:
+slides:
   about:
     badge: 
       en: "Certified Expertise"
-      lt:
-      "no":
+      lt: "Sertifikuoti specialistai"
+      "no": "Sertifisert kompetanse"
     title: 
       en: "Professional Inspections & Solutions"
+      lt: "Patikimos NDT ir darbų aukštyje paslaugos"
+      "no": "Profesjonelle inspeksjoner og løsninger"
     desc: 
       en: "Delivering reliable non-destructive testing and rope access solutions backed by years of international offshore experience."
+      lt: "Atliekame neardomosios kontrolės ir darbų aukštyje paslaugas, remdamiesi ilgamete tarptautine patirtimi jūriniuose ir pramonės projektuose."
+      "no": "Leverer pålitelige tjenester innen ikke-destruktiv prøving og tilgangsteknikk, støttet av mange års internasjonal offshoreerfaring."
     btn_text: 
       en: "About Us"
+      lt: "Apie mus"
+      "no": "Om oss"
     link: 
       en: "about-us/"
+      lt: "lt/apie-mus/"
+      "no": "no/om-oss/"
     image: "images/uptest-neardomoji-kontrole-1.jpg"
 
   ndt:
-    badge: "Inspection Services"
-    title: "Non-Destructive Testing"
-    desc: "Comprehensive non-destructive testing services to assess structural integrity without damaging components."
-    btn_text: "Learn More"
-    link: "non-destructive-testing/"
+    badge:
+      en: "Inspection Services"
+      lt: "Patikra ir kontrolė"
+      "no": "Inspeksjonstjenester"
+    title:
+      en: "Non-Destructive Testing"
+      lt: "Neardomoji kontrolė (NDT)"
+      "no": "Ikke-destruktiv prøving"
+    desc:
+      en: "Comprehensive non-destructive testing services to assess structural integrity without damaging components."
+      lt: "Visapusiškos neardomosios kontrolės paslaugos konstrukcijų vientisumui įvertinti nepažeidžiant pačių detalių ar įrenginių."
+      "no": "Omfattende tjenester innen ikke-destruktiv prøving for å vurdere strukturell integritet uten å skade komponenter."
+    btn_text:
+      en: "Learn More"
+      lt: "Sužinoti daugiau"
+      "no": "Les mer"
+    link:
+      en: "non-destructive-testing/"
+      lt: "lt/neardomoji-kontrole/"
+      "no": "no/ikke-destruktiv-proving/"
     image: "images/uptest-neardomoji-kontrole-6.jpg"
 
   rope:
-    badge: "Height Access Solutions"
-    title: "Industrial Rope Access"
-    desc: "Certified high-altitude inspection and maintenance solutions tailored for challenging environments."
-    btn_text: "Learn More"
-    link: "rope-access/"
+    badge:
+      en: "Height Access Solutions"
+      lt: "Aukštalipių paslaugos"
+      "no": "Tilgangsløsninger"
+    title:
+      en: "Industrial Rope Access"
+      lt: "Darbai aukštyje"
+      "no": "Industriell tilgangsteknikk"
+    desc:
+      en: "Certified high-altitude inspection and maintenance solutions tailored for challenging environments."
+      lt: "Sertifikuota patikra, techninė priežiūra ir įvairūs darbai aukštyje bei sudėtingomis sąlygomis."
+      "no": "Sertifiserte høydeinspeksjons- og vedlikeholdsløsninger skreddersydd for krevende miljøer."
+    btn_text:
+      en: "Learn More"
+      lt: "Sužinoti daugiau"
+      "no": "Les mer"
+    link:
+      en: "rope-access/"
+      lt: "lt/darbai-aukstyje/"
+      "no": "no/tilgangsteknikk/"
     image: "images/uptest-neardomoji-kontrole-5.jpg"
-    
+      
   equipment:
-    badge: "Equipment Rental"
-    title: "NDT Equipment Rental"
-    desc: "Reliable non-destructive testing equipment available for short- and long-term rental."
-    btn_text: "Learn More"
-    link: "equipment/"
+    badge:
+      en: "Equipment Rental"
+      lt: "Įrangos nuoma"
+      "no": "Utleie av utstyr"
+    title:
+      en: "NDT Equipment Rental"
+      lt: "NK įrangos nuoma"
+      "no": "Utleie av NDT-utstyr"
+    desc:
+      en: "Reliable non-destructive testing equipment available for short- and long-term rental."
+      lt: "Patikima neardomosios kontrolės įranga trumpalaikei ir ilgalaikei nuomai bet kokio masto patikros projektams."
+      "no": "Pålitelig utstyr for ikke-destruktiv prøving tilgjengelig for kort- og langsiktig leie for å støtte inspeksjonsprosjekter i alle størrelser."
+    btn_text:
+      en: "Learn More"
+      lt: "Sužinoti daugiau"
+      "no": "Les mer"
+    link:
+      en: "equipment/"
+      lt: "lt/nk-iranga-irangos-nuoma/"
+      "no": "no/ndt-utstyr/"
     image: "images/uptest-neardomoji-kontrole-8.jpg"
 
   career:
-    badge: "Career Opportunities"
-    title: "Build Your Future With Us"
-    desc: "Take the next step in your career with professional training, high standards, and exciting global projects."
-    btn_text: "Apply"
-    link: "career/"
+    badge:
+      en: "Career Opportunities"
+      lt: "Karjeros galimybės"
+      "no": "Karrieremuligheter"
+    title:
+      en: "Build Your Future With Us"
+      lt: "Kurkite savo ateitį su mumis"
+      "no": "Bygg din fremtid med oss"
+    desc:
+      en: "Take the next step in your career with professional training, high standards, and exciting global projects."
+      lt: "Ženkite kitą karjeros žingsnį dirbdami su profesionalų komanda, dalyvaudami tarptautiniuose projektuose ir nuolat tobulindami savo kompetencijas."
+      "no": "Ta neste skritt i karrieren din med profesjonell opplæring, høye standarder og spennende globale prosjekter."
+    btn_text:
+      en: "Apply"
+      lt: "Kandidatuoti"
+      "no": "Søk her"
+    link:
+      en: "career/"
+      lt: "lt/karjera/"
+      "no": "no/karriere/"
     image: "images/uptest-neardomoji-kontrole-3.jpg"
