@@ -81,13 +81,13 @@
         </div>
 
        <!-- 2. Apatinė juosta (Kalbos + Secondary menu) – tamsi su švelniais kraštais ir šešėliu -->
-<div class="bg-brand-950 text-slate-300 text-xs py-2 border-b border-white/10 shadow-md relative z-20">
-
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+        <!-- 2. Apatinė juosta (Kalbos + Secondary menu) – šviesi ir kontrastinga -->
+        <div class="bg-slate-100 text-slate-700 text-xs py-2 border-b border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
                 
                 <!-- Kalbų pasirinkimas kairėje -->
                 <div class="flex items-center space-x-3">
-                    <span class="text-slate-400 font-medium mr-1 hidden sm:inline">{{ data.common[page.lang].language }}:</span>
+                    <span class="text-slate-500 font-medium mr-1 hidden sm:inline">{{ data.common[page.lang].language }}:</span>
                     {% for lang in data.languages %}
                         {% assign target_link = lang.link %}
                         
@@ -98,12 +98,12 @@
                             {% endif %}
                         {% endif %}
 
-                        <a href="{{ site.baseurl }}/{{ target_link }}" class="transition-colors {% if page.lang == lang.code %}font-bold text-brand-400{% else %}font-medium text-slate-300 hover:text-brand-400{% endif %}">
+                        <a href="{{ site.baseurl }}/{{ target_link }}" class="transition-colors {% if page.lang == lang.code %}font-bold text-brand-600{% else %}font-medium text-slate-600 hover:text-brand-600{% endif %}">
                             {{ lang.label }}
                         </a>
                         
                         {% unless forloop.last %}
-                            <span class="text-brand-800">|</span>
+                            <span class="text-slate-300">|</span>
                         {% endunless %}
                     {% endfor %}
                 </div>
@@ -111,7 +111,7 @@
                 <!-- Sekundinis meniu dešinėje -->
                 <div class="flex items-center space-x-6 text-xs font-medium">
                     {% for item in data.secondary %}
-                        <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="hover:text-brand-400 transition-colors hidden sm:inline-block">
+                        <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="hover:text-brand-600 transition-colors hidden sm:inline-block text-slate-600">
                             {{ item.title[page.lang] }}
                         </a>
                     {% endfor %}
