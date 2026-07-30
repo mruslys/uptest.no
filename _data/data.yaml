@@ -36,6 +36,14 @@ common:
     rights: "All rights reserved."
     rebuilt_by: "Rebuilt by"
     old_version: "Old version"
+    phone_label: "Phone"
+    phone: "+37068889229"
+    phone_formatted: "+370 (688) 89229"
+    email_label: "E-mail"
+    email: "info@uptest.no"
+    hq_label: "Headquarters"
+    hq: "Palanga, Lithuania"
+    hq_link: "https://maps.app.goo.gl/hGXkK35Qdv2JQvNU6"
     
   lt:
     language: "Kalba"
@@ -43,6 +51,14 @@ common:
     rights: "Visos teisės saugomos."
     rebuilt_by: "Atnaujino"
     old_version: "Senoji versija"
+    phone_label: "Telefonas"
+    phone: "+37068889229"
+    phone_formatted: "+370 (688) 89229"
+    email_label: "El. paštas"
+    email: "info@uptest.no"
+    hq_label: "Pagrindinis biuras"
+    hq: "Palanga, Lietuva"
+    hq_link: "https://maps.app.goo.gl/hGXkK35Qdv2JQvNU6"
   
   "no":
     language: "Språk"
@@ -50,6 +66,14 @@ common:
     rights: "Alle rettigheter reservert."
     rebuilt_by: "Gjenoppbygd av"
     old_version: "Gammel versjon"
+    phone_label: "Telefon"
+    phone: "+37068889229"
+    phone_formatted: "+370 (688) 89229"
+    email_label: "E-post"
+    email: "info@uptest.no"
+    hq_label: "Hovedkontor"
+    hq: "Palanga, Litauen"
+    hq_link: "https://maps.app.goo.gl/hGXkK35Qdv2JQvNU6"
 
 
 home:
