@@ -138,15 +138,11 @@ header_image: "images/uptest-neardomoji-kontrole-1.jpg"
     </div>
 
     <!-- CTA -->
-    <div class="bg-brand-950 text-white rounded-2xl p-6 sm:p-8 space-y-4 shadow-lg">
-        <h3 class="text-xl font-bold text-brand-300">Pasikalbėkime apie jūsų projektą</h3>
-        <p class="text-slate-200 text-base leading-relaxed">
-            Nesvarbu, ar ieškote neardomosios kontrolės paslaugų, norite išsinuomoti įrangą, ar prisijungti prie mūsų komandos – susisiekite su „Uptest“. Mielai atsakysime į jūsų klausimus ir pasiūlysime tinkamiausią sprendimą.
-        </p>
-        <div class="pt-2">
-            <a href="contacts/" class="inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold text-sm text-brand-950 bg-brand-400 hover:bg-brand-300 shadow-sm transition-all">
-                Susisiekti
-            </a>
-        </div>
-    </div>
+    
+    {% include cta-box.html 
+        title="Pasikalbėkime apie jūsų projektą"
+        description="Nesvarbu, ar ieškote neardomosios kontrolės paslaugų, norite išsinuomoti įrangą, ar prisijungti prie mūsų komandos – susisiekite su „Uptest“. Mielai atsakysime į jūsų klausimus ir pasiūlysime tinkamiausią sprendimą."
+        btn_text="Susisiekti"
+    %}
+    
 </div>
