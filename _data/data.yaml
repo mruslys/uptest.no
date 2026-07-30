@@ -39,7 +39,7 @@ common:
     old_version: "Old version"
     
   lt:
-    base: "uptest.lt"
+    base: "uptest.no"
     language: "Kalba"
     company: "Uptest, UAB"
     rights: "Visos teisės saugomos."
@@ -69,7 +69,7 @@ nav:
       "no": "Om oss"
     link:
       en: "about-us/"
-      lt: "apie-mus/"
+      lt: "lt/apie-mus/"
       "no": "om-oss/"
 
   ndt:
