@@ -41,7 +41,7 @@ secondary:
       en: "Galery"
       lt: "Galerija"
       "no": "Galleri"
-  link:
+    link:
       en: "gallery/"
       lt: "lt/galerija/"
       "no": "no/galleri/"
