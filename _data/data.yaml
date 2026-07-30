@@ -58,6 +58,69 @@ home:
     lt: "Uptest | Neardomoji kontrolė ir darbai aukštyje"
     "no": "Uptest | NDT & Tilgangsteknikk Kontroll"
     
+nav:
+  about:
+    title:
+      en: "About Us"
+      lt: "Apie mus"
+      "no": "Om oss"
+    link:
+      en: "about-us/"
+      lt: "lt/apie-mus/"
+      "no": "no/om-oss/"
+
+  ndt:
+    title:
+      en: "Non-Destructive Testing"
+      lt: "Neardomoji kontrolė"
+      "no": "Ikke-destruktiv prøving"
+    link:
+      en: "non-destructive-testing/"
+      lt: "lt/neardomoji-kontrole/"
+      "no": "no/ikke-destruktiv-proving/"
+
+  rope:
+    title:
+      en: "Rope Access"
+      lt: "Darbai aukštyje"
+      "no": "Tilgangsteknikk"
+    link:
+      en: "rope-access/"
+      lt: "lt/darbai-aukstyje/"
+      "no": "no/tilgangsteknikk/"
+
+  equipment:
+    title:
+      en: "Equipment Rental"
+      lt: "NK įranga"
+      "no": "NDT-utstyr"
+    link:
+      en: "equipment/"
+      lt: "lt/nk-iranga-irangos-nuoma/"
+      "no": "no/ndt-utstyr/"
+    highlight: true
+
+  career:
+    title:
+      en: "Career"
+      lt: "Darbas ir karjera"
+      "no": "Jobb og karriere"
+    link:
+      en: "career/"
+      lt: "lt/karjera/"
+      "no": "no/karriere/"
+
+  contacts:
+    title:
+      en: "Contacts"
+      lt: "Kontaktai"
+      "no": "Kontakt oss"
+    link:
+      en: "contacts/"
+      lt: "lt/kontaktai/"
+      "no": "no/kontakt/"
+    highlight: true
+    
 slides:
   about:
     badge: 
