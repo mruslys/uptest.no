@@ -18,19 +18,20 @@ secondary:
       "no": "Våre sertifikater"
     link:
       en: "certificates/"
-      lt: "lt/sertificatai/"
-      "no": "no/sertifikater/"
+      lt: "sertificatai/"
+      "no": "sertifikater/"
   - title:
       en: "Gallery"
       lt: "Galerija"
       "no": "Galleri"
     link:
       en: "gallery/"
-      lt: "lt/galerija/"
-      "no": "no/galleri/"
+      lt: "galerija/"
+      "no": "galleri/"
 
 common:
   en:
+    base: "uptest.no"
     language: "Language"
     company: "Uptest, Ltd"
     rights: "All rights reserved."
@@ -38,6 +39,7 @@ common:
     old_version: "Old version"
     
   lt:
+    base: "uptest.lt"
     language: "Kalba"
     company: "Uptest, UAB"
     rights: "Visos teisės saugomos."
@@ -45,6 +47,7 @@ common:
     old_version: "Senoji versija"
   
   "no":
+    base: "uptest.no"
     language: "Språk"
     company: "Uptest, NUF"
     rights: "Alle rettigheter reservert."
@@ -66,8 +69,8 @@ nav:
       "no": "Om oss"
     link:
       en: "about-us/"
-      lt: "lt/apie-mus/"
-      "no": "no/om-oss/"
+      lt: "apie-mus/"
+      "no": "om-oss/"
 
   ndt:
     title:
@@ -76,8 +79,8 @@ nav:
       "no": "Ikke-destruktiv prøving"
     link:
       en: "non-destructive-testing/"
-      lt: "lt/neardomoji-kontrole/"
-      "no": "no/ikke-destruktiv-proving/"
+      lt: "neardomoji-kontrole/"
+      "no": "ikke-destruktiv-proving/"
 
   rope:
     title:
@@ -86,8 +89,8 @@ nav:
       "no": "Tilgangsteknikk"
     link:
       en: "rope-access/"
-      lt: "lt/darbai-aukstyje/"
-      "no": "no/tilgangsteknikk/"
+      lt: "darbai-aukstyje/"
+      "no": "tilgangsteknikk/"
 
   equipment:
     title:
@@ -96,8 +99,8 @@ nav:
       "no": "NDT-utstyr"
     link:
       en: "equipment/"
-      lt: "lt/nk-iranga-irangos-nuoma/"
-      "no": "no/ndt-utstyr/"
+      lt: "nk-iranga-irangos-nuoma/"
+      "no": "ndt-utstyr/"
 
   career:
     title:
@@ -106,8 +109,8 @@ nav:
       "no": "Jobb og karriere"
     link:
       en: "career/"
-      lt: "lt/karjera/"
-      "no": "no/karriere/"
+      lt: "karjera/"
+      "no": "karriere/"
 
   contacts:
     title:
@@ -116,8 +119,8 @@ nav:
       "no": "Kontakt oss"
     link:
       en: "contacts/"
-      lt: "lt/kontaktai/"
-      "no": "no/kontakt/"
+      lt: "kontaktai/"
+      "no": "kontakt/"
     highlight: true
     
 slides:
@@ -140,8 +143,8 @@ slides:
       "no": "Om oss"
     link: 
       en: "about-us/"
-      lt: "lt/apie-mus/"
-      "no": "no/om-oss/"
+      lt: "apie-mus/"
+      "no": "om-oss/"
     image: "images/uptest-neardomoji-kontrole-1.jpg"
 
   ndt:
@@ -163,8 +166,8 @@ slides:
       "no": "Les mer"
     link:
       en: "non-destructive-testing/"
-      lt: "lt/neardomoji-kontrole/"
-      "no": "no/ikke-destruktiv-proving/"
+      lt: "neardomoji-kontrole/"
+      "no": "ikke-destruktiv-proving/"
     image: "images/uptest-neardomoji-kontrole-6.jpg"
 
   rope:
@@ -186,8 +189,8 @@ slides:
       "no": "Les mer"
     link:
       en: "rope-access/"
-      lt: "lt/darbai-aukstyje/"
-      "no": "no/tilgangsteknikk/"
+      lt: "darbai-aukstyje/"
+      "no": "tilgangsteknikk/"
     image: "images/uptest-neardomoji-kontrole-5.jpg"
       
   equipment:
@@ -209,8 +212,8 @@ slides:
       "no": "Les mer"
     link:
       en: "equipment/"
-      lt: "lt/nk-iranga-irangos-nuoma/"
-      "no": "no/ndt-utstyr/"
+      lt: "nk-iranga-irangos-nuoma/"
+      "no": "ndt-utstyr/"
     image: "images/uptest-neardomoji-kontrole-8.jpg"
 
   career:
@@ -232,6 +235,6 @@ slides:
       "no": "Søk her"
     link:
       en: "career/"
-      lt: "lt/karjera/"
-      "no": "no/karriere/"
+      lt: "karjera/"
+      "no": "karriere/"
     image: "images/uptest-neardomoji-kontrole-3.jpg"
