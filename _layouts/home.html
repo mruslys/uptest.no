@@ -33,52 +33,10 @@
 {% endfor %}
 
 <div class="flex-shrink-0">
-    <!-- Pagrindinis navigacijos meniu (absolute/sticky overlay ant slaiderio) -->
-    <header class="absolute top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Padidintas aukštis h-24 sm:h-28, kad tilptų didesnis logotipas -->
-            <div class="flex justify-between items-center h-24 sm:h-28">
-                
-                <div class="flex-shrink-0 flex items-center py-2">
-                    <!-- Dar labiau padidintas logotipas: mobile h-14, desktop h-20 (80px) -->
-                    <a href="{{ site.baseurl }}/{{ home_link }}" class="group transition-transform duration-200 hover:scale-[1.02]">
-                        <img class="h-14 sm:h-20 w-auto object-contain" src="{{ site.baseurl }}/images/uptest-logo.png" alt="Uptest Logo">
-                    </a>
-                </div>
-
-                <!-- Padidintas pagrindinio meniu fontas desktopui (nuo text-sm iki text-base / lg:text-base) -->
-                <nav class="hidden lg:flex items-center space-x-8">
-                    {% for nav_item in data.nav %}
-                        {% assign item = nav_item[1] %}
-                        {% assign is_active = false %}
-                        {% if page.current_page == nav_item[0] or page.url == item.link[page.lang] %}
-                            {% assign is_active = true %}
-                        {% endif %}
-                        
-                        {% if item.highlight %}
-                            <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="ml-2 inline-flex items-center justify-center px-5 py-2.5 rounded-lg font-semibold text-sm text-white {% if is_active %}bg-brand-600{% else %}bg-brand-500 hover:bg-brand-600{% endif %} shadow-sm transition-all">
-                                {{ item.title[page.lang] }}
-                            </a>
-                        {% else %}
-                            <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="relative font-semibold text-base transition-colors py-2 {% if is_active %}text-brand-500{% else %}text-slate-700 hover:text-brand-500{% endif %}">
-                                {{ item.title[page.lang] }}
-                            </a>
-                        {% endif %}
-                    {% endfor %}
-                </nav>
-
-                <div class="lg:hidden flex items-center">
-                    <button id="mobile-menu-button" type="button" class="text-slate-600 hover:text-brand-500 focus:outline-none p-1.5 rounded-lg hover:bg-slate-100">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                        </svg>
-                    </button>
-                </div>
-                
-            </div>
-        </div>
-
-        <!-- Apatinė juosta (Kalbos + Secondary menu) su pusiau permatomu tamsiu fonu ir nuimtu borderiu -->
+    <!-- Headeris užslenka ant slaiderio (absolute), fonas permatomas su blur efektu -->
+    <header class="absolute top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-100">
+        
+        <!-- Apatinė juosta (Kalbos + Secondary menu) perkelta į HEADERIO VIRŠŲ -->
         <div class="bg-brand-950/80 backdrop-blur-md text-slate-300 text-xs py-2">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
                 
@@ -112,6 +70,47 @@
                             {{ item.title[page.lang] }}
                         </a>
                     {% endfor %}
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- Pagrindinis navigacijos meniu ir padidintas logotipas -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24 sm:h-28">
+                
+                <div class="flex-shrink-0 flex items-center py-2">
+                    <a href="{{ site.baseurl }}/{{ home_link }}" class="group transition-transform duration-200 hover:scale-[1.02]">
+                        <img class="h-14 sm:h-20 w-auto object-contain" src="{{ site.baseurl }}/images/uptest-logo.png" alt="Uptest Logo">
+                    </a>
+                </div>
+
+                <nav class="hidden lg:flex items-center space-x-8">
+                    {% for nav_item in data.nav %}
+                        {% assign item = nav_item[1] %}
+                        {% assign is_active = false %}
+                        {% if page.current_page == nav_item[0] or page.url == item.link[page.lang] %}
+                            {% assign is_active = true %}
+                        {% endif %}
+                        
+                        {% if item.highlight %}
+                            <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="ml-2 inline-flex items-center justify-center px-5 py-2.5 rounded-lg font-semibold text-sm text-white {% if is_active %}bg-brand-600{% else %}bg-brand-500 hover:bg-brand-600{% endif %} shadow-sm transition-all">
+                                {{ item.title[page.lang] }}
+                            </a>
+                        {% else %}
+                            <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="relative font-semibold text-base transition-colors py-2 {% if is_active %}text-brand-500{% else %}text-slate-700 hover:text-brand-500{% endif %}">
+                                {{ item.title[page.lang] }}
+                            </a>
+                        {% endif %}
+                    {% endfor %}
+                </nav>
+
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-button" type="button" class="text-slate-600 hover:text-brand-500 focus:outline-none p-1.5 rounded-lg hover:bg-slate-100">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
                 </div>
                 
             </div>
@@ -152,8 +151,7 @@
 
     <!-- header end -->
 
-    <section id="hero-slider" class="relative flex-grow flex flex-col justify-between w-full min-h-[380px] sm:min-h-[500px] bg-brand-950 overflow-hidden cursor-pointer sm:cursor-default py-2 sm:py-4">
-        
+<section id="hero-slider" class="relative flex-grow flex flex-col justify-between w-full min-h-[380px] sm:min-h-[500px] bg-brand-950 overflow-hidden cursor-pointer sm:cursor-default py-2 sm:py-4 pt-32 sm:pt-40">        
         <div class="absolute inset-0 z-0">
            {% for slide_item in data.slides %}
               {% assign slide = slide_item[1] %}
