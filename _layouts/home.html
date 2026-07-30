@@ -56,26 +56,13 @@
     <section id="hero-slider" class="relative flex-grow flex flex-col justify-between w-full min-h-[380px] sm:min-h-[500px] bg-brand-950 overflow-hidden cursor-pointer sm:cursor-default py-2 sm:py-4">
         
         <div class="absolute inset-0 z-0">
-            <!-- 1. About Us -->
-            <div class="bg-slide absolute inset-0 opacity-100 transition-opacity duration-700 ease-in-out">
-                <img src="images/uptest-neardomoji-kontrole-1.jpg" class="w-full h-full object-cover object-center" alt="About Uptest">
-            </div>
-            <!-- 2. Non-Destructive Testing -->
-            <div class="bg-slide absolute inset-0 opacity-0 transition-opacity duration-700 ease-in-out">
-                <img src="images/uptest-neardomoji-kontrole-6.jpg" class="w-full h-full object-cover object-center" alt="Rope Access Rigging">
-            </div>
-            <!-- 3. Advanced Rope Access -->
-            <div class="bg-slide absolute inset-0 opacity-0 transition-opacity duration-700 ease-in-out">
-                <img src="images/uptest-neardomoji-kontrole-5.jpg" class="w-full h-full object-cover object-center" alt="Rope Access">
-            </div>
-            <!-- 4. Equipment -->
-            <div class="bg-slide absolute inset-0 opacity-0 transition-opacity duration-700 ease-in-out">
-                <img src="images/uptest-neardomoji-kontrole-8.jpg" class="w-full h-full object-cover object-center" alt="Professional Inspections">
-            </div>
-            <!-- 5. Career -->
-            <div class="bg-slide absolute inset-0 opacity-0 transition-opacity duration-700 ease-in-out">
-                <img src="images/uptest-neardomoji-kontrole-3.jpg" class="w-full h-full object-cover object-center" alt="Industrial Solutions">
-            </div>
+           {% for slide_item in data.slides %}
+              {% assign slide = slide_item[1] %}
+              
+              <div class="bg-slide absolute inset-0 {% if forloop.first %}opacity-100{% else %}opacity-0{% endif %} transition-opacity duration-700 ease-in-out">
+                  <img src="{{ slide.image }}" class="w-full h-full object-cover object-center" alt="{{ slide.title[page.lang] }}">
+              </div>
+            {% endfor %}
 
             <div class="absolute inset-0 bg-gradient-to-r from-brand-950/80 via-brand-950/60 to-brand-950/20"></div>
             <div class="absolute inset-0 bg-gradient-to-t from-brand-950/80 via-brand-950/30 to-brand-950/10"></div>
