@@ -36,7 +36,7 @@
     <!-- Headeris užslenka ant slaiderio (absolute) -->
     <header class="shadow-sm">
         
-        <!-- 1. Pagrindinė navigacijos juosta (šviesi ir nepermatoma, nuimta pilkuma naudojant bg-white) -->
+        <!-- 1. Pagrindinė navigacijos juosta (šviesi ir nepermatoma) -->
         <div class="bg-white border-b border-gray-100">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between items-center h-24 sm:h-28">
@@ -60,7 +60,8 @@
                                     {{ item.title[page.lang] }}
                                 </a>
                             {% else %}
-                                <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="relative font-semibold text-base transition-colors py-2 {% if is_active %}text-brand-500{% else %}text-slate-700 hover:text-brand-500{% endif %}">
+                                <!-- Pakeista iš text-base į text-sm/text-base balansui -->
+                                <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="relative font-semibold text-sm lg:text-base transition-colors py-2 {% if is_active %}text-brand-500{% else %}text-slate-700 hover:text-brand-500{% endif %}">
                                     {{ item.title[page.lang] }}
                                 </a>
                             {% endif %}
@@ -80,13 +81,12 @@
             </div>
         </div>
 
-       <!-- 2. Apatinė juosta (Kalbos + Secondary menu) – tamsi su švelniais kraštais ir šešėliu -->
-        <!-- 2. Apatinė juosta (Kalbos + Secondary menu) – šviesi ir kontrastinga -->
+        <!-- 2. Apatinė juosta (Kalbos + Secondary menu) – sureguliuoti dydžiai -->
         <div class="bg-slate-100 text-slate-700 text-xs py-2 border-b border-gray-200">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
                 
                 <!-- Kalbų pasirinkimas kairėje -->
-                <div class="flex items-center space-x-3">
+                <div class="flex items-center space-x-3 text-xs">
                     <span class="text-slate-500 font-medium mr-1 hidden sm:inline">{{ data.common[page.lang].language }}:</span>
                     {% for lang in data.languages %}
                         {% assign target_link = lang.link %}
@@ -120,7 +120,7 @@
             </div>
         </div>
 
-               <!-- Mobili versija: prasideda po pagrindine juosta ir uždengia kalbų juostą -->
+        <!-- Mobili versija -->
         <div id="mobile-menu-panel" class="hidden lg:hidden bg-white border-b border-gray-200 shadow-xl absolute w-full left-0 z-50">
             <div class="px-4 pt-3 pb-5 space-y-1.5">
                 {% for nav_item in data.nav %}
@@ -141,7 +141,6 @@
                     {% endif %}
                 {% endfor %}
                 
-                <!-- Secondary menu rodomas tik mažesniuose ekranuose (telefonuose), kur jis pasislėpė tamsioje juostoje -->
                 <div class="border-t border-gray-100 mt-3 pt-3 space-y-1 sm:hidden">
                     {% for item in data.secondary %}
                         <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="block px-3.5 py-2 rounded-lg text-xs font-medium text-slate-500 hover:text-brand-500">
