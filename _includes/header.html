@@ -1,5 +1,13 @@
 {% assign data = site.data.data %}
 
+<!-- Surandame dabartinės kalbos pagrindinio puslapio nuorodą (default yra „“ anglų kalbai, „lt/“ lietuvių ir t.t.) -->
+{% assign home_link = "" %}
+{% for lang in data.languages %}
+    {% if lang.code == page.lang %}
+        {% assign home_link = lang.link %}
+    {% endif %}
+{% endfor %}
+
 <div class="flex-shrink-0">
     <!-- Viršutinė kalbų juosta -->
     <div class="bg-brand-950 text-slate-300 text-xs py-1.5 border-b border-brand-500/20">
@@ -44,7 +52,8 @@
             <div class="flex justify-between items-center h-16">
                 
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="{{ site.baseurl }}/" class="group transition-transform duration-200 hover:scale-[1.02]">
+                    <!-- Logotipas dabar naudoja apskaičiuotą home_link pagal page.lang -->
+                    <a href="{{ site.baseurl }}/{{ home_link }}" class="group transition-transform duration-200 hover:scale-[1.02]">
                         <img class="h-9 w-auto object-contain" src="{{ site.baseurl }}/images/uptest-logo.png" alt="Uptest Logo">
                     </a>
                 </div>
