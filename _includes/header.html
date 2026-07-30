@@ -19,8 +19,11 @@
                 </div>
 
                 <div class="flex items-center space-x-6 text-xs font-medium">
-                    <a href="{{ data.galleries.certificates.link[page.lang] }}" class="hover:text-brand-400 transition-colors hidden sm:inline-block">{{ data.galleries.certificates.title[page.lang] }}</a>
-                    <a href="{{ data.galleries.images.link[page.lang] }}" class="hover:text-brand-400 transition-colors hidden sm:inline-block">{{ data.galleries.images.title[page.lang] }}</a>
+                {% for item in site.data.secondary %}
+                  <a href="{{ item.link[page.lang] }}" class="hover:text-brand-400 transition-colors hidden sm:inline-block">
+                    {{ item.title[page.lang] }}
+                  </a>
+                {% endfor %}
                 </div>
                 
             </div>
