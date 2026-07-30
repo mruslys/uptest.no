@@ -33,19 +33,21 @@
 {% endfor %}
 
 <div class="flex-shrink-0">
-    <!-- Pagrindinis navigacijos meniu ir padidintas logotipas (viršuje) -->
-    <header class="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-gray-100">
+    <!-- Pagrindinis navigacijos meniu (absolute/sticky overlay ant slaiderio) -->
+    <header class="absolute top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20 sm:h-24">
+            <!-- Padidintas aukštis h-24 sm:h-28, kad tilptų didesnis logotipas -->
+            <div class="flex justify-between items-center h-24 sm:h-28">
                 
                 <div class="flex-shrink-0 flex items-center py-2">
-                    <!-- Logotipas padidintas: mobile h-12, kompiuteryje h-16 (64px) -->
+                    <!-- Dar labiau padidintas logotipas: mobile h-14, desktop h-20 (80px) -->
                     <a href="{{ site.baseurl }}/{{ home_link }}" class="group transition-transform duration-200 hover:scale-[1.02]">
-                        <img class="h-12 sm:h-16 w-auto object-contain" src="{{ site.baseurl }}/images/uptest-logo.png" alt="Uptest Logo">
+                        <img class="h-14 sm:h-20 w-auto object-contain" src="{{ site.baseurl }}/images/uptest-logo.png" alt="Uptest Logo">
                     </a>
                 </div>
 
-                <nav class="hidden lg:flex items-center space-x-6">
+                <!-- Padidintas pagrindinio meniu fontas desktopui (nuo text-sm iki text-base / lg:text-base) -->
+                <nav class="hidden lg:flex items-center space-x-8">
                     {% for nav_item in data.nav %}
                         {% assign item = nav_item[1] %}
                         {% assign is_active = false %}
@@ -54,11 +56,11 @@
                         {% endif %}
                         
                         {% if item.highlight %}
-                            <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="ml-2 inline-flex items-center justify-center px-4 py-2 rounded-lg font-semibold text-xs text-white {% if is_active %}bg-brand-600{% else %}bg-brand-500 hover:bg-brand-600{% endif %} shadow-sm transition-all">
+                            <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="ml-2 inline-flex items-center justify-center px-5 py-2.5 rounded-lg font-semibold text-sm text-white {% if is_active %}bg-brand-600{% else %}bg-brand-500 hover:bg-brand-600{% endif %} shadow-sm transition-all">
                                 {{ item.title[page.lang] }}
                             </a>
                         {% else %}
-                            <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="relative font-semibold text-sm transition-colors py-2 {% if is_active %}text-brand-500{% else %}text-slate-700 hover:text-brand-500{% endif %}">
+                            <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="relative font-semibold text-base transition-colors py-2 {% if is_active %}text-brand-500{% else %}text-slate-700 hover:text-brand-500{% endif %}">
                                 {{ item.title[page.lang] }}
                             </a>
                         {% endif %}
@@ -76,8 +78,8 @@
             </div>
         </div>
 
-        <!-- Antra juosta (Perkelta APAČIAU): Kalbos kairėje, sekundinis meniu dešinėje -->
-        <div class="bg-brand-950 text-slate-300 text-xs py-2 border-t border-brand-500/20">
+        <!-- Apatinė juosta (Kalbos + Secondary menu) su pusiau permatomu tamsiu fonu ir nuimtu borderiu -->
+        <div class="bg-brand-950/80 backdrop-blur-md text-slate-300 text-xs py-2">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
                 
                 <!-- Kalbų pasirinkimas kairėje -->
