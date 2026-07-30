@@ -1,147 +1,22 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacts | Uptest</title>
-
-    <base href="/uptest.no/">
-
-    <link rel="icon" href="images/favicon.png" type="image/png">
-    <link rel="stylesheet" href="fonts.css">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            50: '#ecfeff',
-                            100: '#cffafe',
-                            200: '#a5f3fc',
-                            300: '#67e8f9',
-                            400: '#22d3ee',
-                            500: '#06b6d4',
-                            600: '#0891b2',
-                            700: '#0e7490',
-                            800: '#155e75',
-                            900: '#164e63',
-                            950: '#083344',
-                        },
-                        slatebrand: {
-                            500: '#5a656b',
-                            600: '#4a555c',
-                            700: '#3a4349',
-                            800: '#2a3136',
-                            900: '#1c2328',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-</head>
-<body class="bg-white text-slate-800 antialiased font-sans flex flex-col min-h-[100svh]">
-
-    <div class="flex-shrink-0">
-        <!-- Viršutinė kalbų juosta -->
-        <div class="bg-brand-950 text-slate-300 text-xs py-1.5 border-b border-brand-500/25">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-                <div class="flex items-center space-x-3">
-                    <span class="text-slate-400 font-medium mr-1 hidden sm:inline">Language:</span>
-                    <a href="./" class="font-bold text-brand-400 hover:text-brand-300 transition-colors">EN</a>
-                    <span class="text-brand-800">|</span>
-                    <a href="no/" class="font-medium text-slate-300 hover:text-brand-400 transition-colors">NO</a>
-                    <span class="text-brand-800">|</span>
-                    <a href="lt/" class="font-medium text-slate-300 hover:text-brand-400 transition-colors">LT</a>
-                </div>
-
-                <div class="flex items-center space-x-6 text-xs font-medium">
-                    <a href="certificates/" class="hover:text-brand-400 transition-colors hidden sm:inline-block">Our certificates</a>
-                    <a href="gallery/" class="hover:text-brand-400 transition-colors hidden sm:inline-block">Gallery</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Pagrindinis navigacijos meniu -->
-        <header class="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-gray-100">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex justify-between items-center h-16">
-                    <div class="flex-shrink-0 flex items-center">
-                        <a href="./" class="group transition-transform duration-200 hover:scale-[1.02]">
-                            <img class="h-9 w-auto object-contain" src="images/uptest-logo.png" alt="Uptest Logo">
-                        </a>
-                    </div>
-
-                    <nav class="hidden lg:flex items-center space-x-6">
-                        <a href="about-us/" class="relative text-slate-700 hover:text-brand-500 font-semibold text-sm transition-colors py-2">About Us</a>
-                        <a href="non-destructive-testing/" class="relative text-slate-700 hover:text-brand-500 font-semibold text-sm transition-colors py-2">Non-Destructive Testing</a>
-                        <a href="rope-access/" class="relative text-slate-700 hover:text-brand-500 font-semibold text-sm transition-colors py-2">Rope Access</a>
-                        <a href="equipment/" class="relative text-slate-700 hover:text-brand-500 font-semibold text-sm transition-colors py-2">NDT Equipment</a>
-                        <a href="career/" class="relative text-slate-700 hover:text-brand-500 font-semibold text-sm transition-colors py-2">Jobs & Careers</a>
-                        
-                        <a href="contacts/" class="ml-2 inline-flex items-center justify-center px-4 py-2 rounded-lg font-semibold text-xs text-white bg-brand-500 hover:bg-brand-600 shadow-sm transition-all">
-                            Contacts
-                        </a>
-                    </nav>
-
-                    <div class="lg:hidden flex items-center">
-                        <button id="mobile-menu-button" type="button" class="text-slate-600 hover:text-brand-500 focus:outline-none p-1.5 rounded-lg hover:bg-slate-100">
-                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Mobili versija -->
-            <div id="mobile-menu-panel" class="hidden lg:hidden bg-white border-b border-gray-200 shadow-xl absolute w-full left-0 z-50">
-                <div class="px-4 pt-2 pb-4 space-y-1">
-                    <a href="about-us/" class="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-700 hover:text-brand-500 hover:bg-brand-50">About Us</a>
-                    <a href="non-destructive-testing/" class="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-700 hover:text-brand-500 hover:bg-brand-50">Non-Destructive Testing</a>
-                    <a href="rope-access/" class="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-700 hover:text-brand-500 hover:bg-brand-50">Rope Access</a>
-                    <a href="equipment/" class="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-700 hover:text-brand-500 hover:bg-brand-50">NDT Equipment</a>
-                    <a href="career/" class="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-700 hover:text-brand-500 hover:bg-brand-50">Jobs & Careers</a>
-                    <a href="contacts/" class="block px-3 py-2 rounded-lg text-sm font-bold text-brand-600 bg-brand-50">Contacts</a>
-                    
-                    <div class="border-t border-gray-100 mt-3 pt-2 space-y-1">
-                        <a href="certificates/" class="block px-3 py-1.5 rounded-lg text-xs font-medium text-slate-500 hover:text-brand-500">Our Certificates</a>
-                        <a href="gallery/" class="block px-3 py-1.5 rounded-lg text-xs font-medium text-slate-500 hover:text-brand-500">Gallery</a>
-                    </div>
-                </div>
-            </div>
-        </header>
-    </div>
-
-    <!-- Subpage Hero / Pavadinimo Blokas su Nuotraukos Fonu -->
-    <section class="relative bg-brand-950 py-16 lg:py-24 overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <img src="images/header-uptest.jpg" class="w-full h-full object-cover object-center opacity-65" alt="Contacts Background">
-            <div class="absolute inset-0 bg-gradient-to-r from-brand-950/70 via-brand-950/50 to-brand-950/70"></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-brand-950 via-transparent to-brand-950/40"></div>
-        </div>
-
-        <div class="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight drop-shadow-md">
-                Contacts
-            </h1>
-        </div>
-    </section>
-
-    <!-- Pagrindinio turinio sekcija -->
-    <main class="flex-grow bg-white py-12 lg:py-16">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-            
-            <!-- Įvadas / Pagrindinis kvietimas -->
-            <div class="text-center max-w-2xl mx-auto space-y-3">
+---
+layout: page
+lang: en
+current_page: contacts
+title: "Contact Us"
+---
+<!-- Įvadas / Pagrindinis kvietimas -->
+            <div class="text-center max-w-2xl mx-auto space-y-4">
                 <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Get in Touch With Us</h2>
-                <p class="text-base text-slate-600">
-                    Reach out to our team for professional NDT inspection services, equipment rental inquiries, or project consultations. We operate across Lithuania and Norway.
+                <div class="text-base text-slate-600 space-y-2">
+                    <p>
+                        <strong class="text-slate-900">For Services & Projects:</strong> Reach out to our team for professional NDT inspection services, equipment rental inquiries, or project consultations.
+                    </p>
+                    <p>
+                        <strong class="text-slate-900">For Careers & Applications:</strong> Contact us regarding job opportunities and applications.
+                    </p>
+                </div>
+                <p class="text-sm font-medium text-slate-500 pt-1">
+                    We operate across Lithuania and Norway.
                 </p>
             </div>
 
@@ -259,39 +134,3 @@
                 </div>
 
             </div>
-
-        </div>
-    </main>
-
-    <!-- Footeris -->
-    <footer class="bg-zinc-100 py-4 sm:py-5 border-t border-gray-200 relative z-30 shadow-sm mt-auto">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-4 text-center sm:text-left">
-            
-            <p class="text-[11px] text-slate-600 font-normal">
-                © 2026 <strong class="text-slate-900 font-semibold tracking-wide">Uptest, Ltd</strong>. All rights reserved.
-            </p>
-            
-            <div class="flex items-center gap-1.5 text-[11px] text-slate-500">
-                <span class="font-light">Rebuilt by</span>
-                <a href="https://æx7.com" target="_blank" rel="noopener noreferrer" class="text-brand-600 hover:text-brand-700 transition-colors font-semibold tracking-wide">
-                    Æx7
-                </a>
-                [<a href="https://uptest.no" target="_blank" rel="noopener noreferrer" class="text-brand-600 hover:text-brand-700 transition-colors font-semibold tracking-wide">
-                    Old version
-                </a>]
-            </div>
-            
-        </div>
-    </footer>
-
-    <!-- Skriptas tik mobiliam meniu -->
-    <script>
-        const mobileBtn = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu-panel');
-
-        mobileBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-    </script>
-</body>
-</html>
