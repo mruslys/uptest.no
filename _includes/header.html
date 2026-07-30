@@ -65,12 +65,19 @@
 
             <div id="mobile-menu-panel" class="hidden lg:hidden bg-white border-b border-gray-200 shadow-xl absolute w-full left-0 z-50">
                 <div class="px-4 pt-2 pb-4 space-y-1">
-                    <a href="about-us/" class="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-700 hover:text-brand-500 hover:bg-brand-50">About Us</a>
-                    <a href="non-destructive-testing/" class="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-700 hover:text-brand-500 hover:bg-brand-50">Non-Destructive Testing</a>
-                    <a href="rope-access/" class="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-700 hover:text-brand-500 hover:bg-brand-50">Rope Access</a>
-                    <a href="equipment/" class="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-700 hover:text-brand-500 hover:bg-brand-50">NDT Equipment</a>
-                    <a href="career/" class="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-700 hover:text-brand-500 hover:bg-brand-50">Jobs & Careers</a>
-                    <a href="contacts/" class="block px-3 py-2 rounded-lg text-sm font-bold text-brand-600 hover:bg-brand-50">Contacts</a>
+                    {% for nav_item in data.nav %}
+                        {% assign item = nav_item[1] %}
+                        
+                        {% if item.highlight %}
+                            <a href="{{ item.link[page.lang] }}" class="block px-3 py-2 rounded-lg text-sm font-bold text-brand-600 hover:bg-brand-50">
+                                {{ item.title[page.lang] }}
+                            </a>
+                        {% else %}
+                            <a href="{{ item.link[page.lang] }}" class="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-700 hover:text-brand-500 hover:bg-brand-50">
+                                {{ item.title[page.lang] }}
+                            </a>
+                        {% endif %}
+                    {% endfor %}
                     
                     <div class="border-t border-gray-100 mt-2 pt-2 space-y-1">
                         {% for item in data.secondary %}
