@@ -3,19 +3,16 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
                 
                 <div class="flex items-center space-x-3">
-                    <span class="text-slate-400 font-medium mr-1 hidden sm:inline">{{ data.common[page.lang].language }}:</span>
-                    <!-- EN nuoroda -->
-                    <a href="index.html" class="transition-colors {% if page.lang == 'en' %}font-bold text-brand-400{% else %}font-medium text-slate-300 hover:text-brand-400{% endif %}">EN</a>
+                 <span class="text-slate-400 font-medium mr-1 hidden sm:inline">{{ data.common[page.lang].language }}:</span>
+                    {% for lang in data.languages %}
+                      <a href="{{ lang.link }}" class="transition-colors {% if page.lang == lang.code %}font-bold text-brand-400{% else %}font-medium text-slate-300 hover:text-brand-400{% endif %}">
+                        {{ lang.label }}
+                      </a>
                     
-                    <span class="text-brand-800">|</span>
-                    
-                    <!-- LT nuoroda -->
-                    <a href="lt/" class="transition-colors {% if page.lang == 'lt' %}font-bold text-brand-400{% else %}font-medium text-slate-300 hover:text-brand-400{% endif %}">LT</a>
-                    
-                    <span class="text-brand-800">|</span>
-                    
-                    <!-- NO nuoroda -->
-                    <a href="no/" class="transition-colors {% if page.lang == 'no' %}font-bold text-brand-400{% else %}font-medium text-slate-300 hover:text-brand-400{% endif %}">NO</a>
+                      {% unless forloop.last %}
+                        <span class="text-brand-800">|</span>
+                      {% endunless %}
+                    {% endfor %}
                 </div>
 
                 <div class="flex items-center space-x-6 text-xs font-medium">
