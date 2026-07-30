@@ -33,43 +33,52 @@
 {% endfor %}
 
 <div class="flex-shrink-0">
-    <!-- Pagrindinis navigacijos meniu ir viršutinė juosta sujungta / pakoreguota -->
+    <!-- Pagrindinis navigacijos meniu ir viršutinė juosta -->
     <header class="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-gray-100">
         
-        <!-- Viršutinė juosta: perkelta į dešinę šalia sekundinio meniu -->
+        <!-- Viršutinė juosta: sekundinis meniu kairėje/viduryje, o kalbų pasirinkimas visiškai dešinėje -->
         <div class="bg-brand-950 text-slate-300 text-xs py-1.5 border-b border-brand-500/20">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-end items-center space-x-6">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
                 
-                <!-- Kalbų pasirinkimas perkeltas čia -->
-                <div class="flex items-center space-x-3">
-                    <span class="text-slate-400 font-medium mr-1 hidden sm:inline">{{ data.common[page.lang].language }}:</span>
-                    {% for lang in data.languages %}
-                        {% assign target_link = lang.link %}
-                        
-                        {% if page.current_page %}
-                            {% assign nav_match = data.nav[page.current_page] %}
-                            {% if nav_match and nav_match.link[lang.code] %}
-                                {% assign target_link = nav_match.link[lang.code] %}
+                <!-- Kairė viršutinės juostos pusė tuščia (paliekama erdvė švariai estetikai arba galima kažką įkelti) -->
+                <div></div>
+
+                <!-- Dešinė pusė: Sekundinis meniu + Kalbos -->
+                <div class="flex items-center space-x-6">
+                    <!-- Sekundinis meniu -->
+                    <div class="flex items-center space-x-6 text-xs font-medium">
+                        {% for item in data.secondary %}
+                            <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="hover:text-brand-400 transition-colors hidden sm:inline-block">
+                                {{ item.title[page.lang] }}
+                            </a>
+                        {% endfor %}
+                    </div>
+
+                    <!-- Atskirianti linija tarp sekundinio meniu ir kalbų (rodoma tik jei yra abiejų) -->
+                    <span class="text-brand-800 hidden sm:inline">|</span>
+
+                    <!-- Kalbų pasirinkimas visiškai dešinėje -->
+                    <div class="flex items-center space-x-3">
+                        <span class="text-slate-400 font-medium mr-1 hidden sm:inline">{{ data.common[page.lang].language }}:</span>
+                        {% for lang in data.languages %}
+                            {% assign target_link = lang.link %}
+                            
+                            {% if page.current_page %}
+                                {% assign nav_match = data.nav[page.current_page] %}
+                                {% if nav_match and nav_match.link[lang.code] %}
+                                    {% assign target_link = nav_match.link[lang.code] %}
+                                {% endif %}
                             {% endif %}
-                        {% endif %}
 
-                        <a href="{{ site.baseurl }}/{{ target_link }}" class="transition-colors {% if page.lang == lang.code %}font-bold text-brand-400{% else %}font-medium text-slate-300 hover:text-brand-400{% endif %}">
-                            {{ lang.label }}
-                        </a>
-                        
-                        {% unless forloop.last %}
-                            <span class="text-brand-800">|</span>
-                        {% endunless %}
-                    {% endfor %}
-                </div>
-
-                <!-- Sekundinis meniu dešinėje -->
-                <div class="flex items-center space-x-6 text-xs font-medium">
-                    {% for item in data.secondary %}
-                        <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="hover:text-brand-400 transition-colors hidden sm:inline-block">
-                            {{ item.title[page.lang] }}
-                        </a>
-                    {% endfor %}
+                            <a href="{{ site.baseurl }}/{{ target_link }}" class="transition-colors {% if page.lang == lang.code %}font-bold text-brand-400{% else %}font-medium text-slate-300 hover:text-brand-400{% endif %}">
+                                {{ lang.label }}
+                            </a>
+                            
+                            {% unless forloop.last %}
+                                <span class="text-brand-800">|</span>
+                            {% endunless %}
+                        {% endfor %}
+                    </div>
                 </div>
                 
             </div>
@@ -80,7 +89,7 @@
             <div class="flex justify-between items-center h-20 sm:h-24">
                 
                 <div class="flex-shrink-0 flex items-center py-2">
-                    <!-- Logotipas padidintas drąsiau: mobile h-12, kompiuteryje h-16 (64px) -->
+                    <!-- Logotipas padidintas: mobile h-12, kompiuteryje h-16 (64px) -->
                     <a href="{{ site.baseurl }}/{{ home_link }}" class="group transition-transform duration-200 hover:scale-[1.02]">
                         <img class="h-12 sm:h-16 w-auto object-contain" src="{{ site.baseurl }}/images/uptest-logo.png" alt="Uptest Logo">
                     </a>
