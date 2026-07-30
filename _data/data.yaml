@@ -5,7 +5,18 @@ index:
     en: "Uptest | NDT & Rope Access Inspections"
     lt: "Uptest | Neardomoji kontrolė ir darbai aukštyje"
     "no": "Uptest | NDT & Tilgangsteknikk Kontroll"
-  
+    
+languages:
+  - code: "en"
+    label: "EN"
+    link: "index.html"
+  - code: "lt"
+    label: "LT"
+    link: "lt/"
+  - code: "no"
+    label: "NO"
+    link: "no/"
+    
 common:
   en:
     language: "Language"
