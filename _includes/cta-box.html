@@ -1,14 +1,15 @@
 {% assign c = site.data.data.common[page.lang] %}
+{% assign n = site.data.data.nav %}
 
 <div class="bg-brand-950 text-white rounded-2xl p-6 sm:p-8 space-y-4 shadow-lg">
-    <h3 class="text-xl font-bold text-brand-300">{{ include.title | default: "Ready to Work With Us?" }}</h3>
+    <h3 class="text-xl font-bold text-brand-300">{{ include.title | default: c.get_in_touch }}</h3>
     <p class="text-slate-200 text-base leading-relaxed">
         {{ include.description }}
     </p>
     <div class="pt-2 flex flex-wrap items-center gap-3">
-        <!-- Pagrindinis dinaminis mygtukas -->
-        <a href="{{ include.btn_url | default: 'contacts/' }}" class="inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold text-sm text-brand-950 bg-brand-400 hover:bg-brand-300 shadow-sm transition-all">
-            {{ include.btn_text | default: "Contact Us" }}
+        <!-- Pagrindinis dinaminis mygtukas su automatinia nuoroda ir pavadinimu pagal kalbą -->
+        <a href="{{ site.baseurl }}/{{ n.contacts.link[page.lang] }}" class="inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold text-sm text-brand-950 bg-brand-400 hover:bg-brand-300 shadow-sm transition-all">
+            {{ include.btn_text | default: n.contacts.title[page.lang] }}
         </a>
 
         <!-- Kvadratinis telefono mygtukas -->
