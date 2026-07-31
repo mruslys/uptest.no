@@ -1,15 +1,19 @@
 <div class="space-y-6 pt-4">
     {% assign target_folder = page.gallery_folder | append: '/' %}
     {% assign has_images = false %}
+    {% assign img_array = "" | split: "" %}
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    <!-- Pirmiausia surenkame nuotraukų kelius į masyvą JavaScript pusėje -->
+    <div id="gallery-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {% for file in site.static_files %}
             {% if file.path contains target_folder %}
                 {% assign extension = file.extname | downcase %}
                 {% if extension == '.jpg' or extension == '.jpeg' or extension == '.png' or extension == '.webp' %}
                     {% assign has_images = true %}
-                    <div class="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-sm hover:shadow-md transition-all duration-300 group">
-                        <div class="w-full bg-slate-100 overflow-hidden relative">
+                    {% assign img_array = img_array | push: file.path %}
+                    <div onclick="openLightbox('{{ file.path | relative_url }}', {{ img_array.size | minus: 1 }})" 
+                         class="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-sm hover:shadow-md transition-all duration-300 group cursor-pointer">
+                        <div class="w-full bg-slate-100 overflow-hidden relative aspect-4-3">
                             <img src="{{ file.path | relative_url }}" 
                                  alt="{{ file.basename }}" 
                                  class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
@@ -26,3 +30,100 @@
     </div>
     {% endif %}
 </div>
+
+<!-- Lightbox Modalinis Langas -->
+<div id="lightbox-modal" class="fixed inset-0 z-50 bg-black/90 hidden flex items-center justify-center p-4 backdrop-blur-sm">
+    <!-- Uždarymo mygtukas -->
+    <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white/70 hover:text-white p-2 transition-colors z-10">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+    </button>
+
+    <!-- Atgal mygtukas -->
+    <button onclick="changeSlide(-1)" class="absolute left-4 sm:left-8 text-white/70 hover:text-white p-3 bg-black/40 hover:bg-black/60 rounded-full transition-colors z-10">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+    </button>
+
+    <!-- Nuotrauka ir indeksas -->
+    <div class="max-w-5xl max-h-[85vh] flex flex-col items-center justify-center relative">
+        <img id="lightbox-img" src="" alt="Nuotrauka" class="max-h-[80vh] max-w-full object-contain rounded-lg shadow-2xl">
+        <p id="lightbox-counter" class="text-white/70 text-sm mt-3 font-medium"></p>
+    </div>
+
+    <!-- Pirmyn mygtukas -->
+    <button onclick="changeSlide(1)" class="absolute right-4 sm:right-8 text-white/70 hover:text-white p-3 bg-black/40 hover:bg-black/60 rounded-full transition-colors z-10">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
+    </button>
+</div>
+
+<!-- JavaScript galerijos valdymo logika -->
+<script>
+    // Surenkame visus paveikslėlių kelius į JS masyvą
+    const galleryImages = [
+        {% for file in site.static_files %}
+            {% if file.path contains target_folder %}
+                {% assign extension = file.extname | downcase %}
+                {% if extension == '.jpg' or extension == '.jpeg' or extension == '.png' or extension == '.webp' %}
+                    "{{ file.path | relative_url }}",
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    ];
+
+    let currentIndex = 0;
+
+    function openLightbox(src, index) {
+        currentIndex = index;
+        const modal = document.getElementById('lightbox-modal');
+        const img = document.getElementById('lightbox-img');
+        
+        img.src = src;
+        updateCounter();
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden'; // Sustabdo galimybę scrollinti puslapį kol modalas atidarytas
+    }
+
+    function closeLightbox() {
+        const modal = document.getElementById('lightbox-modal');
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+    }
+
+    function changeSlide(direction) {
+        currentIndex += direction;
+        if (currentIndex < 0) {
+            currentIndex = galleryImages.length - 1; // Nuo pradžių persimeta į galą
+        } else if (currentIndex >= galleryImages.length) {
+            currentIndex = 0; // Nuo galo persimeta į pradžią
+        }
+        
+        document.getElementById('lightbox-img').src = galleryImages[currentIndex];
+        updateCounter();
+    }
+
+    function updateCounter() {
+        document.getElementById('lightbox-counter').innerText = (currentIndex + 1) + ' / ' + galleryImages.length;
+    }
+
+    // Klaviatūros valdymas (Esc - uždaryti, rodyklės - keisti nuotraukas)
+    document.addEventListener('keydown', function(e) {
+        const modal = document.getElementById('lightbox-modal');
+        if (!modal.classList.contains('hidden')) {
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+            if (e.key === 'ArrowRight') changeSlide(1);
+        }
+    });
+
+    // Uždaryti paspaudus ant tamsaus fono (bet ne ant pačios nuotraukos)
+    document.getElementById('lightbox-modal').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeLightbox();
+        }
+    });
+</script>
