@@ -31,17 +31,17 @@
     {% endif %}
 </div>
 
-<!-- Lightbox Modalinis Langas (Rekomenduojama perkelti kuo arčiau HTML dokumento pabaigos) -->
-<div id="lightbox-modal" class="fixed inset-0 z-[99999] bg-black/95 hidden flex flex-col items-center justify-center p-2 sm:p-4 backdrop-blur-md">
+<!-- Lightbox Modalinis Langas -->
+<div id="lightbox-modal" class="fixed inset-0 z-[999999] bg-black/95 hidden flex flex-col items-center justify-center p-2 sm:p-4 backdrop-blur-md">
     <!-- Uždarymo mygtukas -->
-    <button onclick="closeLightbox()" class="absolute top-4 right-4 sm:top-6 sm:right-6 text-white/70 hover:text-white p-2 transition-colors z-20 bg-black/50 rounded-full">
+    <button onclick="closeLightbox()" class="absolute top-4 right-4 sm:top-6 sm:right-6 text-white/70 hover:text-white p-2 transition-colors z-20 bg-black/50 rounded-full cursor-pointer">
         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
         </svg>
     </button>
 
     <!-- Atgal mygtukas -->
-    <button onclick="changeSlide(-1)" class="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 text-white/70 hover:text-white p-3 bg-black/50 hover:bg-black/80 rounded-full transition-colors z-20">
+    <button onclick="changeSlide(-1)" class="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 text-white/70 hover:text-white p-3 bg-black/50 hover:bg-black/80 rounded-full transition-colors z-20 cursor-pointer">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
         </svg>
@@ -54,7 +54,7 @@
     </div>
 
     <!-- Pirmyn mygtukas -->
-    <button onclick="changeSlide(1)" class="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 text-white/70 hover:text-white p-3 bg-black/50 hover:bg-black/80 rounded-full transition-colors z-20">
+    <button onclick="changeSlide(1)" class="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 text-white/70 hover:text-white p-3 bg-black/50 hover:bg-black/80 rounded-full transition-colors z-20 cursor-pointer">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
         </svg>
@@ -76,6 +76,14 @@
 
     let currentIndex = 0;
 
+    // Automatiškai perkeliame modalą į pačią body pabaigą, kad jis ignoruotų visus puslapio rėmus ir meniu
+    document.addEventListener("DOMContentLoaded", function() {
+        const modal = document.getElementById('lightbox-modal');
+        if (modal) {
+            document.body.appendChild(modal);
+        }
+    });
+
     function openLightbox(src, index) {
         currentIndex = index;
         const modal = document.getElementById('lightbox-modal');
@@ -90,6 +98,7 @@
     function closeLightbox() {
         const modal = document.getElementById('lightbox-modal');
         modal.classList.add('hidden');
+        document.body.style.overflow = '';
     }
 
     function changeSlide(direction) {
