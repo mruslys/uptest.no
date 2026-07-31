@@ -30,6 +30,11 @@
             <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight drop-shadow-md">
                 {{ page.title }}
             </h1>
+            {% if page.subtitle %}
+            <p class="mt-4 text-lg sm:text-xl text-slate-300 font-normal max-w-2xl mx-auto drop-shadow">
+                {{ page.subtitle }}
+            </p>
+            {% endif %}
         </div>
     </section>
 
