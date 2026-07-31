@@ -260,10 +260,10 @@
                             <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                         </div>
                     </div>
-                    <!-- Dešinysis blokas su TOP/NDT žyma, rėmeliu ir vizualiniu akcentu -->
-                    <div class="absolute right-0 top-0 bottom-0 w-20 sm:w-24 bg-brand-400/10 group-hover:bg-brand-400/20 transition-colors border-l border-brand-400/20 flex items-center justify-center text-brand-300 group-hover:text-brand-400">
-                        <span class="text-xs sm:text-sm font-extrabold tracking-widest uppercase px-2 py-1 rounded bg-brand-950/40 border border-brand-400/30 group-hover:scale-110 transition-transform shadow-inner">
-                            {% if forloop.index == 1 %}TOP{% else %}NDT{% endif %}
+                    <!-- Dešinysis blokas su reprezentatyviu numeriu (01, 02 ir t.t.) -->
+                    <div class="absolute right-0 top-0 bottom-0 w-20 sm:w-24 bg-brand-400/10 group-hover:bg-brand-400/20 transition-colors flex items-center justify-center text-brand-300 group-hover:text-brand-400">
+                        <span class="text-xl sm:text-2xl font-black tracking-wider tabular-nums opacity-90 group-hover:scale-110 transition-transform">
+                            0{{ forloop.index }}
                         </span>
                     </div>
                 </a>
