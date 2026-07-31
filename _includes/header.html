@@ -14,18 +14,18 @@
         <div class="bg-slate-100 text-slate-700 text-xs py-1.5 border-b border-gray-200">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
                 
+                <!-- Kalbų perjungimas (lieka toks pat, kokiame naudojate page.current_page) -->
                 <div class="flex items-center space-x-3 text-xs">
                     <span class="text-slate-500 font-medium mr-1 hidden sm:inline">{{ data.common[page.lang].language }}:</span>
                     {% for lang in data.languages %}
                         {% assign target_link = lang.link %}
-                        
                         {% if page.current_page %}
                             {% assign nav_match = data.nav[page.current_page] %}
                             {% if nav_match and nav_match.link[lang.code] %}
                                 {% assign target_link = nav_match.link[lang.code] %}
                             {% endif %}
                         {% endif %}
-
+        
                         <a href="{{ site.baseurl }}/{{ target_link }}" class="transition-colors {% if page.lang == lang.code %}font-bold text-brand-600{% else %}font-medium text-slate-600 hover:text-brand-600{% endif %}">
                             {{ lang.label }}
                         </a>
@@ -35,12 +35,22 @@
                         {% endunless %}
                     {% endfor %}
                 </div>
-
+        
+                <!-- Secondary menu ištraukiamas iš data.nav kur secondary: true -->
                 <div class="flex items-center space-x-6 text-xs font-medium">
-                    {% for item in data.secondary %}
-                        <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="hover:text-brand-600 transition-colors hidden sm:inline-block text-slate-600">
-                            {{ item.title[page.lang] }}
-                        </a>
+                    {% for nav_item in data.nav %}
+                        {% assign item = nav_item[1] %}
+                        
+                        {% if item.secondary %}
+                            {% assign is_active = false %}
+                            {% if page.current_page == nav_item[0] or page.url == item.link[page.lang] %}
+                                {% assign is_active = true %}
+                            {% endif %}
+        
+                            <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="transition-colors hidden sm:inline-block {% if is_active %}font-bold text-brand-600{% else %}text-slate-600 hover:text-brand-600{% endif %}">
+                                {{ item.title[page.lang] }}
+                            </a>
+                        {% endif %}
                     {% endfor %}
                 </div>
                 
