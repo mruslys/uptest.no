@@ -68,23 +68,27 @@
                         </a>
                     </div>
 
-                    <nav class="hidden lg:flex items-center space-x-8">
+                      <nav class="hidden lg:flex items-center space-x-8">
                         {% for nav_item in data.nav %}
                             {% assign item = nav_item[1] %}
-                            {% assign is_active = false %}
-                            {% if page.current_page == nav_item[0] or page.url == item.link[page.lang] %}
-                                {% assign is_active = true %}
-                            {% endif %}
                             
-                            {% if item.highlight %}
-                                <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="ml-2 inline-flex items-center justify-center px-5 py-2.5 rounded-lg font-semibold text-sm text-white {% if is_active %}bg-brand-700{% else %}bg-brand-600 hover:bg-brand-700{% endif %} shadow-sm transition-all">
-                                    {{ item.title[page.lang] }}
-                                </a>
-                            {% else %}
-                                <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="relative font-semibold text-sm lg:text-base transition-colors py-2 {% if is_active %}text-brand-600{% else %}text-slate-700 hover:text-brand-600{% endif %}">
-                                    {{ item.title[page.lang] }}
-                                </a>
-                            {% endif %}
+                            <!-- Praleidžiame, jei tai yra secondary elementas -->
+                            {% unless item.secondary %}
+                                {% assign is_active = false %}
+                                {% if page.current_page == nav_item[0] or page.url == item.link[page.lang] %}
+                                    {% assign is_active = true %}
+                                {% endif %}
+                                
+                                {% if item.highlight %}
+                                    <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="ml-2 inline-flex items-center justify-center px-5 py-2.5 rounded-lg font-semibold text-sm text-white {% if is_active %}bg-brand-700{% else %}bg-brand-600 hover:bg-brand-700{% endif %} shadow-sm transition-all">
+                                        {{ item.title[page.lang] }}
+                                    </a>
+                                {% else %}
+                                    <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="relative font-semibold text-sm lg:text-base transition-colors py-2 {% if is_active %}text-brand-600{% else %}text-slate-700 hover:text-brand-600{% endif %}">
+                                        {{ item.title[page.lang] }}
+                                    </a>
+                                {% endif %}
+                            {% endunless %}
                         {% endfor %}
                     </nav>
 
@@ -105,27 +109,35 @@
             <div class="px-4 pt-3 pb-5 space-y-1.5">
                 {% for nav_item in data.nav %}
                     {% assign item = nav_item[1] %}
-                    {% assign is_active = false %}
-                    {% if page.current_page == nav_item[0] or page.url == item.link[page.lang] %}
-                        {% assign is_active = true %}
-                    {% endif %}
                     
-                    {% if item.highlight %}
-                        <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="block px-3.5 py-2.5 rounded-lg text-sm font-bold {% if is_active %}text-brand-800 bg-brand-100{% else %}text-brand-700 hover:bg-brand-50{% endif %}">
-                            {{ item.title[page.lang] }}
-                        </a>
-                    {% else %}
-                        <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="block px-3.5 py-2.5 rounded-lg text-sm font-semibold {% if is_active %}text-brand-600 bg-brand-50{% else %}text-slate-700 hover:text-brand-600 hover:bg-brand-50{% endif %}">
-                            {{ item.title[page.lang] }}
-                        </a>
-                    {% endif %}
+                    <!-- Praleidžiame, jei tai yra secondary elementas -->
+                    {% unless item.secondary %}
+                        {% assign is_active = false %}
+                        {% if page.current_page == nav_item[0] or page.url == item.link[page.lang] %}
+                            {% assign is_active = true %}
+                        {% endif %}
+                        
+                        {% if item.highlight %}
+                            <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="block px-3.5 py-2.5 rounded-lg text-sm font-bold {% if is_active %}text-brand-800 bg-brand-100{% else %}text-brand-700 hover:bg-brand-50{% endif %}">
+                                {{ item.title[page.lang] }}
+                            </a>
+                        {% else %}
+                            <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="block px-3.5 py-2.5 rounded-lg text-sm font-semibold {% if is_active %}text-brand-600 bg-brand-50{% else %}text-slate-700 hover:text-brand-600 hover:bg-brand-50{% endif %}">
+                                {{ item.title[page.lang] }}
+                            </a>
+                        {% endif %}
+                    {% endunless %}
                 {% endfor %}
                 
+                <!-- Jeigu norite, kad mobiliajame meniu apačioje (viršutinės juostos alternatyvai) būtų sertifikatai/galerija, galite juos atskirai atvaizduoti čia -->
                 <div class="border-t border-gray-100 mt-3 pt-3 space-y-1 sm:hidden">
-                    {% for item in data.secondary %}
-                        <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="block px-3.5 py-2 rounded-lg text-xs font-medium text-slate-500 hover:text-brand-600">
-                            {{ item.title[page.lang] }}
-                        </a>
+                    {% for nav_item in data.nav %}
+                        {% assign item = nav_item[1] %}
+                        {% if item.secondary %}
+                            <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="block px-3.5 py-2 rounded-lg text-xs font-medium text-slate-500 hover:text-brand-600">
+                                {{ item.title[page.lang] }}
+                            </a>
+                        {% endif %}
                     {% endfor %}
                 </div>
             </div>
