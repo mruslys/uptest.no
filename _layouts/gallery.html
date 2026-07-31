@@ -15,7 +15,7 @@
     {% include tailwind.html %}
 </head>
 
-<body class="bg-brand-950 text-slate-800 antialiased font-sans flex flex-col min-h-screen m-0">
+<body class="bg-brand-950 text-slate-800 antialiased font-sans flex flex-col min-h-screen m-0 p-0">
 
     <!-- Įtraukiamas headeris -->
     {% include header.html %}
@@ -52,8 +52,8 @@
     <!-- Footeris -->
     {% include footer.html %}
     
-    <!-- Lightbox Modalinis Langas -->
-    <div id="lightbox-modal" class="fixed inset-0 z-[99999] bg-black/95 hidden flex flex-col items-center justify-center p-2 sm:p-4 backdrop-blur-md">
+    <!-- Lightbox Modalinis Langas (Atitrauktas į pačią šaknis, uždengiantis viską nuo 0,0 koordinatės) -->
+    <div id="lightbox-modal" class="fixed top-0 left-0 w-screen h-screen z-[999999] bg-black/95 hidden flex flex-col items-center justify-center p-2 sm:p-4 backdrop-blur-md m-0">
         <!-- Uždarymo mygtukas -->
         <button onclick="closeLightbox()" class="absolute top-4 right-4 sm:top-6 sm:right-6 text-white/70 hover:text-white p-2 transition-colors z-20 bg-black/50 rounded-full cursor-pointer">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
