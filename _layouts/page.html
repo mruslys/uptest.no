@@ -16,5 +16,37 @@
 
 <body class="bg-brand-950 text-slate-800 antialiased font-sans flex flex-col min-h-screen m-0">
 
+    <!-- Įtraukiamas headeris -->
+
+    {% include header.html %}
+
+    <!-- Subpage Hero / Pavadinimo Blokas su Nuotraukos Fonu -->
+    <section class="relative bg-brand-950 py-16 lg:py-24 overflow-hidden flex flex-col justify-center">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-950/80 via-brand-950/60 to-brand-950/80"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-950 via-transparent to-brand-950/40"></div>
+        </div>
+        <div class="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight drop-shadow-md">
+                {{ page.title }}
+            </h1>
+        </div>
+    </section>
+
+    <!-- Pagrindinio teksto sekcija -->
+    <main class="flex-grow bg-white py-12 lg:py-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 text-slate-700 leading-relaxed">
+            {{ content }}
+
+            {% if page.gallery_folder %}
+                {% include gallery.html %}
+            {% endif %}
+        </div>
+    </main>
+
+   
+    <!-- Footeris -->
+    {% include footer.html %}
+    
 </body>
 </html>
