@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>{{ page.title }} | {{ data.home.title.[page.lang] }}</title>
+    <title>{{ page.title }} | {{ data.home.title[page.lang] }}</title>
 
     <base href="/uptest.no/">
     
@@ -25,7 +25,7 @@
     <section class="relative bg-brand-950 py-16 lg:py-24 overflow-hidden">
         <div class="absolute inset-0 z-0">
             <img src="{{ page.header_image | default: 'images/header-uptest.jpg' }}" class="w-full h-full object-cover object-center opacity-65" alt="{{ page.title }}">
-            <div class="absolute inset-0 bg-gradient-to-r from-brand-950/70 via-brand-950/50 to-brand-950/70"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-950/80 via-brand-950/60 to-brand-950/80"></div>
             <div class="absolute inset-0 bg-gradient-to-t from-brand-950 via-transparent to-brand-950/40"></div>
         </div>
 
@@ -43,17 +43,18 @@
         </div>
     </main>
 
-
-     {% include footer.html %}
+    {% include footer.html %}
 
     <!-- Skriptas mobiliam meniu -->
     <script>
         const mobileBtn = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu-panel');
 
-        mobileBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
     </script>
 </body>
 </html>
