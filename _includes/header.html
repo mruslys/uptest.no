@@ -134,7 +134,12 @@
                     {% for nav_item in data.nav %}
                         {% assign item = nav_item[1] %}
                         {% if item.secondary %}
-                            <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="block px-3.5 py-2 rounded-lg text-xs font-medium text-slate-500 hover:text-brand-600">
+                            {% assign is_active = false %}
+                            {% if page.current_page == nav_item[0] or page.url == item.link[page.lang] %}
+                                {% assign is_active = true %}
+                            {% endif %}
+                
+                            <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="block px-3.5 py-2 rounded-lg text-xs font-medium transition-colors {% if is_active %}font-bold text-brand-600 bg-brand-50{% else %}text-slate-500 hover:text-brand-600 hover:bg-slate-50{% endif %}">
                                 {{ item.title[page.lang] }}
                             </a>
                         {% endif %}
