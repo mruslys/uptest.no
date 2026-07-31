@@ -5,15 +5,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>{{ data.home.title[page.lang] }}</title>
+
     <base href="/uptest.no/">
+    
     <link rel="icon" href="images/favicon.png" type="image/png">
     <link rel="stylesheet" href="fonts.css">
+    
     {% include tailwind.html %}
+    
 </head>
 <body class="bg-brand-950 text-slate-800 antialiased font-sans flex flex-col min-h-[100svh]">
 
-{% assign data = site.data.data %}
+    {% assign data = site.data.data %}
 
 {% assign home_link = "" %}
 {% for lang in data.languages %}
@@ -67,7 +72,7 @@
             </div>
         </div>
 
-        <div class="bg-slate-50 text-slate-700 text-xs py-2 border-b border-gray-200">
+        <div class="bg-slate-100 text-slate-700 text-xs py-1.5 border-b border-gray-200">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
                 
                 <div class="flex items-center space-x-3 text-xs">
@@ -82,7 +87,7 @@
                             {% endif %}
                         {% endif %}
 
-                        <a href="{{ site.baseurl }}/{{ target_link }}" class="transition-colors {% if page.lang == lang.code %}font-bold text-brand-600 underline underline-offset-4{% else %}font-medium text-slate-600 hover:text-brand-600{% endif %}">
+                        <a href="{{ site.baseurl }}/{{ target_link }}" class="transition-colors {% if page.lang == lang.code %}font-bold text-brand-600{% else %}font-medium text-slate-600 hover:text-brand-600{% endif %}">
                             {{ lang.label }}
                         </a>
                         
@@ -136,9 +141,10 @@
     </header>
 </div>
 
-<!-- HERO SEKCIJA -->
-<section id="hero-slider" class="relative flex-grow flex flex-col justify-between w-full min-h-0 bg-brand-950 overflow-hidden cursor-pointer py-4 lg:py-6">
+  <!-- HERO SEKCIJA -->
+  <section id="hero-slider" class="relative flex-grow flex flex-col justify-between w-full min-h-0 bg-brand-950 overflow-hidden cursor-pointer py-4 lg:py-6">
 
+    <!-- 1. FONO SLADERIS -->
     <div class="absolute inset-0 z-0">
         {% for slide_item in data.slides %}
           {% assign slide = slide_item[1] %}
@@ -151,7 +157,8 @@
         <div class="absolute inset-0 bg-gradient-to-t from-brand-950 via-brand-950/50 to-brand-950/20"></div>
     </div>
 
-    <div class="slider-controller hidden lg:flex absolute right-8 top-6 z-30 items-center gap-3 bg-brand-950/40 px-3 py-1.5 rounded-full backdrop-blur-md border border-white/10">
+    <!-- 2. VALDIKLIAI VIRŠUJE (Desktop) -->
+    <div class="slider-controller hidden lg:flex absolute right-8 top-4 z-30 items-center gap-3">
         <div class="text-[11px] font-bold text-white tracking-wider tabular-nums flex items-center gap-1">
             <span class="text-brand-400 current-num">01</span>
             <span class="text-slate-300">/</span>
@@ -170,10 +177,12 @@
         </div>
     </div>
 
+    <!-- 3. PAGRINDINIS TURINYS (Pridėta justify-center, kad tekstas vertikaliai stotų į vidurį) -->
     <div class="relative z-20 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-2 flex flex-col justify-between flex-grow">
         
-        <div class="w-full"></div>
+        <div class="w-full"></div> <!-- Viršutinis tuščias elementas išlaikymui -->
 
+        <!-- Slaiderio tekstas (vertikaliai centre) -->
         <div class="w-full max-w-xl text-left my-auto py-4">
             <div class="relative min-h-[150px] sm:min-h-[170px]">
                 {% for slide_item in data.slides %}
@@ -181,27 +190,27 @@
                   
                   <div class="slide-text transition-opacity duration-500 {% if forloop.first %}opacity-100{% else %}opacity-0 pointer-events-none{% endif %} absolute inset-0 flex flex-col justify-center" data-index="{{ forloop.index0 }}">
                       <div>
-                          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-brand-400/20 text-brand-300 border border-brand-400/35 backdrop-blur-md mb-2">
+                          <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider bg-brand-400/20 text-brand-300 border border-brand-400/35 backdrop-blur-md mb-2">
                               {{ slide.badge[page.lang] }}
                           </span>
                       </div>
           
                       {% if forloop.first %}
-                        <h1 class="text-white text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight leading-snug mb-2 drop-shadow-md">
+                        <h1 class="text-white text-xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight leading-snug mb-2 drop-shadow-md">
                             {{ slide.title[page.lang] }}
                         </h1>
                       {% else %}
-                        <h2 class="text-white text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight leading-snug mb-2 drop-shadow-md">
+                        <h2 class="text-white text-xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight leading-snug mb-2 drop-shadow-md">
                             {{ slide.title[page.lang] }}
                         </h2>
                       {% endif %}
           
-                      <p class="text-slate-100 text-xs sm:text-sm font-medium max-w-lg leading-relaxed mb-4">
+                      <p class="text-slate-100 text-xs sm:text-sm font-normal max-w-lg leading-relaxed mb-3">
                           {{ slide.desc[page.lang] }}
                       </p>
           
                       <div>
-                          <a href="{{ slide.link[page.lang] }}" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-xs font-semibold text-brand-950 bg-brand-400 hover:bg-brand-300 transition-all shadow-md">
+                          <a href="{{ slide.link[page.lang] }}" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold text-brand-950 bg-brand-400 hover:bg-brand-300 transition-all shadow-md">
                               {{ slide.btn_text[page.lang] }}
                               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                           </a>
@@ -211,10 +220,12 @@
             </div>
         </div>
 
+        <!-- Apatinė dalis: Kortelės -->
         <div class="w-full max-w-7xl pt-2 pb-1">
             
+            <!-- Valdikliai mobiliesiems -->
             <div class="slider-controller w-full flex justify-end lg:hidden mb-2 px-1">
-                <div class="inline-flex items-center gap-3 bg-brand-950/60 px-3 py-1 rounded-full backdrop-blur-md border border-white/10">
+                <div class="inline-flex items-center gap-3">
                     <div class="text-[11px] font-bold text-white tracking-wider tabular-nums flex items-center gap-1">
                         <span class="text-brand-400 current-num">01</span>
                         <span class="text-slate-300">/</span>
@@ -234,18 +245,17 @@
                 </div>
             </div>
 
-            <!-- Kortelės su alternatyviomis spalvomis: Antraštė šviesi/balta, Aprašymas švelnios pilkos, Nuoroda tamsesnė pilka -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-3 w-full">
                 {% for card in data.cards %}
-                <a href="{{ card.link[page.lang] }}" class="relative overflow-hidden p-4 sm:p-5 rounded-xl bg-brand-950/80 hover:bg-brand-900/90 border border-white/15 hover:border-brand-400/50 backdrop-blur-md transition-all duration-200 group shadow-lg flex flex-col justify-between">
+                <a href="{{ card.link[page.lang] }}" class="relative overflow-hidden p-4 sm:p-5 rounded-xl bg-brand-950/75 hover:bg-brand-900/90 border border-white/15 hover:border-brand-400/50 backdrop-blur-md transition-all duration-200 group shadow-lg flex flex-col justify-between">
                     <div class="relative z-10 pr-20 sm:pr-24">
-                        <h3 class="text-sm sm:text-base font-bold text-slate-100 group-hover:text-brand-300 transition-colors">
+                        <h3 class="text-sm sm:text-base font-bold text-white group-hover:text-brand-200 transition-colors">
                             {{ card.title[page.lang] }}
                         </h3>
-                        <p class="text-xs text-slate-300 line-clamp-2 mt-1 font-normal">
+                        <p class="text-xs text-slate-300 line-clamp-2 mt-1">
                             {{ card.desc[page.lang] }}
                         </p>
-                        <div class="mt-3 flex items-center gap-1 text-xs font-semibold text-slate-400 group-hover:text-slate-200 transition-colors">
+                        <div class="mt-3 flex items-center gap-1 text-xs font-semibold text-brand-400 group-hover:text-brand-300 transition-colors">
                             {{ card.btn_text[page.lang] }} 
                             <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                         </div>
@@ -260,30 +270,30 @@
         </div>
 
     </div>
-</section>
+  </section>
 
-<!-- Footer grąžintas į pradinę vietą (prie flex struktūros pabaigos) -->
-<footer class="bg-zinc-100 py-3 sm:py-4 relative z-30 shadow-sm mt-auto">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-4 text-center sm:text-left">
-        
-        <p class="text-[11px] text-slate-600 font-normal">
-            © 2026 <strong class="text-slate-900 font-semibold tracking-wide">{{ data.common[page.lang].company }}</strong>. {{ data.common[page.lang].rights }}
-        </p>
-        
-        <div class="flex hidden items-center gap-1.5 text-[11px] text-slate-500">
-            <span class="font-light">{{ data.common[page.lang].rebuilt_by }}</span>
-            <a href="https://æx7.com" target="_blank" rel="noopener noreferrer" class="text-brand-600 hover:text-brand-700 transition-colors font-semibold tracking-wide">
-                Æx7
-            </a>
-            [<a href="https://uptest.no" target="_blank" rel="noopener noreferrer" class="text-brand-600 hover:text-brand-700 transition-colors font-semibold tracking-wide">
-                {{ data.common[page.lang].old_version }}
-            </a>]
+    <!-- Footer - visiškai be viršutinio rėmelio -->
+    <footer class="bg-zinc-100 py-3 sm:py-4 relative z-30 shadow-sm mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-4 text-center sm:text-left">
+            
+            <p class="text-[11px] text-slate-600 font-normal">
+                © 2026 <strong class="text-slate-900 font-semibold tracking-wide">{{ data.common[page.lang].company }}</strong>. {{ data.common[page.lang].rights }}
+            </p>
+            
+            <div class="flex hidden items-center gap-1.5 text-[11px] text-slate-500">
+                <span class="font-light">{{ data.common[page.lang].rebuilt_by }}</span>
+                <a href="https://æx7.com" target="_blank" rel="noopener noreferrer" class="text-brand-600 hover:text-brand-700 transition-colors font-semibold tracking-wide">
+                    Æx7
+                </a>
+                [<a href="https://uptest.no" target="_blank" rel="noopener noreferrer" class="text-brand-600 hover:text-brand-700 transition-colors font-semibold tracking-wide">
+                    {{ data.common[page.lang].old_version }}
+                </a>]
+            </div>
+            
         </div>
-        
-    </div>
-</footer>
-
-<script src="home.js?v=0.1"></script>
-
+    </footer>
+    
+    <script src="home.js?v=0.1"></script>
+    
 </body>
 </html>
