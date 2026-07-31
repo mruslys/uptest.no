@@ -125,7 +125,8 @@ const mobileBtn = document.getElementById('mobile-menu-button');
 
         if (heroSlider) {
             heroSlider.addEventListener('click', (e) => {
-                if (e.target.closest('button') || e.target.closest('a')) return;
+                // Jei paspausta ant bet kokios nuorodos (įskaitant korteles) arba mygtuko - nieko nedarom (leidžiam vykti numatytam veiksmui)
+                if (e.target.closest('a') || e.target.closest('button')) return;
                 togglePlayPause();
             });
         }
