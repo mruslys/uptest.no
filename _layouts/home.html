@@ -157,7 +157,7 @@
         <div class="absolute inset-0 bg-gradient-to-t from-brand-950 via-brand-950/50 to-brand-950/20"></div>
     </div>
 
-    <!-- 2. VALDIKLIAI VIRŠUJE (Desktop) -->
+    <!-- 2. VALDIKLIAI VIRŠUJE (Desktop) - Pašalintas pauzės mygtukas -->
     <div class="slider-controller hidden lg:flex absolute right-8 top-4 z-30 items-center gap-3">
         <div class="text-[11px] font-bold text-white tracking-wider tabular-nums flex items-center gap-1">
             <span class="text-brand-400 current-num">01</span>
@@ -171,10 +171,6 @@
             <button class="prev-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-md hover:bg-white/10" aria-label="Previous slide">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
             </button>
-            <button class="pause-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-md hover:bg-white/10" aria-label="Pause/Play slide">
-                <svg class="w-3.5 h-3.5 pause-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6"/></svg>
-                <svg class="w-3.5 h-3.5 play-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/></svg>
-            </button>
             <button class="next-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-md hover:bg-white/10" aria-label="Next slide">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
             </button>
@@ -184,7 +180,7 @@
     <!-- 3. PAGRINDINIS TURINYS -->
     <div class="relative z-20 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-2 flex flex-col justify-between flex-grow">
         
-        <!-- Slaiderio tekstas (Sumažinti vertikalūs tarpai, kad tilptų ekranas) -->
+        <!-- Slaiderio tekstas -->
         <div class="w-full max-w-xl text-left pt-2 sm:pt-4">
             <div class="relative min-h-[150px] sm:min-h-[170px]">
                 {% for slide_item in data.slides %}
@@ -223,7 +219,7 @@
         <!-- Apatinė dalis: Kortelės -->
         <div class="w-full max-w-7xl pt-4 pb-1">
             
-            <!-- Valdikliai mobiliesiems -->
+            <!-- Valdikliai mobiliesiems - Pašalintas pauzės mygtukas -->
             <div class="slider-controller w-full flex justify-end lg:hidden mb-2 px-1">
                 <div class="inline-flex items-center gap-3">
                     <div class="text-[11px] font-bold text-white tracking-wider tabular-nums flex items-center gap-1">
@@ -238,10 +234,6 @@
                         <button class="prev-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-md hover:bg-white/10" aria-label="Previous slide">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
                         </button>
-                        <button class="pause-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-md hover:bg-white/10" aria-label="Pause/Play slide">
-                            <svg class="w-4 h-4 pause-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6"/></svg>
-                            <svg class="w-4 h-4 play-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/></svg>
-                        </button>
                         <button class="next-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-md hover:bg-white/10" aria-label="Next slide">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                         </button>
@@ -249,12 +241,12 @@
                 </div>
             </div>
 
-            <!-- Kortelių tinklelis (optimizuoti padding'ai) -->
+            <!-- Kortelių tinklelis (padidintas padding'as kairėje pusei/teksto zonai: pr-20 sm:pr-24) -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-3 w-full">
                 
                 <!-- 1 Kortelė: Rope Access -->
                 <a href="rope-access.html" class="relative overflow-hidden p-4 sm:p-5 rounded-xl bg-brand-950/75 hover:bg-brand-900/90 border border-white/15 hover:border-brand-400/50 backdrop-blur-md transition-all duration-200 group shadow-lg flex flex-col justify-between">
-                    <div class="relative z-10 pr-16 sm:pr-20">
+                    <div class="relative z-10 pr-20 sm:pr-24">
                         <span class="text-[11px] font-bold text-brand-400 uppercase tracking-wider">Pramoninis alpinizmas</span>
                         <h3 class="text-sm sm:text-base font-bold text-white group-hover:text-brand-200 transition-colors mt-0.5">Rope Access</h3>
                         <p class="text-xs text-slate-300 line-clamp-2 mt-1">Sertifikuoti darbai aukštyje, inspekcijos ir pramoniniai sprendimai.</p>
@@ -272,7 +264,7 @@
 
                 <!-- 2 Kortelė: NDT Inspection -->
                 <a href="ndt.html" class="relative overflow-hidden p-4 sm:p-5 rounded-xl bg-brand-950/75 hover:bg-brand-900/90 border border-white/15 hover:border-brand-400/50 backdrop-blur-md transition-all duration-200 group shadow-lg flex flex-col justify-between">
-                    <div class="relative z-10 pr-16 sm:pr-20">
+                    <div class="relative z-10 pr-20 sm:pr-24">
                         <span class="text-[11px] font-bold text-brand-400 uppercase tracking-wider">Neardomieji bandymai</span>
                         <h3 class="text-sm sm:text-base font-bold text-white group-hover:text-brand-200 transition-colors mt-0.5">NDT Inspection</h3>
                         <p class="text-xs text-slate-300 line-clamp-2 mt-1">Visapusiškos VT, MT, PT, UT ir PAUT patikros medžiagų vientisumui.</p>
@@ -295,7 +287,8 @@
     </div>
   </section>
 
-    <footer class="bg-zinc-100 py-3 sm:py-4 border-t border-gray-200 relative z-30 shadow-sm mt-auto">
+    <!-- Footer - pašalintas border-t klasės apribojimas -->
+    <footer class="bg-zinc-100 py-3 sm:py-4 relative z-30 shadow-sm mt-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-4 text-center sm:text-left">
             
             <p class="text-[11px] text-slate-600 font-normal">
