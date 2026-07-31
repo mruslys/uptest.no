@@ -1,9 +1,3 @@
-const mobileBtn = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu-panel');
-
-        mobileBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
 
         const bgSlides = document.querySelectorAll('.bg-slide');
         const slideTexts = document.querySelectorAll('.slide-text');
