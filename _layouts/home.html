@@ -18,10 +18,131 @@
 </head>
 <body class="bg-brand-950 text-slate-800 antialiased font-sans flex flex-col min-h-[100svh]">
 
-    {% include header.html %}
+    {% assign data = site.data.data %}
+
+{% assign home_link = "" %}
+{% for lang in data.languages %}
+    {% if lang.code == page.lang %}
+        {% assign home_link = lang.link %}
+    {% endif %}
+{% endfor %}
+
+<div class="flex-shrink-0">
+    <header class="shadow-sm">
+        
+        <div class="bg-white border-b border-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-20 sm:h-24">
+                    
+                    <div class="flex-shrink-0 flex items-center py-2">
+                        <a href="{{ site.baseurl }}/{{ home_link }}" class="group transition-transform duration-200 hover:scale-[1.02]">
+                            <img class="h-12 sm:h-16 w-auto object-contain" src="{{ site.baseurl }}/images/uptest-logo.png" alt="Uptest Logo">
+                        </a>
+                    </div>
+
+                    <nav class="hidden lg:flex items-center space-x-8">
+                        {% for nav_item in data.nav %}
+                            {% assign item = nav_item[1] %}
+                            {% assign is_active = false %}
+                            {% if page.current_page == nav_item[0] or page.url == item.link[page.lang] %}
+                                {% assign is_active = true %}
+                            {% endif %}
+                            
+                            {% if item.highlight %}
+                                <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="ml-2 inline-flex items-center justify-center px-5 py-2.5 rounded-lg font-semibold text-sm text-white {% if is_active %}bg-brand-600{% else %}bg-brand-500 hover:bg-brand-600{% endif %} shadow-sm transition-all">
+                                    {{ item.title[page.lang] }}
+                                </a>
+                            {% else %}
+                                <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="relative font-semibold text-sm lg:text-base transition-colors py-2 {% if is_active %}text-brand-500{% else %}text-slate-700 hover:text-brand-500{% endif %}">
+                                    {{ item.title[page.lang] }}
+                                </a>
+                            {% endif %}
+                        {% endfor %}
+                    </nav>
+
+                    <div class="lg:hidden flex items-center">
+                        <button id="mobile-menu-button" type="button" class="text-slate-700 hover:text-brand-500 focus:outline-none p-2 rounded-lg hover:bg-slate-100">
+                            <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M4 6h16M4 12h16M4 18h16"/>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-slate-100 text-slate-700 text-xs py-1.5 border-b border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+                
+                <div class="flex items-center space-x-3 text-xs">
+                    <span class="text-slate-500 font-medium mr-1 hidden sm:inline">{{ data.common[page.lang].language }}:</span>
+                    {% for lang in data.languages %}
+                        {% assign target_link = lang.link %}
+                        
+                        {% if page.current_page %}
+                            {% assign nav_match = data.nav[page.current_page] %}
+                            {% if nav_match and nav_match.link[lang.code] %}
+                                {% assign target_link = nav_match.link[lang.code] %}
+                            {% endif %}
+                        {% endif %}
+
+                        <a href="{{ site.baseurl }}/{{ target_link }}" class="transition-colors {% if page.lang == lang.code %}font-bold text-brand-600{% else %}font-medium text-slate-600 hover:text-brand-600{% endif %}">
+                            {{ lang.label }}
+                        </a>
+                        
+                        {% unless forloop.last %}
+                            <span class="text-slate-300">|</span>
+                        {% endunless %}
+                    {% endfor %}
+                </div>
+
+                <div class="flex items-center space-x-6 text-xs font-medium">
+                    {% for item in data.secondary %}
+                        <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="hover:text-brand-600 transition-colors hidden sm:inline-block text-slate-600">
+                            {{ item.title[page.lang] }}
+                        </a>
+                    {% endfor %}
+                </div>
+                
+            </div>
+        </div>
+
+        <div id="mobile-menu-panel" class="hidden lg:hidden bg-white border-b border-gray-200 shadow-xl absolute w-full left-0 z-50">
+            <div class="px-4 pt-3 pb-5 space-y-1.5">
+                {% for nav_item in data.nav %}
+                    {% assign item = nav_item[1] %}
+                    {% assign is_active = false %}
+                    {% if page.current_page == nav_item[0] or page.url == item.link[page.lang] %}
+                        {% assign is_active = true %}
+                    {% endif %}
+                    
+                    {% if item.highlight %}
+                        <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="block px-3.5 py-2.5 rounded-lg text-sm font-bold {% if is_active %}text-brand-700 bg-brand-100{% else %}text-brand-600 hover:bg-brand-50{% endif %}">
+                            {{ item.title[page.lang] }}
+                        </a>
+                    {% else %}
+                        <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="block px-3.5 py-2.5 rounded-lg text-sm font-semibold {% if is_active %}text-brand-500 bg-brand-50{% else %}text-slate-700 hover:text-brand-500 hover:bg-brand-50{% endif %}">
+                            {{ item.title[page.lang] }}
+                        </a>
+                    {% endif %}
+                {% endfor %}
+                
+                <div class="border-t border-gray-100 mt-3 pt-3 space-y-1 sm:hidden">
+                    {% for item in data.secondary %}
+                        <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="block px-3.5 py-2 rounded-lg text-xs font-medium text-slate-500 hover:text-brand-500">
+                            {{ item.title[page.lang] }}
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+    </header>
+</div>
 
   <!-- HERO SEKCIJA -->
-  <section id="hero-slider" class="relative flex-grow flex flex-col justify-between w-full min-h-[85vh] lg:min-h-[90vh] bg-brand-950 overflow-hidden cursor-pointer sm:cursor-default py-6">
+  <section id="hero-slider" class="relative flex-grow flex flex-col justify-between w-full min-h-0 bg-brand-950 overflow-hidden cursor-pointer sm:cursor-default py-4 lg:py-6">
 
     <!-- 1. FONO SLADERIS -->
     <div class="absolute inset-0 z-0">
@@ -32,13 +153,12 @@
           </div>
         {% endfor %}
 
-        <!-- Gradientai geresniam skaitomumui -->
         <div class="absolute inset-0 bg-gradient-to-r from-brand-950/90 via-brand-950/70 to-brand-950/30"></div>
         <div class="absolute inset-0 bg-gradient-to-t from-brand-950 via-brand-950/50 to-brand-950/20"></div>
     </div>
 
     <!-- 2. VALDIKLIAI VIRŠUJE (Desktop) -->
-    <div class="slider-controller hidden lg:flex absolute right-8 top-6 z-30 items-center gap-3">
+    <div class="slider-controller hidden lg:flex absolute right-8 top-4 z-30 items-center gap-3">
         <div class="text-[11px] font-bold text-white tracking-wider tabular-nums flex items-center gap-1">
             <span class="text-brand-400 current-num">01</span>
             <span class="text-slate-300">/</span>
@@ -62,37 +182,37 @@
     </div>
 
     <!-- 3. PAGRINDINIS TURINYS -->
-    <div class="relative z-20 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-4 flex flex-col justify-between flex-grow">
+    <div class="relative z-20 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-2 flex flex-col justify-between flex-grow">
         
-        <!-- Slaiderio tekstas -->
-        <div class="w-full max-w-xl text-left pt-8 sm:pt-12">
-            <div class="relative min-h-[180px] sm:min-h-[200px]">
+        <!-- Slaiderio tekstas (Sumažinti vertikalūs tarpai, kad tilptų ekranas) -->
+        <div class="w-full max-w-xl text-left pt-2 sm:pt-4">
+            <div class="relative min-h-[150px] sm:min-h-[170px]">
                 {% for slide_item in data.slides %}
                   {% assign slide = slide_item[1] %}
                   
                   <div class="slide-text transition-opacity duration-500 {% if forloop.first %}opacity-100{% else %}opacity-0 pointer-events-none{% endif %} absolute inset-0" data-index="{{ forloop.index0 }}">
-                      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-400/20 text-brand-300 border border-brand-400/35 backdrop-blur-md mb-3">
+                      <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider bg-brand-400/20 text-brand-300 border border-brand-400/35 backdrop-blur-md mb-2">
                           {{ slide.badge[page.lang] }}
                       </span>
           
                       {% if forloop.first %}
-                        <h1 class="text-white text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-snug sm:leading-tight mb-3 drop-shadow-md">
+                        <h1 class="text-white text-xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight leading-snug mb-2 drop-shadow-md">
                             {{ slide.title[page.lang] }}
                         </h1>
                       {% else %}
-                        <h2 class="text-white text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-snug sm:leading-tight mb-3 drop-shadow-md">
+                        <h2 class="text-white text-xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight leading-snug mb-2 drop-shadow-md">
                             {{ slide.title[page.lang] }}
                         </h2>
                       {% endif %}
           
-                      <p class="text-slate-100 text-sm sm:text-base font-normal max-w-lg leading-relaxed mb-4">
+                      <p class="text-slate-100 text-xs sm:text-sm font-normal max-w-lg leading-relaxed mb-3">
                           {{ slide.desc[page.lang] }}
                       </p>
           
                       <div>
-                          <a href="{{ slide.link[page.lang] }}" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold text-brand-950 bg-brand-400 hover:bg-brand-300 transition-all shadow-md">
+                          <a href="{{ slide.link[page.lang] }}" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold text-brand-950 bg-brand-400 hover:bg-brand-300 transition-all shadow-md">
                               {{ slide.btn_text[page.lang] }}
-                              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                           </a>
                       </div>
                   </div>
@@ -100,8 +220,8 @@
             </div>
         </div>
 
-        <!-- Apatinė dalis: 2 Kortelės su ikona per visą aukštį dešinėje -->
-        <div class="w-full max-w-7xl pt-8 pb-2">
+        <!-- Apatinė dalis: Kortelės -->
+        <div class="w-full max-w-7xl pt-4 pb-1">
             
             <!-- Valdikliai mobiliesiems -->
             <div class="slider-controller w-full flex justify-end lg:hidden mb-2 px-1">
@@ -129,42 +249,40 @@
                 </div>
             </div>
 
-            <!-- Kortelių tinklelis -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+            <!-- Kortelių tinklelis (optimizuoti padding'ai) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 w-full">
                 
                 <!-- 1 Kortelė: Rope Access -->
-                <a href="rope-access.html" class="relative overflow-hidden p-5 sm:p-6 rounded-2xl bg-brand-950/75 hover:bg-brand-900/90 border border-white/15 hover:border-brand-400/50 backdrop-blur-md transition-all duration-200 group shadow-lg flex flex-col justify-between">
+                <a href="rope-access.html" class="relative overflow-hidden p-4 sm:p-5 rounded-xl bg-brand-950/75 hover:bg-brand-900/90 border border-white/15 hover:border-brand-400/50 backdrop-blur-md transition-all duration-200 group shadow-lg flex flex-col justify-between">
                     <div class="relative z-10 pr-16 sm:pr-20">
-                        <span class="text-xs font-bold text-brand-400 uppercase tracking-wider">Pramoninis alpinizmas</span>
-                        <h3 class="text-base sm:text-lg font-bold text-white group-hover:text-brand-200 transition-colors mt-0.5">Rope Access</h3>
-                        <p class="text-xs sm:text-sm text-slate-300 line-clamp-2 mt-1.5">Sertifikuoti darbai aukštyje, inspekcijos ir pramoniniai sprendimai.</p>
-                        <div class="mt-4 flex items-center gap-1 text-xs sm:text-sm font-semibold text-brand-300 group-hover:text-brand-400 transition-colors">
+                        <span class="text-[11px] font-bold text-brand-400 uppercase tracking-wider">Pramoninis alpinizmas</span>
+                        <h3 class="text-sm sm:text-base font-bold text-white group-hover:text-brand-200 transition-colors mt-0.5">Rope Access</h3>
+                        <p class="text-xs text-slate-300 line-clamp-2 mt-1">Sertifikuoti darbai aukštyje, inspekcijos ir pramoniniai sprendimai.</p>
+                        <div class="mt-3 flex items-center gap-1 text-xs font-semibold text-brand-300 group-hover:text-brand-400 transition-colors">
                             Skaityti daugiau 
-                            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                            <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                         </div>
                     </div>
-                    <!-- Ikona dešinėje per visą kortelės aukštį -->
-                    <div class="absolute right-0 top-0 bottom-0 w-24 sm:w-28 bg-brand-400/10 group-hover:bg-brand-400/20 transition-colors flex items-center justify-center text-brand-300 group-hover:text-brand-400">
-                        <svg class="w-10 h-10 sm:w-12 sm:h-12 opacity-80 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="absolute right-0 top-0 bottom-0 w-20 sm:w-24 bg-brand-400/10 group-hover:bg-brand-400/20 transition-colors flex items-center justify-center text-brand-300 group-hover:text-brand-400">
+                        <svg class="w-8 h-8 sm:w-10 sm:h-10 opacity-80 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                         </svg>
                     </div>
                 </a>
 
                 <!-- 2 Kortelė: NDT Inspection -->
-                <a href="ndt.html" class="relative overflow-hidden p-5 sm:p-6 rounded-2xl bg-brand-950/75 hover:bg-brand-900/90 border border-white/15 hover:border-brand-400/50 backdrop-blur-md transition-all duration-200 group shadow-lg flex flex-col justify-between">
+                <a href="ndt.html" class="relative overflow-hidden p-4 sm:p-5 rounded-xl bg-brand-950/75 hover:bg-brand-900/90 border border-white/15 hover:border-brand-400/50 backdrop-blur-md transition-all duration-200 group shadow-lg flex flex-col justify-between">
                     <div class="relative z-10 pr-16 sm:pr-20">
-                        <span class="text-xs font-bold text-brand-400 uppercase tracking-wider">Neardomieji bandymai</span>
-                        <h3 class="text-base sm:text-lg font-bold text-white group-hover:text-brand-200 transition-colors mt-0.5">NDT Inspection</h3>
-                        <p class="text-xs sm:text-sm text-slate-300 line-clamp-2 mt-1.5">Visapusiškos VT, MT, PT, UT ir PAUT patikros medžiagų vientisumui.</p>
-                        <div class="mt-4 flex items-center gap-1 text-xs sm:text-sm font-semibold text-brand-300 group-hover:text-brand-400 transition-colors">
+                        <span class="text-[11px] font-bold text-brand-400 uppercase tracking-wider">Neardomieji bandymai</span>
+                        <h3 class="text-sm sm:text-base font-bold text-white group-hover:text-brand-200 transition-colors mt-0.5">NDT Inspection</h3>
+                        <p class="text-xs text-slate-300 line-clamp-2 mt-1">Visapusiškos VT, MT, PT, UT ir PAUT patikros medžiagų vientisumui.</p>
+                        <div class="mt-3 flex items-center gap-1 text-xs font-semibold text-brand-300 group-hover:text-brand-400 transition-colors">
                             Skaityti daugiau 
-                            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                            <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                         </div>
                     </div>
-                    <!-- Ikona dešinėje per visą kortelės aukštį -->
-                    <div class="absolute right-0 top-0 bottom-0 w-24 sm:w-28 bg-brand-400/10 group-hover:bg-brand-400/20 transition-colors flex items-center justify-center text-brand-300 group-hover:text-brand-400">
-                        <svg class="w-10 h-10 sm:w-12 sm:h-12 opacity-80 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="absolute right-0 top-0 bottom-0 w-20 sm:w-24 bg-brand-400/10 group-hover:bg-brand-400/20 transition-colors flex items-center justify-center text-brand-300 group-hover:text-brand-400">
+                        <svg class="w-8 h-8 sm:w-10 sm:h-10 opacity-80 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
                         </svg>
                     </div>
@@ -177,8 +295,26 @@
     </div>
   </section>
 
-    {% include footer.html %}
-   
+    <footer class="bg-zinc-100 py-3 sm:py-4 border-t border-gray-200 relative z-30 shadow-sm mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-4 text-center sm:text-left">
+            
+            <p class="text-[11px] text-slate-600 font-normal">
+                © 2026 <strong class="text-slate-900 font-semibold tracking-wide">{{ data.common[page.lang].company }}</strong>. {{ data.common[page.lang].rights }}
+            </p>
+            
+            <div class="flex hidden items-center gap-1.5 text-[11px] text-slate-500">
+                <span class="font-light">{{ data.common[page.lang].rebuilt_by }}</span>
+                <a href="https://æx7.com" target="_blank" rel="noopener noreferrer" class="text-brand-600 hover:text-brand-700 transition-colors font-semibold tracking-wide">
+                    Æx7
+                </a>
+                [<a href="https://uptest.no" target="_blank" rel="noopener noreferrer" class="text-brand-600 hover:text-brand-700 transition-colors font-semibold tracking-wide">
+                    {{ data.common[page.lang].old_version }}
+                </a>]
+            </div>
+            
+        </div>
+    </footer>
+    
     <script src="home.js"></script>
     
 </body>
