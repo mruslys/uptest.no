@@ -245,26 +245,23 @@
                 </div>
             </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 w-full">
-                {% for card in data.cards %}
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 w-full">
+                {% for card in site.data.cards.cards %}
                 <a href="{{ card.link[page.lang] }}" class="relative overflow-hidden p-4 sm:p-5 rounded-xl bg-brand-950/75 hover:bg-brand-900/90 border border-white/15 hover:border-brand-400/50 backdrop-blur-md transition-all duration-200 group shadow-lg flex flex-col justify-between">
                     <div class="relative z-10 pr-20 sm:pr-24">
-                        <h3 class="text-sm sm:text-base font-bold text-brand-400 group-hover:text-brand-300 transition-colors">
+                        <h3 class="text-sm sm:text-base font-bold text-white group-hover:text-brand-200 transition-colors">
                             {{ card.title[page.lang] }}
                         </h3>
                         <p class="text-xs text-slate-300 line-clamp-2 mt-1">
                             {{ card.desc[page.lang] }}
                         </p>
-                        <div class="mt-3 flex items-center gap-1 text-xs font-semibold text-white group-hover:text-brand-200 transition-colors">
+                        <div class="mt-3 flex items-center gap-1 text-xs font-semibold text-brand-400 group-hover:text-brand-300 transition-colors">
                             {{ card.btn_text[page.lang] }} 
                             <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                         </div>
                     </div>
-                    <!-- Dešinysis blokas su reprezentatyviu numeriu (01, 02 ir t.t.) -->
-                    <div class="absolute right-0 top-0 bottom-0 w-20 sm:w-24 bg-brand-400/10 group-hover:bg-brand-400/20 transition-colors flex items-center justify-center text-brand-300 group-hover:text-brand-400">
-                        <span class="text-xl sm:text-2xl font-black tracking-wider tabular-nums opacity-90 group-hover:scale-110 transition-transform">
-                            0{{ forloop.index }}
-                        </span>
+                    <div class="absolute right-0 top-0 bottom-0 w-20 sm:w-24 bg-brand-400/10 group-hover:bg-brand-400/20 transition-colors flex items-center justify-center">
+                        <img src="{{ site.baseurl }}/{{ card.image }}" alt="{{ card.title[page.lang] }}" class="w-8 h-8 sm:w-10 sm:h-10 opacity-85 group-hover:scale-110 transition-transform object-contain">
                     </div>
                 </a>
                 {% endfor %}
