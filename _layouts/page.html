@@ -1,12 +1,14 @@
 {% assign data = site.data.data %}
+{% assign current_slide = data.slides[page.current_page] %}
+{% assign lang = page.lang %}
 
 <!DOCTYPE html>
-<html lang="{{ page.lang }}" class="scroll-smooth">
+<html lang="{{ lang }}" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>{{ page.title }} | {{ data.home.title[page.lang] }}</title>
+    <title>{{ current_slide.title[lang] }} | {{ data.home.title[lang] }}</title>
 
     <base href="/uptest.no/">
     
@@ -24,15 +26,29 @@
     <!-- Subpage Hero / Pavadinimo Blokas su Nuotraukos Fonu -->
     <section class="relative bg-brand-950 py-16 lg:py-24 overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="{{ page.header_image | default: 'images/header-uptest.jpg' }}" class="w-full h-full object-cover object-center opacity-65" alt="{{ page.title }}">
+            <img src="{{ page.header_image | default: current_slide.image | default: 'images/header-uptest.jpg' }}" class="w-full h-full object-cover object-center opacity-65" alt="{{ current_slide.title[lang] }}">
             <div class="absolute inset-0 bg-gradient-to-r from-brand-950/80 via-brand-950/60 to-brand-950/80"></div>
             <div class="absolute inset-0 bg-gradient-to-t from-brand-950 via-transparent to-brand-950/40"></div>
         </div>
 
-        <div class="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+            {% if current_slide.badge[lang] %}
+            <div>
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold tracking-wider uppercase bg-brand-500/20 text-brand-300 border border-brand-400/30 backdrop-blur-sm">
+                    {{ current_slide.badge[lang] }}
+                </span>
+            </div>
+            {% endif %}
+
             <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight drop-shadow-md">
-                {{ page.title }}
+                {{ current_slide.title[lang] }}
             </h1>
+
+            {% if current_slide.desc[lang] %}
+            <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+                {{ current_slide.desc[lang] }}
+            </p>
+            {% endif %}
         </div>
     </section>
 
