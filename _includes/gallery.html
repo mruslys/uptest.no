@@ -31,30 +31,30 @@
     {% endif %}
 </div>
 
-<!-- Lightbox Modalinis Langas -->
-<div id="lightbox-modal" class="fixed inset-0 z-50 bg-black/90 hidden flex items-center justify-center p-4 backdrop-blur-sm">
+<!-- Lightbox Modalinis Langas (Rekomenduojama perkelti kuo arčiau HTML dokumento pabaigos) -->
+<div id="lightbox-modal" class="fixed inset-0 z-[99999] bg-black/95 hidden flex flex-col items-center justify-center p-2 sm:p-4 backdrop-blur-md">
     <!-- Uždarymo mygtukas -->
-    <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white/70 hover:text-white p-2 transition-colors z-10">
+    <button onclick="closeLightbox()" class="absolute top-4 right-4 sm:top-6 sm:right-6 text-white/70 hover:text-white p-2 transition-colors z-20 bg-black/50 rounded-full">
         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
         </svg>
     </button>
 
     <!-- Atgal mygtukas -->
-    <button onclick="changeSlide(-1)" class="absolute left-4 sm:left-8 text-white/70 hover:text-white p-3 bg-black/40 hover:bg-black/60 rounded-full transition-colors z-10">
+    <button onclick="changeSlide(-1)" class="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 text-white/70 hover:text-white p-3 bg-black/50 hover:bg-black/80 rounded-full transition-colors z-20">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
         </svg>
     </button>
 
     <!-- Nuotrauka ir indeksas -->
-    <div class="max-w-5xl max-h-[85vh] flex flex-col items-center justify-center relative">
-        <img id="lightbox-img" src="" alt="Nuotrauka" class="max-h-[80vh] max-w-full object-contain rounded-lg shadow-2xl">
-        <p id="lightbox-counter" class="text-white/70 text-sm mt-3 font-medium"></p>
+    <div class="w-full h-full flex flex-col items-center justify-center relative px-12 sm:px-20 py-10">
+        <img id="lightbox-img" src="" alt="Nuotrauka" class="max-h-[85vh] max-w-[90vw] object-contain rounded shadow-2xl">
+        <p id="lightbox-counter" class="text-white/70 text-sm mt-3 font-medium absolute bottom-4"></p>
     </div>
 
     <!-- Pirmyn mygtukas -->
-    <button onclick="changeSlide(1)" class="absolute right-4 sm:right-8 text-white/70 hover:text-white p-3 bg-black/40 hover:bg-black/60 rounded-full transition-colors z-10">
+    <button onclick="changeSlide(1)" class="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 text-white/70 hover:text-white p-3 bg-black/50 hover:bg-black/80 rounded-full transition-colors z-20">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
         </svg>
@@ -63,7 +63,6 @@
 
 <!-- JavaScript galerijos valdymo logika -->
 <script>
-    // Surenkame visus paveikslėlių kelius į JS masyvą
     const galleryImages = [
         {% for file in site.static_files %}
             {% if file.path contains target_folder %}
@@ -85,21 +84,20 @@
         img.src = src;
         updateCounter();
         modal.classList.remove('hidden');
-        document.body.style.overflow = 'hidden'; // Sustabdo galimybę scrollinti puslapį kol modalas atidarytas
+        document.body.style.overflow = 'hidden';
     }
 
     function closeLightbox() {
         const modal = document.getElementById('lightbox-modal');
         modal.classList.add('hidden');
-        document.body.style.overflow = '';
     }
 
     function changeSlide(direction) {
         currentIndex += direction;
         if (currentIndex < 0) {
-            currentIndex = galleryImages.length - 1; // Nuo pradžių persimeta į galą
+            currentIndex = galleryImages.length - 1;
         } else if (currentIndex >= galleryImages.length) {
-            currentIndex = 0; // Nuo galo persimeta į pradžią
+            currentIndex = 0;
         }
         
         document.getElementById('lightbox-img').src = galleryImages[currentIndex];
@@ -110,7 +108,6 @@
         document.getElementById('lightbox-counter').innerText = (currentIndex + 1) + ' / ' + galleryImages.length;
     }
 
-    // Klaviatūros valdymas (Esc - uždaryti, rodyklės - keisti nuotraukas)
     document.addEventListener('keydown', function(e) {
         const modal = document.getElementById('lightbox-modal');
         if (!modal.classList.contains('hidden')) {
@@ -120,7 +117,6 @@
         }
     });
 
-    // Uždaryti paspaudus ant tamsaus fono (bet ne ant pačios nuotraukos)
     document.getElementById('lightbox-modal').addEventListener('click', function(e) {
         if (e.target === this) {
             closeLightbox();
