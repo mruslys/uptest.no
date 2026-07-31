@@ -1,4 +1,4 @@
-        const mobileBtn = document.getElementById('mobile-menu-button');
+const mobileBtn = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu-panel');
 
         mobileBtn.addEventListener('click', () => {
@@ -94,6 +94,7 @@
             pauseBtns.forEach(btn => {
                 const pauseIcon = btn.querySelector('.pause-icon');
                 const playIcon = btn.querySelector('.play-icon');
+                if (!pauseIcon || !playIcon) return;
                 if (isPaused) {
                     pauseIcon.classList.add('hidden');
                     playIcon.classList.remove('hidden');
@@ -125,8 +126,7 @@
         if (heroSlider) {
             heroSlider.addEventListener('click', (e) => {
                 if (e.target.closest('button') || e.target.closest('a')) return;
-                nextSlide();
-                resetTimer();
+                togglePlayPause();
             });
         }
 
