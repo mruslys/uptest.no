@@ -18,11 +18,12 @@
 </head>
 <body class="bg-brand-950 text-slate-800 antialiased font-sans flex flex-col min-h-[100svh]">
 
-    
     {% include header.html %}
 
-  <section id="hero-slider" class="relative flex-grow flex flex-col justify-between w-full min-h-[420px] sm:min-h-[500px] bg-brand-950 overflow-hidden cursor-pointer sm:cursor-default py-3 sm:py-4">
+  <!-- HERO SEKCIJA: Padaryta aukštesnė, kad viskas tilptų -->
+  <section id="hero-slider" class="relative flex-grow flex flex-col justify-end w-full min-h-[90svh] lg:min-h-[85vh] bg-brand-950 overflow-hidden cursor-pointer sm:cursor-default">
 
+    <!-- 1. FONO SLADERIS (Visas vaizdas) -->
     <div class="absolute inset-0 z-0">
             {% for slide_item in data.slides %}
               {% assign slide = slide_item[1] %}
@@ -32,151 +33,136 @@
               </div>
             {% endfor %}
 
-            <div class="absolute inset-0 bg-gradient-to-r from-brand-950/80 via-brand-950/60 to-brand-950/20"></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-brand-950/80 via-brand-950/30 to-brand-950/10"></div>
-        </div>
+            <!-- Gradientai geresniam teksto matomumui -->
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-950/90 via-brand-950/70 to-brand-950/30"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-950 via-brand-950/40 to-transparent"></div>
+    </div>
 
-        <div class="slider-controller hidden lg:flex absolute right-8 bottom-6 z-30 items-center gap-3">
-            <div class="text-[11px] font-bold text-white tracking-wider tabular-nums flex items-center gap-1">
-                <span class="text-brand-400 current-num">01</span>
-                <span class="text-slate-300">/</span>
-                <span class="text-slate-400 total-num">05</span>
-            </div>
-            <div class="w-16 h-0.5 bg-white/20 rounded-full overflow-hidden">
-                <div class="slide-progress h-full bg-brand-400 w-0"></div>
-            </div>
-            <div class="flex items-center gap-1">
-                <button class="prev-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-md hover:bg-white/10" aria-label="Previous slide">
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-                </button>
-                <button class="pause-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-md hover:bg-white/10" aria-label="Pause/Play slide">
-                    <svg class="w-3.5 h-3.5 pause-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6"/></svg>
-                    <svg class="w-3.5 h-3.5 play-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/></svg>
-                </button>
-                <button class="next-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-md hover:bg-white/10" aria-label="Next slide">
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                </button>
-            </div>
-        </div>
-
-        <div class="relative z-20 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-2 sm:py-4 flex flex-col justify-between flex-grow">
-            
-            <div class="w-full max-w-xl text-left my-auto">
-                <div class="relative min-h-[160px] sm:min-h-[180px]">
-                    {% for slide_item in data.slides %}
-                      {% assign key = slide_item[0] %}
-                      {% assign slide = slide_item[1] %}
-                      
-                      <div class="slide-text transition-opacity duration-500 {% if forloop.first %}opacity-100{% else %}opacity-0 pointer-events-none{% endif %} absolute inset-0" data-index="{{ forloop.index0 }}">
-                          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-400/20 text-brand-300 border border-brand-400/35 backdrop-blur-md mb-2 sm:mb-3">
-                              {{ slide.badge[page.lang] }}
-                          </span>
-                    
-                          {% if forloop.first %}
-                            <h1 class="text-white text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-snug sm:leading-tight mb-2 sm:mb-2 drop-shadow-md">
-                                {{ slide.title[page.lang] }}
-                            </h1>
-                          {% else %}
-                            <h2 class="text-white text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-snug sm:leading-tight mb-2 sm:mb-2 drop-shadow-md">
-                                {{ slide.title[page.lang] }}
-                            </h2>
-                          {% endif %}
-                    
-                          <p class="text-slate-100 text-sm sm:text-sm lg:text-base font-normal max-w-lg leading-relaxed mb-4">
-                              {{ slide.desc[page.lang] }}
-                          </p>
-                    
-                          <div>
-                              <a href="{{ slide.link[page.lang] }}" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold text-brand-950 bg-brand-400 hover:bg-brand-300 transition-all shadow-md">
-                                  {{ slide.btn_text[page.lang] }}
-                                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                              </a>
-                          </div>
+    <!-- 2. PAGRINDINIS TURINYS (Tekstas ir Kortelės) -->
+    <div class="relative z-20 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-6 flex flex-col justify-end flex-grow">
+        
+        <!-- Pagrindinio teksto blokas (pakeltas aukščiau, kad netrukdytų kortelės) -->
+        <div class="w-full max-w-xl text-left pb-32 md:pb-40 lg:pb-56">
+            <div class="relative min-h-[160px]">
+                {% for slide_item in data.slides %}
+                  {% assign key = slide_item[0] %}
+                  {% assign slide = slide_item[1] %}
+                  
+                  <div class="slide-text transition-opacity duration-500 {% if forloop.first %}opacity-100{% else %}opacity-0 pointer-events-none{% endif %} absolute inset-0" data-index="{{ forloop.index0 }}">
+                      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-400/20 text-brand-300 border border-brand-400/35 backdrop-blur-md mb-3">
+                          {{ slide.badge[page.lang] }}
+                      </span>
+          
+                      <h1 class="text-white text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-3 drop-shadow-sm">
+                          {{ slide.title[page.lang] }}
+                      </h1>
+          
+                      <p class="text-slate-100 text-sm sm:text-base lg:text-lg font-normal max-w-lg leading-relaxed mb-5 opacity-90">
+                          {{ slide.desc[page.lang] }}
+                      </p>
+          
+                      <div>
+                          <a href="{{ slide.link[page.lang] }}" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold text-brand-950 bg-brand-400 hover:bg-brand-300 transition-all shadow-lg">
+                              {{ slide.btn_text[page.lang] }}
+                              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                          </a>
                       </div>
-                    {% endfor %}
-                </div>
+                  </div>
+                {% endfor %}
             </div>
+        </div>
 
-            <div class="w-full max-w-6xl pt-1">
-                <div class="slider-controller w-full flex justify-end lg:hidden mb-1.5 px-1">
-                    <div class="inline-flex items-center gap-3">
-                        <div class="text-[11px] font-bold text-white tracking-wider tabular-nums flex items-center gap-1">
-                            <span class="text-brand-400 current-num">01</span>
-                            <span class="text-slate-300">/</span>
-                            <span class="text-slate-400 total-num">05</span>
-                        </div>
-                        <div class="w-20 h-0.5 bg-white/20 rounded-full overflow-hidden">
-                            <div class="slide-progress h-full bg-brand-400 w-0"></div>
-                        </div>
-                        <div class="flex items-center gap-1">
-                            <button class="prev-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-md hover:bg-white/10" aria-label="Previous slide">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-                            </button>
-                            <button class="pause-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-md hover:bg-white/10" aria-label="Pause/Play slide">
-                                <svg class="w-4 h-4 pause-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6"/></svg>
-                                <svg class="w-4 h-4 play-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/></svg>
-                            </button>
-                            <button class="next-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-md hover:bg-white/10" aria-label="Next slide">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                            </button>
-                        </div>
+        <!-- 3. FIKSUOTAS KORTELIŲ BLOKAS APAČIOJE (Atrodo kaip tavo pavyzdyje) -->
+        <!-- Šis blokas yra absoliučiai pozicionuotas apačioje -->
+        <div class="absolute bottom-0 left-0 right-0 z-30 bg-brand-950/50 border-t border-white/10 backdrop-blur-lg py-6">
+             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                 
+                <!-- Paslėptas standartinis valdiklis dideliems ekranams -->
+                 <div class="slider-controller hidden lg:flex absolute right-8 -top-14 z-30 items-center gap-3 bg-brand-950/80 p-3 rounded-xl border border-white/10 backdrop-blur-sm">
+                    <div class="text-xs font-bold text-white tracking-wider tabular-nums flex items-center gap-1">
+                        <span class="text-brand-400 current-num">01</span>
+                        <span class="text-slate-400">/</span>
+                        <span class="text-slate-400 total-num">05</span>
+                    </div>
+                    <div class="w-16 h-1 bg-white/20 rounded-full overflow-hidden">
+                        <div class="slide-progress h-full bg-brand-400 w-0"></div>
+                    </div>
+                    <div class="flex items-center gap-1">
+                        <button class="prev-slide-btn text-slate-400 hover:text-white transition-colors p-1" aria-label="Previous slide">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                        </button>
+                        <button class="pause-slide-btn text-slate-400 hover:text-white transition-colors p-1" aria-label="Pause/Play slide">
+                            <svg class="w-4 h-4 pause-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6"/></svg>
+                            <svg class="w-4 h-4 play-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/></svg>
+                        </button>
+                        <button class="next-slide-btn text-slate-400 hover:text-white transition-colors p-1" aria-label="Next slide">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </button>
                     </div>
                 </div>
 
-                <!-- Tinklelis: Mobiliesiems ir planšetėms 2 stulpeliai paslaugoms viršuje, o mygtukai per visą plotį apačioje. Desktop'e viskas 3 stulpeliais horizontaliai. -->
-                <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 w-full">
+                <!-- Kortelių tinklelis (Kaip tavo pavyzdyje) -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full">
                     
-                    <!-- 1 Kortelė: Rope Access -->
-                    <a href="rope-access.html" class="p-4 sm:p-5 rounded-2xl bg-brand-950/60 hover:bg-brand-900/80 border border-white/15 hover:border-brand-400/50 backdrop-blur-md transition-all duration-200 group shadow-lg flex flex-col justify-between">
-                        <div>
-                            <div class="p-2.5 rounded-xl bg-brand-400/20 text-brand-300 group-hover:bg-brand-400 group-hover:text-brand-950 transition-all w-fit mb-3">
-                                <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                                </svg>
+                    <!-- 1 Kortelė: Rope Access (Nuoroda) -->
+                    <a href="rope-access.html" class="p-6 rounded-2xl bg-brand-950/60 hover:bg-brand-900 border border-white/10 hover:border-brand-400/30 backdrop-blur-md transition-all duration-300 group shadow-xl">
+                        <div class="flex flex-col h-full justify-between">
+                            <div>
+                                <div class="p-3 rounded-xl bg-brand-400/10 text-brand-300 w-fit mb-4">
+                                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                    </svg>
+                                </div>
+                                <span class="text-xs font-bold text-brand-400 uppercase tracking-wider">Pramoninis alpinizmas</span>
+                                <h3 class="text-xl font-bold text-white group-hover:text-brand-200 transition-colors mt-1">Rope Access</h3>
+                                <p class="text-sm text-slate-300 mt-2 line-clamp-2">Sertifikuoti darbai aukštyje, inspekcijos ir pramoniniai sprendimai.</p>
                             </div>
-                            <span class="text-[10px] sm:text-xs font-bold text-brand-400 uppercase tracking-wider">Pramoninis alpinizmas</span>
-                            <h3 class="text-sm sm:text-base font-bold text-white group-hover:text-brand-200 transition-colors mt-0.5">Rope Access</h3>
-                            <p class="text-xs text-slate-300 line-clamp-2 mt-1.5">Sertifikuoti darbai aukštyje, inspekcijos ir pramoniniai sprendimai.</p>
-                        </div>
-                        <div class="mt-4 flex items-center gap-1 text-xs font-semibold text-brand-300 group-hover:text-brand-400 transition-colors">
-                            Skaityti daugiau 
-                            <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                            <div class="mt-5 flex items-center gap-2 text-sm font-medium text-brand-400">
+                                Skaityti daugiau 
+                                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                            </div>
                         </div>
                     </a>
 
-                    <!-- 2 Kortelė: NDT Inspection -->
-                    <a href="ndt.html" class="p-4 sm:p-5 rounded-2xl bg-brand-950/60 hover:bg-brand-900/80 border border-white/15 hover:border-brand-400/50 backdrop-blur-md transition-all duration-200 group shadow-lg flex flex-col justify-between">
-                        <div>
-                            <div class="p-2.5 rounded-xl bg-brand-400/20 text-brand-300 group-hover:bg-brand-400 group-hover:text-brand-950 transition-all w-fit mb-3">
-                                <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                                </svg>
+                    <!-- 2 Kortelė: NDT Inspection (Nuoroda) -->
+                    <a href="ndt.html" class="p-6 rounded-2xl bg-brand-950/60 hover:bg-brand-900 border border-white/10 hover:border-brand-400/30 backdrop-blur-md transition-all duration-300 group shadow-xl">
+                        <div class="flex flex-col h-full justify-between">
+                            <div>
+                                <div class="p-3 rounded-xl bg-brand-400/10 text-brand-300 w-fit mb-4">
+                                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                                    </svg>
+                                </div>
+                                <span class="text-xs font-bold text-brand-400 uppercase tracking-wider">Neardomieji bandymai</span>
+                                <h3 class="text-xl font-bold text-white group-hover:text-brand-200 transition-colors mt-1">NDT Inspection</h3>
+                                <p class="text-sm text-slate-300 mt-2 line-clamp-2">Visapusiškos VT, MT, PT, UT ir PAUT patikros medžiagų vientisumui.</p>
                             </div>
-                            <span class="text-[10px] sm:text-xs font-bold text-brand-400 uppercase tracking-wider">Neardomieji bandymai</span>
-                            <h3 class="text-sm sm:text-base font-bold text-white group-hover:text-brand-200 transition-colors mt-0.5">NDT Inspection</h3>
-                            <p class="text-xs text-slate-300 line-clamp-2 mt-1.5">Visapusiškos VT, MT, PT, UT ir PAUT patikros medžiagų vientisumui.</p>
-                        </div>
-                        <div class="mt-4 flex items-center gap-1 text-xs font-semibold text-brand-300 group-hover:text-brand-400 transition-colors">
-                            Skaityti daugiau 
-                            <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                            <div class="mt-5 flex items-center gap-2 text-sm font-medium text-brand-400">
+                                Skaityti daugiau 
+                                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                            </div>
                         </div>
                     </a>
 
-                    <!-- 3 Blokas: Mygtukai (perkelti iš cta-box į atskirą template) -->
-                    <div class="col-span-2 lg:col-span-1 p-4 sm:p-5 rounded-2xl bg-brand-950/60 border border-white/15 backdrop-blur-md shadow-lg flex flex-col justify-center">
+                    <!-- 3 Kortelė: Kontaktai (Standartinis blokas) -->
+                    <div class="p-6 rounded-2xl bg-brand-950/60 border border-white/10 backdrop-blur-md shadow-xl flex flex-col justify-center">
                         {% include contact-buttons.html %}
                     </div>
 
                 </div>
 
-            </div>
-
+                <!-- Trupmenos mobiliesiems -->
+                <div class="w-full flex justify-center lg:hidden mt-5 text-sm font-bold text-slate-400">
+                    <span class="text-brand-400 current-num">01</span> / <span class="total-num">05</span>
+                </div>
+             </div>
         </div>
-    </section>
+
+    </div>
+  </section>
 
     {% include footer.html %}
    
-
     <script src="home.js"></script>
     
 </body>
