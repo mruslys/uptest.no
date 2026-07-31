@@ -11,24 +11,6 @@ languages:
     label: "NO"
     link: "no/"
 
-secondary:
-  - title:
-      en: "Our certificates"
-      lt: "Mūsų sertifikatai"
-      "no": "Våre sertifikater"
-    link:
-      en: "certificates/"
-      lt: "lt/sertifikatai/"
-      "no": "no/sertifikater/"
-  - title:
-      en: "Gallery"
-      lt: "Galerija"
-      "no": "Galleri"
-    link:
-      en: "gallery/"
-      lt: "lt/galerija/"
-      "no": "no/galleri/"
-
 common:
   en:
     language: "Language"
@@ -146,6 +128,29 @@ nav:
       lt: "lt/kontaktai/"
       "no": "no/kontakt/"
     highlight: true
+    
+  certificates:
+    title:
+      en: "Our certificates"
+      lt: "Mūsų sertifikatai"
+      "no": "Våre sertifikater"
+    link:
+      en: "certificates/"
+      lt: "lt/sertifikatai/"
+      "no": "no/sertifikater/"
+    secondary: true  # <--- Žyma, kad tai priklauso viršutinei juostai
+
+  gallery:
+    title:
+      en: "Gallery"
+      lt: "Galerija"
+      "no": "Galleri"
+    link:
+      en: "gallery/"
+      lt: "lt/galerija/"
+      "no": "no/galleri/"
+    secondary: true  # <--- Žyma, kad tai priklauso viršutinei juostai
+    
 
 cards:
   - id: rope
