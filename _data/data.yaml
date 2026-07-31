@@ -165,7 +165,7 @@ cards:
       lt: "Plačiau"
       en: "Learn more"
       "no": "Les mer"
-    image: "images/rope.png"
+    image: "images/rope-w.png"
 
   - id: ndt
     title:
@@ -184,7 +184,7 @@ cards:
       lt: "Plačiau"
       en: "Learn more"
       "no": "Les mer"
-    image: "images/ndt.png"
+    image: "images/ndt-w.png"
     
 slides:
   about:
