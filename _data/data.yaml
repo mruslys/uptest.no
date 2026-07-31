@@ -146,6 +146,45 @@ nav:
       lt: "lt/kontaktai/"
       "no": "no/kontakt/"
     highlight: true
+
+cards:
+  - id: rope
+    title:
+      lt: "Virvių alpinizmas"
+      en: "Rope Access"
+      no: "Tilgangsteknikk"
+    desc:
+      lt: "Profesionalūs darbų aukštyje sprendimai, inspekcijos ir pramoniniai darbai."
+      en: "Professional rope access solutions, inspections, and industrial works."
+      no: "Profesjonelle tilgangsteknikkløsninger, inspeksjoner og industrielt arbeid."
+    link:
+      lt: "/lt/rope-access/"
+      en: "/en/rope-access/"
+      no: "/no/rope-access/"
+    btn_text:
+      lt: "Plačiau"
+      en: "Learn more"
+      no: "Les mer"
+    image: "images/rope.svg"
+
+  - id: ndt
+    title:
+      lt: "Neardomieji bandymai"
+      en: "NDT Inspection"
+      no: "NDT Inspeksjon"
+    desc:
+      lt: "Visapusiškos VT, MT, PT, UT ir PAUT patikros medžiagų vientisumui."
+      en: "Comprehensive VT, MT, PT, UT, and PAUT inspections for material integrity."
+      no: "Omfattende VT, MT, PT, UT og PAUT inspeksjoner for materialintegritet."
+    link:
+      lt: "/lt/ndt/"
+      en: "/en/ndt/"
+      no: "/no/ndt/"
+    btn_text:
+      lt: "Skaityti"
+      en: "Read more"
+      no: "Les mer"
+    image: "images/ndt.svg"
     
 slides:
   about:
