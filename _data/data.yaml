@@ -18,16 +18,16 @@ secondary:
       "no": "Våre sertifikater"
     link:
       en: "certificates/"
-      lt: "sertificatai/"
-      "no": "sertifikater/"
+      lt: "lt/sertificatai/"
+      "no": "no/sertifikater/"
   - title:
       en: "Gallery"
       lt: "Galerija"
       "no": "Galleri"
     link:
       en: "gallery/"
-      lt: "galerija/"
-      "no": "galleri/"
+      lt: "lt/galerija/"
+      "no": "no/galleri/"
 
 common:
   en:
