@@ -12,8 +12,9 @@
 {% include header.html %}
 
 <!-- HERO SEKCIJA -->
-<section id="hero-slider" class="relative flex flex-col justify-between w-full bg-brand-950 py-3 sm:py-5">
+<section id="hero-slider" class="relative w-full bg-brand-950 py-8 sm:py-12 lg:py-16">
 
+    <!-- Fono paveiksliukai ir gradientai -->
     <div class="absolute inset-0 z-0 pointer-events-none">
         {% for slide_item in site_data.slides %}
           {% assign slide = slide_item[1] %}
@@ -27,7 +28,7 @@
     </div>
 
     <!-- Desktop slider controllers -->
-    <div class="slider-controller hidden lg:flex absolute right-8 top-4 z-30 items-center gap-3">
+    <div class="slider-controller hidden lg:flex absolute right-8 top-6 z-30 items-center gap-3">
         <div class="text-[11px] font-bold text-white tracking-wider tabular-nums flex items-center gap-1">
             <span class="text-brand-400 current-num">01</span>
             <span class="text-slate-400">/</span>
@@ -46,32 +47,33 @@
         </div>
     </div>
 
-    <div class="relative z-20 max-w-7xl mx-auto w-full px-3 sm:px-6 lg:px-8 flex flex-col gap-4 sm:gap-6">
+    <!-- PAGRINDINIS KONTEINERIS -->
+    <div class="relative z-20 max-w-7xl mx-auto w-full px-3 sm:px-6 lg:px-8 flex flex-col gap-10 lg:gap-14">
         
-        <!-- TEKSTO DALIS -->
-        <div class="w-full max-w-2xl text-left pt-2 sm:pt-4 flex flex-col justify-center">
+        <!-- 1. TEKSTO DALIS -->
+        <div class="w-full max-w-2xl text-left flex flex-col justify-center">
             <div class="relative w-full">
                 {% for slide_item in site_data.slides %}
                   {% assign slide = slide_item[1] %}
                   
                   <div class="slide-text transition-opacity duration-500 {% if forloop.first %}opacity-100 relative{% else %}opacity-0 pointer-events-none absolute inset-0{% endif %} flex flex-col justify-center" data-index="{{ forloop.index0 }}">
                       <div>
-                          <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider bg-brand-500/15 text-brand-200 border border-brand-400/30 backdrop-blur-md mb-2 shadow-sm">
+                          <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider bg-brand-500/15 text-brand-200 border border-brand-400/30 backdrop-blur-md mb-3 shadow-sm">
                               {{ slide.badge[page.lang] }}
                           </span>
                       </div>
           
                       {% if forloop.first %}
-                        <h1 class="text-white text-xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-snug mb-2 drop-shadow-md">
+                        <h1 class="text-white text-xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-snug mb-3 drop-shadow-md">
                             {{ slide.title[page.lang] }}
                         </h1>
                       {% else %}
-                        <h2 class="text-white text-xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-snug mb-2 drop-shadow-md">
+                        <h2 class="text-white text-xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-snug mb-3 drop-shadow-md">
                             {{ slide.title[page.lang] }}
                         </h2>
                       {% endif %}
           
-                      <p class="text-slate-100 text-sm sm:text-lg font-normal max-w-xl leading-relaxed mb-3 sm:mb-4">
+                      <p class="text-slate-100 text-sm sm:text-lg font-normal max-w-xl leading-relaxed mb-4">
                           {{ slide.desc[page.lang] }}
                       </p>
           
@@ -86,10 +88,11 @@
             </div>
         </div>
 
-        <!-- APATINĖ DALIS -->
-        <div class="w-full max-w-7xl pb-1">
+        <!-- 2. APATINĖ DALIS / KORTELĖS -->
+        <div class="w-full flex flex-col gap-3">
             
-            <div class="slider-controller w-full flex justify-end lg:hidden mb-2 px-1">
+            <!-- Mobile slider controllers -->
+            <div class="slider-controller w-full flex justify-end lg:hidden px-1">
                 <div class="inline-flex items-center gap-3">
                     <div class="text-[11px] font-bold text-white tracking-wider tabular-nums flex items-center gap-1">
                         <span class="text-brand-400 current-num">01</span>
@@ -110,9 +113,10 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5 w-full">
+            <!-- Kortelių tinklelis -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 w-full">
                 {% for card in site_data.cards %}
-                <a href="{{ card.link[page.lang] }}" class="relative overflow-hidden p-3 sm:p-5 rounded-xl bg-brand-900/50 hover:bg-brand-900/80 border border-brand-500/25 hover:border-brand-400/60 backdrop-blur-md transition-all duration-200 group shadow-lg shadow-brand-950/50 flex flex-col justify-between">
+                <a href="{{ card.link[page.lang] }}" class="relative overflow-hidden p-4 sm:p-5 rounded-xl bg-brand-900/50 hover:bg-brand-900/80 border border-brand-500/25 hover:border-brand-400/60 backdrop-blur-md transition-all duration-200 group shadow-lg shadow-brand-950/50 flex flex-col justify-between">
                     <div class="relative z-10 pr-20 sm:pr-28">
                         <h3 class="text-sm sm:text-lg font-bold text-white group-hover:text-brand-300 transition-colors">
                             {{ card.title[page.lang] }}
