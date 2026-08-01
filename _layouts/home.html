@@ -1,18 +1,18 @@
 {% assign site_data = site.data.data %}
 
 <!DOCTYPE html>
-<html lang="{{ page.lang }}" class="scroll-smooth h-[100svh]">
+<html lang="{{ page.lang }}" class="scroll-smooth">
 
 <head>
     {% include head.html %}
 </head>
     
-<body class="bg-brand-950 text-slate-800 antialiased font-sans flex flex-col h-[100svh] m-0">
+<body class="bg-brand-950 text-slate-800 antialiased font-sans flex flex-col min-h-screen m-0">
     
 {% include header.html %}
 
 <!-- HERO SEKCIJA -->
-<section id="hero-slider" class="relative flex-grow flex flex-col justify-between w-full min-h-0 bg-brand-950 py-1 sm:py-2">
+<section id="hero-slider" class="relative flex flex-col justify-between w-full min-h-[85vh] bg-brand-950 py-1 sm:py-2">
 
     <div class="absolute inset-0 z-0 pointer-events-none">
         {% for slide_item in site_data.slides %}
@@ -26,8 +26,8 @@
         <div class="absolute inset-0 bg-gradient-to-t from-brand-950/95 via-brand-900/40 to-transparent"></div>
     </div>
 
- <!-- Desktop slider controllers -->
-<div class="slider-controller hidden lg:flex absolute right-8 top-4 z-30 items-center gap-3">
+    <!-- Desktop slider controllers -->
+    <div class="slider-controller hidden lg:flex absolute right-8 top-4 z-30 items-center gap-3">
         <div class="text-[11px] font-bold text-white tracking-wider tabular-nums flex items-center gap-1">
             <span class="text-brand-400 current-num">01</span>
             <span class="text-slate-400">/</span>
@@ -46,7 +46,7 @@
         </div>
     </div>
 
-    <div class="relative z-20 max-w-7xl mx-auto w-full px-3 sm:px-6 lg:px-8 py-1 flex flex-col justify-between flex-grow min-h-0">
+    <div class="relative z-20 max-w-7xl mx-auto w-full px-3 sm:px-6 lg:px-8 py-1 flex flex-col justify-between flex-grow">
         
         <div class="w-full"></div>
 
