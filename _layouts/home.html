@@ -40,7 +40,7 @@
     </script>
 </head>
 
-<body class="bg-brand-950 text-slate-100 antialiased font-sans flex flex-col h-[100dvh] max-h-[100dvh] overflow-hidden m-0 pb-[env(safe-area-inset-bottom)]">
+<body class="bg-brand-950 text-slate-100 antialiased font-sans flex flex-col min-h-[100dvh] m-0 pb-[env(safe-area-inset-bottom)]">
 
 <!-- 1. HEADERIS -->
 {% assign data = site.data.data %}
@@ -54,8 +54,8 @@
 
 <header class="shadow-md w-full relative z-30 flex-shrink-0">
         
-        <!-- Kalbos ir secondary menu juosta (Ultra-kompaktiška mobiliems) -->
-        <div class="bg-brand-950 text-slate-300 text-[11px] sm:text-xs py-1 sm:py-2 border-b border-brand-900">
+        <!-- Kalbos ir secondary menu juosta -->
+        <div class="bg-brand-950 text-slate-300 text-[11px] sm:text-xs py-1.5 sm:py-2 border-b border-brand-900">
             <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex justify-between items-center">
                 
                 <!-- Kalbų perjungimas -->
@@ -101,14 +101,14 @@
             </div>
         </div>
 
-        <!-- Pagrindinė meniu juosta -->
+        <!-- Pagrindinė meniu juosta su PADIDINTU LOGOTIPU -->
         <div class="bg-white border-b border-slate-200">
             <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-                <div class="flex justify-between items-center h-14 sm:h-24">
+                <div class="flex justify-between items-center h-16 sm:h-20 lg:h-24">
                     
-                    <div class="flex-shrink-0 flex items-center py-1 sm:py-2">
+                    <div class="flex-shrink-0 flex items-center py-1.5 sm:py-2">
                         <a href="{{ site.baseurl }}/{{ home_link }}" class="group transition-transform duration-200 hover:scale-[1.01]">
-                            <img class="h-9 sm:h-16 w-auto object-contain" src="{{ site.baseurl }}/images/uptest-logo.png" alt="Uptest Logo">
+                            <img class="h-11 sm:h-14 lg:h-16 w-auto object-contain" src="{{ site.baseurl }}/images/uptest-logo.png" alt="Uptest Logo">
                         </a>
                     </div>
 
@@ -137,7 +137,7 @@
 
                     <div class="lg:hidden flex items-center">
                         <button id="mobile-menu-button" type="button" class="text-slate-800 hover:text-brand-600 focus:outline-none p-1.5 rounded-lg hover:bg-slate-100 transition-colors">
-                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M4 6h16M4 12h16M4 18h16"/>
                             </svg>
                         </button>
@@ -192,7 +192,7 @@
     </header>
 
 <!-- 2. HERO SEKCIJA -->
-<section id="hero-slider" class="relative w-full bg-brand-950 flex-grow flex flex-col justify-between py-2 sm:py-8 lg:py-10 overflow-hidden min-h-0">
+<section id="hero-slider" class="relative w-full bg-brand-950 flex-grow flex flex-col justify-between py-3 sm:py-6 lg:py-8 overflow-hidden min-h-0">
 
     <!-- Fono paveiksliukai -->
     <div class="absolute inset-0 z-0 pointer-events-none">
@@ -203,7 +203,7 @@
           </div>
         {% endfor %}
 
-        <!-- Kairės pusės overlay tekstų aiškumui -->
+        <!-- Kairės pusės tamsinimas skaitomumui -->
         <div class="absolute inset-0 bg-gradient-to-r from-brand-950/95 via-brand-950/75 via-50% to-brand-950/10 sm:to-transparent"></div>
         <div class="absolute inset-0 bg-gradient-to-t from-brand-950/90 via-transparent to-brand-950/30"></div>
     </div>
@@ -229,37 +229,37 @@
     </div>
 
     <!-- Vidinis konteineris -->
-    <div class="relative z-20 max-w-7xl mx-auto w-full px-3 sm:px-6 lg:px-8 flex-grow flex flex-col justify-between gap-2 sm:gap-6 min-h-0">
+    <div class="relative z-20 max-w-7xl mx-auto w-full px-3 sm:px-6 lg:px-8 flex-grow flex flex-col justify-between gap-3 sm:gap-6 min-h-0">
         
-        <!-- Slaiderio tekstai -->
-        <div class="flex-grow flex flex-col justify-center my-auto py-1 sm:py-6 min-h-0">
+        <!-- Slaiderio tekstai (LANKŠTI IR ADAPTYVI ERDVĖ) -->
+        <div class="flex-1 flex flex-col justify-center my-auto py-2 sm:py-6 lg:py-10 min-h-0">
             <div class="w-full max-w-2xl text-left relative">
                 {% for slide_item in site_data.slides %}
                   {% assign slide = slide_item[1] %}
                   
                   <div class="slide-text transition-opacity duration-500 {% if forloop.first %}opacity-100 relative{% else %}opacity-0 pointer-events-none absolute inset-0{% endif %} flex flex-col justify-center" data-index="{{ forloop.index0 }}">
                       <div>
-                          <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-brand-900/90 text-brand-300 border border-brand-400/40 backdrop-blur-md mb-1.5 sm:mb-4 shadow-sm">
+                          <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-brand-900/90 text-brand-300 border border-brand-400/40 backdrop-blur-md mb-2 sm:mb-4 shadow-sm">
                               {{ slide.badge[page.lang] }}
                           </span>
                       </div>
           
                       {% if forloop.first %}
-                        <h1 class="text-white text-xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-snug sm:leading-tight mb-1.5 sm:mb-4 drop-shadow-[0_2px_10px_rgba(0,0,0,0.7)]">
+                        <h1 class="text-white text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-snug sm:leading-tight mb-2 sm:mb-4 drop-shadow-[0_2px_10px_rgba(0,0,0,0.7)]">
                             {{ slide.title[page.lang] }}
                         </h1>
                       {% else %}
-                        <h2 class="text-white text-xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-snug sm:leading-tight mb-1.5 sm:mb-4 drop-shadow-[0_2px_10px_rgba(0,0,0,0.7)]">
+                        <h2 class="text-white text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-snug sm:leading-tight mb-2 sm:mb-4 drop-shadow-[0_2px_10px_rgba(0,0,0,0.7)]">
                             {{ slide.title[page.lang] }}
                         </h2>
                       {% endif %}
           
-                      <p class="text-slate-100 text-xs sm:text-lg font-medium max-w-xl leading-relaxed mb-2 sm:mb-6 line-clamp-2 sm:line-clamp-none drop-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+                      <p class="text-slate-100 text-xs sm:text-base lg:text-lg font-medium max-w-xl leading-relaxed mb-3 sm:mb-6 drop-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
                           {{ slide.desc[page.lang] }}
                       </p>
           
                       <div>
-                          <a href="{{ slide.link[page.lang] }}" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 sm:px-5 sm:py-2.5 rounded-lg text-xs sm:text-sm font-bold text-slate-950 bg-brand-400 hover:bg-brand-300 transition-all shadow-lg shadow-black/40 hover:-translate-y-0.5">
+                          <a href="{{ slide.link[page.lang] }}" class="inline-flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-lg text-xs sm:text-sm font-bold text-slate-950 bg-brand-400 hover:bg-brand-300 transition-all shadow-lg shadow-black/40 hover:-translate-y-0.5">
                               {{ slide.btn_text[page.lang] }}
                               <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
                           </a>
@@ -269,8 +269,8 @@
             </div>
         </div>
 
-        <!-- APATINĖ DALIS: Kontroleriai ir kortelės (Sutrauktas mobile dydis) -->
-        <div class="w-full flex flex-col gap-1.5 sm:gap-3 flex-shrink-0">
+        <!-- APATINĖ DALIS: Kontroleriai ir kortelės (pilnas tekstas be apkarpyto turinio) -->
+        <div class="w-full flex flex-col gap-2 sm:gap-3 flex-shrink-0">
             
             <!-- Mobile slider controllers -->
             <div class="slider-controller w-full flex justify-end lg:hidden px-0.5">
@@ -294,24 +294,24 @@
                 </div>
             </div>
 
-            <!-- Kortelės -->
+            <!-- Kortelės (Pilnas tekstas rodomas be line-clamp) -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-4 w-full">
                 {% for card in site_data.cards %}
-                <a href="{{ card.link[page.lang] }}" class="relative overflow-hidden p-2.5 sm:p-5 rounded-xl bg-brand-900/85 hover:bg-brand-900 border border-brand-800 hover:border-brand-400/60 backdrop-blur-md transition-all duration-300 group shadow-xl flex flex-col justify-between">
-                    <div class="relative z-10 pr-14 sm:pr-28">
+                <a href="{{ card.link[page.lang] }}" class="relative overflow-hidden p-3 sm:p-5 rounded-xl bg-brand-900/85 hover:bg-brand-900 border border-brand-800 hover:border-brand-400/60 backdrop-blur-md transition-all duration-300 group shadow-xl flex flex-col justify-between">
+                    <div class="relative z-10 pr-16 sm:pr-28">
                         <h3 class="text-xs sm:text-lg font-bold text-white group-hover:text-brand-300 transition-colors">
                             {{ card.title[page.lang] }}
                         </h3>
-                        <p class="text-[11px] sm:text-sm text-slate-300 line-clamp-1 sm:line-clamp-2 mt-0.5 sm:mt-1 leading-tight sm:leading-relaxed">
+                        <p class="text-xs sm:text-sm text-slate-300 mt-1 leading-snug sm:leading-relaxed">
                             {{ card.desc[page.lang] }}
                         </p>
-                        <div class="mt-1.5 sm:mt-2.5 flex items-center gap-1 text-[11px] sm:text-sm font-semibold text-brand-400 group-hover:text-brand-300 transition-colors">
+                        <div class="mt-2 sm:mt-2.5 flex items-center gap-1 text-xs sm:text-sm font-semibold text-brand-400 group-hover:text-brand-300 transition-colors">
                             {{ card.btn_text[page.lang] }} 
                             <svg class="w-3 h-3 sm:w-3.5 sm:h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                         </div>
                     </div>
-                    <div class="absolute right-0 top-0 bottom-0 w-12 sm:w-28 bg-brand-950/60 group-hover:bg-brand-950/80 transition-colors flex items-center justify-center border-l border-brand-800">
-                        <img src="{{ site.baseurl }}/{{ card.image }}" alt="{{ card.title[page.lang] }}" class="w-8 h-8 sm:w-20 sm:h-20 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all object-contain">
+                    <div class="absolute right-0 top-0 bottom-0 w-14 sm:w-28 bg-brand-950/60 group-hover:bg-brand-950/80 transition-colors flex items-center justify-center border-l border-brand-800">
+                        <img src="{{ site.baseurl }}/{{ card.image }}" alt="{{ card.title[page.lang] }}" class="w-9 h-9 sm:w-20 sm:h-20 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all object-contain">
                     </div>
                 </a>
                 {% endfor %}
@@ -323,8 +323,8 @@
 </section>
 
 <!-- 3. FOOTERIS -->
-<footer class="bg-brand-950 py-2 sm:py-5 relative z-30 border-t border-brand-900 text-white flex-shrink-0">
-    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-1 sm:gap-3 text-center sm:text-left">
+<footer class="bg-brand-950 py-2.5 sm:py-5 relative z-30 border-t border-brand-900 text-white flex-shrink-0">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-1.5 sm:gap-3 text-center sm:text-left">
         <p class="text-[10px] sm:text-xs text-slate-400 font-normal">
             © 2026 <strong class="text-slate-200 font-semibold tracking-wide">{{ data.common[page.lang].company }}</strong>. {{ data.common[page.lang].rights }}
         </p>
