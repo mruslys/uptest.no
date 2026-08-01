@@ -21,19 +21,14 @@
                             50:  '#f0fdfa',
                             100: '#ccfbf1',
                             200: '#99f6e4',
-                            300: '#5eead4',
-                            400: '#2dd4bf',
-                            500: '#14b8a6', // Pagrindinis logotipo turkio akcentas
+                            300: '#5eead4', // Ryškus ciano/žalias akcentas
+                            400: '#2dd4bf', // Pagrindinis ryškus mygtukų ir akcentų atspalvis
+                            500: '#14b8a6',
                             600: '#0d9488',
                             700: '#0f766e',
-                            800: '#115e59',
-                            900: '#134e4a',
-                            950: '#042f2e', // Gili tamsi fono spalva
-                        },
-                        navy: {
-                            800: '#1e293b',
-                            900: '#0f172a',
-                            950: '#080d1a', // Tamsus industrinis fono atspalvis
+                            800: '#0a4340', // Tamsi gili žalia remeliams ir foniniams elementams
+                            900: '#062d2b', // Tamsi gili žalia kortelėms ir valdymo skydeliams
+                            950: '#021a19', // Ypač gili tamsiai žalia fono spalva (pakeitė mėlyną/navy)
                         }
                     },
                     fontFamily: {
@@ -45,7 +40,7 @@
     </script>
 </head>
 
-<body class="bg-navy-950 text-slate-100 antialiased font-sans flex flex-col min-h-[100dvh] pb-[env(safe-area-inset-bottom)] m-0">
+<body class="bg-brand-950 text-slate-100 antialiased font-sans flex flex-col min-h-[100dvh] pb-[env(safe-area-inset-bottom)] m-0">
 
 <!-- 1. HEADERIS -->
 {% assign data = site.data.data %}
@@ -59,8 +54,8 @@
 
 <header class="shadow-md w-full relative z-30">
         
-        <!-- Kalbos ir secondary menu juosta -->
-        <div class="bg-slate-900 text-slate-300 text-xs py-2 border-b border-slate-800">
+        <!-- Kalbos ir secondary menu juosta (Tamsiai žalia) -->
+        <div class="bg-brand-950 text-slate-300 text-xs py-2 border-b border-brand-900">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
                 
                 <!-- Kalbų perjungimas -->
@@ -80,7 +75,7 @@
                         </a>
                         
                         {% unless forloop.last %}
-                            <span class="text-slate-700">|</span>
+                            <span class="text-brand-800">|</span>
                         {% endunless %}
                     {% endfor %}
                 </div>
@@ -106,7 +101,7 @@
             </div>
         </div>
 
-        <!-- Pagrindinė meniu juosta -->
+        <!-- Pagrindinė meniu juosta (Švari balta) -->
         <div class="bg-white border-b border-slate-200">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between items-center h-20 sm:h-24">
@@ -128,7 +123,7 @@
                                 {% endif %}
                                 
                                 {% if item.highlight %}
-                                    <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="ml-2 inline-flex items-center justify-center px-5 py-2.5 rounded-lg font-bold text-sm text-white bg-brand-600 hover:bg-brand-500 shadow-md shadow-brand-600/20 transition-all hover:shadow-lg">
+                                    <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="ml-2 inline-flex items-center justify-center px-5 py-2.5 rounded-lg font-bold text-sm text-slate-950 bg-brand-400 hover:bg-brand-300 shadow-md transition-all hover:shadow-lg">
                                         {{ item.title[page.lang] }}
                                     </a>
                                 {% else %}
@@ -152,8 +147,8 @@
             </div>
         </div>
 
-        <!-- Mobilus meniu skydelis -->
-        <div id="mobile-menu-panel" class="hidden lg:hidden bg-slate-900 border-b border-slate-800 shadow-2xl absolute w-full left-0 z-50">
+        <!-- Mobilus meniu skydelis (Tamsiai žalias) -->
+        <div id="mobile-menu-panel" class="hidden lg:hidden bg-brand-950 border-b border-brand-900 shadow-2xl absolute w-full left-0 z-50">
             <div class="px-4 pt-4 pb-6 space-y-2">
                 {% for nav_item in data.nav %}
                     {% assign item = nav_item[1] %}
@@ -165,18 +160,18 @@
                         {% endif %}
                         
                         {% if item.highlight %}
-                            <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="block px-4 py-3 rounded-lg text-sm font-bold text-white bg-brand-600 hover:bg-brand-500 text-center">
+                            <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="block px-4 py-3 rounded-lg text-sm font-bold text-slate-950 bg-brand-400 hover:bg-brand-300 text-center">
                                 {{ item.title[page.lang] }}
                             </a>
                         {% else %}
-                            <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="block px-4 py-3 rounded-lg text-sm font-semibold {% if is_active %}text-brand-400 bg-slate-800{% else %}text-slate-200 hover:text-brand-300 hover:bg-slate-800/60{% endif %}">
+                            <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="block px-4 py-3 rounded-lg text-sm font-semibold {% if is_active %}text-brand-400 bg-brand-900{% else %}text-slate-200 hover:text-brand-300 hover:bg-brand-900/60{% endif %}">
                                 {{ item.title[page.lang] }}
                             </a>
                         {% endif %}
                     {% endunless %}
                 {% endfor %}
                 
-                <div class="border-t border-slate-800 mt-4 pt-3 space-y-1 sm:hidden">
+                <div class="border-t border-brand-900 mt-4 pt-3 space-y-1 sm:hidden">
                     {% for nav_item in data.nav %}
                         {% assign item = nav_item[1] %}
                         {% if item.secondary %}
@@ -185,7 +180,7 @@
                                 {% assign is_active = true %}
                             {% endif %}
                 
-                            <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="block px-4 py-2 rounded-lg text-xs font-medium transition-colors {% if is_active %}font-bold text-brand-400 bg-slate-800{% else %}text-slate-400 hover:text-brand-300 hover:bg-slate-800/40{% endif %}">
+                            <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="block px-4 py-2 rounded-lg text-xs font-medium transition-colors {% if is_active %}font-bold text-brand-400 bg-brand-900{% else %}text-slate-400 hover:text-brand-300 hover:bg-brand-900/40{% endif %}">
                                 {{ item.title[page.lang] }}
                             </a>
                         {% endif %}
@@ -197,37 +192,37 @@
     </header>
 
 <!-- 2. HERO SEKCIJA -->
-<section id="hero-slider" class="relative w-full bg-navy-950 flex-grow flex flex-col justify-between py-4 sm:py-8 lg:py-10">
+<section id="hero-slider" class="relative w-full bg-brand-950 flex-grow flex flex-col justify-between py-4 sm:py-8 lg:py-10">
 
-    <!-- Fono paveiksliukai ir gradientai -->
+    <!-- Fono paveiksliukai ir tamsiai žali gradientai -->
     <div class="absolute inset-0 z-0 pointer-events-none">
         {% for slide_item in site_data.slides %}
           {% assign slide = slide_item[1] %}
           <div class="bg-slide absolute inset-0 {% if forloop.first %}opacity-100{% else %}opacity-0{% endif %} transition-opacity duration-700 ease-in-out">
-              <img src="{{ slide.image }}" class="w-full h-full object-cover object-center brightness-[0.85] contrast-[1.05]" alt="{{ slide.title[page.lang] }}">
+              <img src="{{ slide.image }}" class="w-full h-full object-cover object-center brightness-[0.88] contrast-[1.1]" alt="{{ slide.title[page.lang] }}">
           </div>
         {% endfor %}
 
-        <!-- Gradientai geresniam teksto skaitomumui ir gyliui -->
-        <div class="absolute inset-0 bg-gradient-to-r from-navy-950/90 via-navy-950/65 to-transparent"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-navy-950/40"></div>
+        <!-- Gradientai tekstų perskaitomumui (Tamsiai žali tonai) -->
+        <div class="absolute inset-0 bg-gradient-to-r from-brand-950/92 via-brand-950/65 to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-950 via-transparent to-brand-950/40"></div>
     </div>
 
     <!-- Desktop slider controllers -->
-    <div class="slider-controller hidden lg:flex absolute right-8 top-6 z-30 items-center gap-3 bg-navy-900/60 backdrop-blur-md px-4 py-2 rounded-xl border border-slate-700/50">
+    <div class="slider-controller hidden lg:flex absolute right-8 top-6 z-30 items-center gap-3 bg-brand-900/80 backdrop-blur-md px-4 py-2 rounded-xl border border-brand-800">
         <div class="text-[11px] font-bold text-white tracking-wider tabular-nums flex items-center gap-1">
             <span class="text-brand-400 current-num">01</span>
             <span class="text-slate-500">/</span>
             <span class="text-slate-400 total-num">05</span>
         </div>
-        <div class="w-16 h-1 bg-slate-700/60 rounded-full overflow-hidden">
+        <div class="w-16 h-1 bg-brand-800 rounded-full overflow-hidden">
             <div class="slide-progress h-full bg-brand-400 w-0"></div>
         </div>
         <div class="flex items-center gap-1">
-            <button class="prev-slide-btn text-slate-300 hover:text-white transition-colors p-1.5 cursor-pointer rounded-lg hover:bg-slate-800/80" aria-label="Previous slide">
+            <button class="prev-slide-btn text-slate-300 hover:text-white transition-colors p-1.5 cursor-pointer rounded-lg hover:bg-brand-800" aria-label="Previous slide">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
             </button>
-            <button class="next-slide-btn text-slate-300 hover:text-white transition-colors p-1.5 cursor-pointer rounded-lg hover:bg-slate-800/80" aria-label="Next slide">
+            <button class="next-slide-btn text-slate-300 hover:text-white transition-colors p-1.5 cursor-pointer rounded-lg hover:bg-brand-800" aria-label="Next slide">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
             </button>
         </div>
@@ -244,7 +239,7 @@
                   
                   <div class="slide-text transition-opacity duration-500 {% if forloop.first %}opacity-100 relative{% else %}opacity-0 pointer-events-none absolute inset-0{% endif %} flex flex-col justify-center" data-index="{{ forloop.index0 }}">
                       <div>
-                          <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-500/20 text-brand-300 border border-brand-400/30 backdrop-blur-md mb-3 sm:mb-4 shadow-sm">
+                          <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-900/90 text-brand-300 border border-brand-400/40 backdrop-blur-md mb-3 sm:mb-4 shadow-sm">
                               {{ slide.badge[page.lang] }}
                           </span>
                       </div>
@@ -264,7 +259,7 @@
                       </p>
           
                       <div>
-                          <a href="{{ slide.link[page.lang] }}" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-bold text-slate-950 bg-brand-400 hover:bg-brand-300 transition-all shadow-lg shadow-brand-500/25 hover:shadow-brand-400/40 hover:-translate-y-0.5">
+                          <a href="{{ slide.link[page.lang] }}" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-bold text-slate-950 bg-brand-400 hover:bg-brand-300 transition-all shadow-lg shadow-brand-500/20 hover:shadow-brand-400/40 hover:-translate-y-0.5">
                               {{ slide.btn_text[page.lang] }}
                               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
                           </a>
@@ -279,13 +274,13 @@
             
             <!-- Mobile slider controllers -->
             <div class="slider-controller w-full flex justify-end lg:hidden px-1">
-                <div class="inline-flex items-center gap-3 bg-navy-900/80 backdrop-blur-md px-3 py-1.5 rounded-lg border border-slate-800">
+                <div class="inline-flex items-center gap-3 bg-brand-900/90 backdrop-blur-md px-3 py-1.5 rounded-lg border border-brand-800">
                     <div class="text-[11px] font-bold text-white tracking-wider tabular-nums flex items-center gap-1">
                         <span class="text-brand-400 current-num">01</span>
                         <span class="text-slate-500">/</span>
                         <span class="text-slate-400 total-num">05</span>
                     </div>
-                    <div class="w-16 h-1 bg-slate-700/60 rounded-full overflow-hidden">
+                    <div class="w-16 h-1 bg-brand-800 rounded-full overflow-hidden">
                         <div class="slide-progress h-full bg-brand-400 w-0"></div>
                     </div>
                     <div class="flex items-center gap-1">
@@ -299,10 +294,10 @@
                 </div>
             </div>
 
-            <!-- Kortelės -->
+            <!-- Kortelės (Tamsiai žalios) -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 w-full">
                 {% for card in site_data.cards %}
-                <a href="{{ card.link[page.lang] }}" class="relative overflow-hidden p-4 sm:p-5 rounded-xl bg-navy-900/80 hover:bg-navy-900 border border-slate-700/60 hover:border-brand-500/60 backdrop-blur-md transition-all duration-300 group shadow-xl flex flex-col justify-between">
+                <a href="{{ card.link[page.lang] }}" class="relative overflow-hidden p-4 sm:p-5 rounded-xl bg-brand-900/85 hover:bg-brand-900 border border-brand-800 hover:border-brand-400/60 backdrop-blur-md transition-all duration-300 group shadow-xl flex flex-col justify-between">
                     <div class="relative z-10 pr-20 sm:pr-28">
                         <h3 class="text-sm sm:text-lg font-bold text-white group-hover:text-brand-300 transition-colors">
                             {{ card.title[page.lang] }}
@@ -315,7 +310,7 @@
                             <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                         </div>
                     </div>
-                    <div class="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-slate-900/50 group-hover:bg-slate-900/80 transition-colors flex items-center justify-center border-l border-slate-800">
+                    <div class="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-brand-950/60 group-hover:bg-brand-950/80 transition-colors flex items-center justify-center border-l border-brand-800">
                         <img src="{{ site.baseurl }}/{{ card.image }}" alt="{{ card.title[page.lang] }}" class="w-10 h-10 sm:w-20 sm:h-20 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all object-contain">
                     </div>
                 </a>
@@ -327,8 +322,8 @@
     </div>
 </section>
 
-<!-- 3. FOOTERIS -->
-<footer class="bg-slate-950 py-5 relative z-30 border-t border-slate-800 shadow-sm mt-auto text-white">
+<!-- 3. FOOTERIS (Pakeistas į tamsiai žalią brand-950) -->
+<footer class="bg-brand-950 py-5 relative z-30 border-t border-brand-900 text-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-3 text-center sm:text-left">
         <p class="text-xs text-slate-400 font-normal">
             © 2026 <strong class="text-slate-200 font-semibold tracking-wide">{{ data.common[page.lang].company }}</strong>. {{ data.common[page.lang].rights }}
@@ -339,9 +334,9 @@
             <a href="https://xn--x7-1ia.com" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-brand-400 transition-colors font-medium">
                 Æx7
             </a>
-            <span class="text-slate-700">[</span><a href="https://uptest.no" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-brand-400 transition-colors font-medium">
+            <span class="text-brand-900">[</span><a href="https://uptest.no" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-brand-400 transition-colors font-medium">
                 {{ data.common[page.lang].old_version }}
-            </a><span class="text-slate-700">]</span>
+            </a><span class="text-brand-900">]</span>
         </div>
     </div>
 </footer>
