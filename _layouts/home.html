@@ -10,7 +10,156 @@
 <body class="bg-brand-950 text-slate-800 antialiased font-sans flex flex-col min-h-[100dvh] pb-[env(safe-area-inset-bottom)] m-0">
     
 <!-- 1. HEADERIS -->
-{% include header.html %}
+{% assign data = site.data.data %}
+
+{% assign home_link = "" %}
+{% for lang in data.languages %}
+    {% if lang.code == page.lang %}
+        {% assign home_link = lang.link %}
+    {% endif %}
+{% endfor %}
+
+<header class="shadow-sm w-full relative z-30">
+        
+        <!-- Kalbos ir secondary menu juosta patčiame viršuje -->
+        <div class="bg-slate-100 text-slate-700 text-xs py-1.5 border-b border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+                
+                <!-- Kalbų perjungimas (lieka toks pat, kokiame naudojate page.current_page) -->
+                <div class="flex items-center space-x-3 text-xs">
+                    <span class="text-slate-500 font-medium mr-1 hidden sm:inline">{{ data.common[page.lang].language }}:</span>
+                    {% for lang in data.languages %}
+                        {% assign target_link = lang.link %}
+                        {% if page.current_page %}
+                            {% assign nav_match = data.nav[page.current_page] %}
+                            {% if nav_match and nav_match.link[lang.code] %}
+                                {% assign target_link = nav_match.link[lang.code] %}
+                            {% endif %}
+                        {% endif %}
+        
+                        <a href="{{ site.baseurl }}/{{ target_link }}" class="transition-colors {% if page.lang == lang.code %}font-bold text-brand-600{% else %}font-medium text-slate-600 hover:text-brand-600{% endif %}">
+                            {{ lang.label }}
+                        </a>
+                        
+                        {% unless forloop.last %}
+                            <span class="text-slate-300">|</span>
+                        {% endunless %}
+                    {% endfor %}
+                </div>
+        
+                <!-- Secondary menu ištraukiamas iš data.nav kur secondary: true -->
+                <div class="flex items-center space-x-6 text-xs font-medium">
+                    {% for nav_item in data.nav %}
+                        {% assign item = nav_item[1] %}
+                        
+                        {% if item.secondary %}
+                            {% assign is_active = false %}
+                            {% if page.current_page == nav_item[0] or page.url == item.link[page.lang] %}
+                                {% assign is_active = true %}
+                            {% endif %}
+        
+                            <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="transition-colors hidden sm:inline-block {% if is_active %}font-bold text-brand-600{% else %}text-slate-600 hover:text-brand-600{% endif %}">
+                                {{ item.title[page.lang] }}
+                            </a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- Pagrindinė meniu juosta -->
+        <div class="bg-white border-b border-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-20 sm:h-24">
+                    
+                    <div class="flex-shrink-0 flex items-center py-2">
+                        <a href="{{ site.baseurl }}/{{ home_link }}" class="group transition-transform duration-200 hover:scale-[1.02]">
+                            <img class="h-12 sm:h-16 w-auto object-contain" src="{{ site.baseurl }}/images/uptest-logo.png" alt="Uptest Logo">
+                        </a>
+                    </div>
+
+                      <nav class="hidden lg:flex items-center space-x-8">
+                        {% for nav_item in data.nav %}
+                            {% assign item = nav_item[1] %}
+                            
+                            <!-- Praleidžiame, jei tai yra secondary elementas -->
+                            {% unless item.secondary %}
+                                {% assign is_active = false %}
+                                {% if page.current_page == nav_item[0] or page.url == item.link[page.lang] %}
+                                    {% assign is_active = true %}
+                                {% endif %}
+                                
+                                {% if item.highlight %}
+                                    <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="ml-2 inline-flex items-center justify-center px-5 py-2.5 rounded-lg font-semibold text-sm text-white {% if is_active %}bg-brand-700{% else %}bg-brand-600 hover:bg-brand-700{% endif %} shadow-sm transition-all">
+                                        {{ item.title[page.lang] }}
+                                    </a>
+                                {% else %}
+                                    <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="relative font-semibold text-sm lg:text-base transition-colors py-2 {% if is_active %}text-brand-600{% else %}text-slate-700 hover:text-brand-600{% endif %}">
+                                        {{ item.title[page.lang] }}
+                                    </a>
+                                {% endif %}
+                            {% endunless %}
+                        {% endfor %}
+                    </nav>
+
+                    <div class="lg:hidden flex items-center">
+                        <button id="mobile-menu-button" type="button" class="text-slate-700 hover:text-brand-600 focus:outline-none p-2 rounded-lg hover:bg-slate-100">
+                            <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M4 6h16M4 12h16M4 18h16"/>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobilus meniu skydelis -->
+        <div id="mobile-menu-panel" class="hidden lg:hidden bg-white border-b border-gray-200 shadow-xl absolute w-full left-0 z-50">
+            <div class="px-4 pt-3 pb-5 space-y-1.5">
+                {% for nav_item in data.nav %}
+                    {% assign item = nav_item[1] %}
+                    
+                    <!-- Praleidžiame, jei tai yra secondary elementas -->
+                    {% unless item.secondary %}
+                        {% assign is_active = false %}
+                        {% if page.current_page == nav_item[0] or page.url == item.link[page.lang] %}
+                            {% assign is_active = true %}
+                        {% endif %}
+                        
+                        {% if item.highlight %}
+                            <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="block px-3.5 py-2.5 rounded-lg text-sm font-bold {% if is_active %}text-brand-800 bg-brand-100{% else %}text-brand-700 hover:bg-brand-50{% endif %}">
+                                {{ item.title[page.lang] }}
+                            </a>
+                        {% else %}
+                            <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="block px-3.5 py-2.5 rounded-lg text-sm font-semibold {% if is_active %}text-brand-600 bg-brand-50{% else %}text-slate-700 hover:text-brand-600 hover:bg-brand-50{% endif %}">
+                                {{ item.title[page.lang] }}
+                            </a>
+                        {% endif %}
+                    {% endunless %}
+                {% endfor %}
+                
+                <!-- Jeigu norite, kad mobiliajame meniu apačioje (viršutinės juostos alternatyvai) būtų sertifikatai/galerija, galite juos atskirai atvaizduoti čia -->
+                <div class="border-t border-gray-100 mt-3 pt-3 space-y-1 sm:hidden">
+                    {% for nav_item in data.nav %}
+                        {% assign item = nav_item[1] %}
+                        {% if item.secondary %}
+                            {% assign is_active = false %}
+                            {% if page.current_page == nav_item[0] or page.url == item.link[page.lang] %}
+                                {% assign is_active = true %}
+                            {% endif %}
+                
+                            <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="block px-3.5 py-2 rounded-lg text-xs font-medium transition-colors {% if is_active %}font-bold text-brand-600 bg-brand-50{% else %}text-slate-500 hover:text-brand-600 hover:bg-slate-50{% endif %}">
+                                {{ item.title[page.lang] }}
+                            </a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+    </header>
 
 <!-- 2. HERO SEKCIJA -->
 <section id="hero-slider" class="relative w-full bg-brand-950 flex-grow flex flex-col justify-between py-2 sm:py-6 lg:py-8">
