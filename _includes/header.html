@@ -1,150 +1,152 @@
 {% assign data = site.data.data %}
 
-{% assign home_link = "" %}
-{% for lang in data.languages %}
-    {% if lang.code == page.lang %}
-        {% assign home_link = lang.link %}
-    {% endif %}
-{% endfor %}
+<!DOCTYPE html>
+<html lang="{{ page.lang }}" class="scroll-smooth h-[100svh]">
 
-<header class="shadow-sm w-full relative z-30">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ data.home.title[page.lang] }}</title>
+    <base href="/uptest.no/">
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="fonts.css">
+    {% include tailwind.html %}
+</head>
+    
+<body class="bg-brand-950 text-slate-800 antialiased font-sans flex flex-col h-[100svh] m-0">
+    
+{% include header.html %}
+
+<!-- HERO SEKCIJA -->
+<section id="hero-slider" class="relative flex-grow flex flex-col justify-between w-full min-h-0 bg-brand-950 py-2">
+
+    <div class="absolute inset-0 z-0 pointer-events-none">
+        {% for slide_item in data.slides %}
+          {% assign slide = slide_item[1] %}
+          <div class="bg-slide absolute inset-0 {% if forloop.first %}opacity-100{% else %}opacity-0{% endif %} transition-opacity duration-700 ease-in-out">
+              <img src="{{ slide.image }}" class="w-full h-full object-cover object-center" alt="{{ slide.title[page.lang] }}">
+          </div>
+        {% endfor %}
+
+        <div class="absolute inset-0 bg-gradient-to-r from-brand-950/95 via-brand-950/75 to-brand-950/45"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-950 via-brand-950/50 to-brand-950/30"></div>
+    </div>
+
+    <!-- Desktop slider controllers -->
+    <div class="slider-controller hidden lg:flex absolute right-8 top-4 z-30 items-center gap-3">
+        <div class="text-[11px] font-bold text-white tracking-wider tabular-nums flex items-center gap-1">
+            <span class="text-brand-400 current-num">01</span>
+            <span class="text-slate-400">/</span>
+            <span class="text-slate-400 total-num">05</span>
+        </div>
+        <div class="w-16 h-0.5 bg-white/20 rounded-full overflow-hidden">
+            <div class="slide-progress h-full bg-brand-400 w-0"></div>
+        </div>
+        <div class="flex items-center gap-1">
+            <button class="prev-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-md hover:bg-white/10" aria-label="Previous slide">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+            </button>
+            <button class="next-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-md hover:bg-white/10" aria-label="Next slide">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <div class="relative z-20 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-1 flex flex-col justify-between flex-grow min-h-0">
         
-        <!-- Kalbos ir secondary menu juosta patčiame viršuje -->
-        <div class="bg-slate-100 text-slate-700 text-xs py-1.5 border-b border-gray-200">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-                
-                <!-- Kalbų perjungimas (lieka toks pat, kokiame naudojate page.current_page) -->
-                <div class="flex items-center space-x-3 text-xs">
-                    <span class="text-slate-500 font-medium mr-1 hidden sm:inline">{{ data.common[page.lang].language }}:</span>
-                    {% for lang in data.languages %}
-                        {% assign target_link = lang.link %}
-                        {% if page.current_page %}
-                            {% assign nav_match = data.nav[page.current_page] %}
-                            {% if nav_match and nav_match.link[lang.code] %}
-                                {% assign target_link = nav_match.link[lang.code] %}
-                            {% endif %}
-                        {% endif %}
-        
-                        <a href="{{ site.baseurl }}/{{ target_link }}" class="transition-colors {% if page.lang == lang.code %}font-bold text-brand-600{% else %}font-medium text-slate-600 hover:text-brand-600{% endif %}">
-                            {{ lang.label }}
-                        </a>
-                        
-                        {% unless forloop.last %}
-                            <span class="text-slate-300">|</span>
-                        {% endunless %}
-                    {% endfor %}
-                </div>
-        
-                <!-- Secondary menu ištraukiamas iš data.nav kur secondary: true -->
-                <div class="flex items-center space-x-6 text-xs font-medium">
-                    {% for nav_item in data.nav %}
-                        {% assign item = nav_item[1] %}
-                        
-                        {% if item.secondary %}
-                            {% assign is_active = false %}
-                            {% if page.current_page == nav_item[0] or page.url == item.link[page.lang] %}
-                                {% assign is_active = true %}
-                            {% endif %}
-        
-                            <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="transition-colors hidden sm:inline-block {% if is_active %}font-bold text-brand-600{% else %}text-slate-600 hover:text-brand-600{% endif %}">
-                                {{ item.title[page.lang] }}
-                            </a>
-                        {% endif %}
-                    {% endfor %}
-                </div>
-                
+        <div class="w-full"></div>
+
+        <!-- TEKSTO DALIS -->
+        <div class="w-full max-w-xl text-left my-auto py-2 flex flex-col justify-center">
+            <div class="relative w-full">
+                {% for slide_item in data.slides %}
+                  {% assign slide = slide_item[1] %}
+                  
+                  <div class="slide-text transition-opacity duration-500 {% if forloop.first %}opacity-100 relative{% else %}opacity-0 pointer-events-none absolute inset-0{% endif %} flex flex-col justify-center" data-index="{{ forloop.index0 }}">
+                      <div>
+                          <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-bold uppercase tracking-wider bg-brand-500/15 text-brand-200 border border-brand-400/30 backdrop-blur-md mb-1 shadow-sm">
+                              {{ slide.badge[page.lang] }}
+                          </span>
+                      </div>
+          
+                      {% if forloop.first %}
+                        <h1 class="text-white text-base sm:text-3xl lg:text-4xl font-extrabold tracking-tight leading-snug mb-1 drop-shadow-md">
+                            {{ slide.title[page.lang] }}
+                        </h1>
+                      {% else %}
+                        <h2 class="text-white text-base sm:text-3xl lg:text-4xl font-extrabold tracking-tight leading-snug mb-1 drop-shadow-md">
+                            {{ slide.title[page.lang] }}
+                        </h2>
+                      {% endif %}
+          
+                      <p class="text-slate-200 text-[11px] sm:text-sm font-normal max-w-lg leading-relaxed mb-2 line-clamp-2 sm:line-clamp-3">
+                          {{ slide.desc[page.lang] }}
+                      </p>
+          
+                      <div>
+                          <a href="{{ slide.link[page.lang] }}" class="inline-flex items-center gap-1 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-lg text-[11px] sm:text-xs font-semibold text-slate-950 bg-brand-400 hover:bg-brand-300 transition-all shadow-lg shadow-brand-500/20">
+                              {{ slide.btn_text[page.lang] }}
+                              <svg class="w-3 h-3 sm:w-3.5 sm:h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                          </a>
+                      </div>
+                  </div>
+                {% endfor %}
             </div>
         </div>
 
-        <!-- Pagrindinė meniu juosta -->
-        <div class="bg-white border-b border-gray-100">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex justify-between items-center h-20 sm:h-24">
-                    
-                    <div class="flex-shrink-0 flex items-center py-2">
-                        <a href="{{ site.baseurl }}/{{ home_link }}" class="group transition-transform duration-200 hover:scale-[1.02]">
-                            <img class="h-12 sm:h-16 w-auto object-contain" src="{{ site.baseurl }}/images/uptest-logo.png" alt="Uptest Logo">
-                        </a>
+        <!-- APATINĖ DALIS -->
+        <div class="w-full max-w-7xl pt-1 pb-1">
+            
+            <div class="slider-controller w-full flex justify-end lg:hidden mb-1 px-1">
+                <div class="inline-flex items-center gap-3">
+                    <div class="text-[11px] font-bold text-white tracking-wider tabular-nums flex items-center gap-1">
+                        <span class="text-brand-400 current-num">01</span>
+                        <span class="text-slate-400">/</span>
+                        <span class="text-slate-400 total-num">05</span>
                     </div>
-
-                      <nav class="hidden lg:flex items-center space-x-8">
-                        {% for nav_item in data.nav %}
-                            {% assign item = nav_item[1] %}
-                            
-                            <!-- Praleidžiame, jei tai yra secondary elementas -->
-                            {% unless item.secondary %}
-                                {% assign is_active = false %}
-                                {% if page.current_page == nav_item[0] or page.url == item.link[page.lang] %}
-                                    {% assign is_active = true %}
-                                {% endif %}
-                                
-                                {% if item.highlight %}
-                                    <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="ml-2 inline-flex items-center justify-center px-5 py-2.5 rounded-lg font-semibold text-sm text-white {% if is_active %}bg-brand-700{% else %}bg-brand-600 hover:bg-brand-700{% endif %} shadow-sm transition-all">
-                                        {{ item.title[page.lang] }}
-                                    </a>
-                                {% else %}
-                                    <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="relative font-semibold text-sm lg:text-base transition-colors py-2 {% if is_active %}text-brand-600{% else %}text-slate-700 hover:text-brand-600{% endif %}">
-                                        {{ item.title[page.lang] }}
-                                    </a>
-                                {% endif %}
-                            {% endunless %}
-                        {% endfor %}
-                    </nav>
-
-                    <div class="lg:hidden flex items-center">
-                        <button id="mobile-menu-button" type="button" class="text-slate-700 hover:text-brand-600 focus:outline-none p-2 rounded-lg hover:bg-slate-100">
-                            <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M4 6h16M4 12h16M4 18h16"/>
-                            </svg>
+                    <div class="w-20 h-0.5 bg-white/20 rounded-full overflow-hidden">
+                        <div class="slide-progress h-full bg-brand-400 w-0"></div>
+                    </div>
+                    <div class="flex items-center gap-1">
+                        <button class="prev-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-md hover:bg-white/10" aria-label="Previous slide">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                        </button>
+                        <button class="next-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-md hover:bg-white/10" aria-label="Next slide">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                         </button>
                     </div>
-                    
                 </div>
             </div>
-        </div>
 
-        <!-- Mobilus meniu skydelis -->
-        <div id="mobile-menu-panel" class="hidden lg:hidden bg-white border-b border-gray-200 shadow-xl absolute w-full left-0 z-50">
-            <div class="px-4 pt-3 pb-5 space-y-1.5">
-                {% for nav_item in data.nav %}
-                    {% assign item = nav_item[1] %}
-                    
-                    <!-- Praleidžiame, jei tai yra secondary elementas -->
-                    {% unless item.secondary %}
-                        {% assign is_active = false %}
-                        {% if page.current_page == nav_item[0] or page.url == item.link[page.lang] %}
-                            {% assign is_active = true %}
-                        {% endif %}
-                        
-                        {% if item.highlight %}
-                            <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="block px-3.5 py-2.5 rounded-lg text-sm font-bold {% if is_active %}text-brand-800 bg-brand-100{% else %}text-brand-700 hover:bg-brand-50{% endif %}">
-                                {{ item.title[page.lang] }}
-                            </a>
-                        {% else %}
-                            <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="block px-3.5 py-2.5 rounded-lg text-sm font-semibold {% if is_active %}text-brand-600 bg-brand-50{% else %}text-slate-700 hover:text-brand-600 hover:bg-brand-50{% endif %}">
-                                {{ item.title[page.lang] }}
-                            </a>
-                        {% endif %}
-                    {% endunless %}
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 w-full">
+                {% for card in data.cards %}
+                <a href="{{ card.link[page.lang] }}" class="relative overflow-hidden p-2.5 sm:p-5 rounded-xl bg-brand-950/80 hover:bg-brand-900/90 border border-white/15 hover:border-brand-400/50 backdrop-blur-md transition-all duration-200 group shadow-xl flex flex-col justify-between">
+                    <div class="relative z-10 pr-16 sm:pr-24">
+                        <h3 class="text-xs sm:text-base font-bold text-white group-hover:text-brand-200 transition-colors">
+                            {{ card.title[page.lang] }}
+                        </h3>
+                        <p class="text-[11px] sm:text-xs text-slate-300 line-clamp-1 sm:line-clamp-2 mt-0.5">
+                            {{ card.desc[page.lang] }}
+                        </p>
+                        <div class="mt-1.5 flex items-center gap-1 text-[11px] sm:text-xs font-semibold text-brand-400 group-hover:text-brand-300 transition-colors">
+                            {{ card.btn_text[page.lang] }} 
+                            <svg class="w-3 h-3 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </div>
+                    </div>
+                    <div class="absolute right-0 top-0 bottom-0 w-16 sm:w-24 bg-brand-500/10 group-hover:bg-brand-500/20 transition-colors flex items-center justify-center">
+                        <img src="{{ site.baseurl }}/{{ card.image }}" alt="{{ card.title[page.lang] }}" class="w-12 h-12 sm:w-22 sm:h-22 opacity-85 group-hover:scale-110 transition-transform object-contain">
+                    </div>
+                </a>
                 {% endfor %}
-                
-                <!-- Jeigu norite, kad mobiliajame meniu apačioje (viršutinės juostos alternatyvai) būtų sertifikatai/galerija, galite juos atskirai atvaizduoti čia -->
-                <div class="border-t border-gray-100 mt-3 pt-3 space-y-1 sm:hidden">
-                    {% for nav_item in data.nav %}
-                        {% assign item = nav_item[1] %}
-                        {% if item.secondary %}
-                            {% assign is_active = false %}
-                            {% if page.current_page == nav_item[0] or page.url == item.link[page.lang] %}
-                                {% assign is_active = true %}
-                            {% endif %}
-                
-                            <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="block px-3.5 py-2 rounded-lg text-xs font-medium transition-colors {% if is_active %}font-bold text-brand-600 bg-brand-50{% else %}text-slate-500 hover:text-brand-600 hover:bg-slate-50{% endif %}">
-                                {{ item.title[page.lang] }}
-                            </a>
-                        {% endif %}
-                    {% endfor %}
-                </div>
             </div>
+
         </div>
 
-    </header>
+    </div>
+</section>
+
+{% include footer.html %}
+<script src="home.js?v=0.14"></script>
+
+</body>
+</html>
