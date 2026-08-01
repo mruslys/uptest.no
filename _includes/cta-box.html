@@ -9,8 +9,8 @@
 {% assign n = site.data.data.nav %}
 
 <div class="pt-2 flex flex-wrap items-center gap-3">
-    <!-- Pagrindinis mygtukas: šviesus brand-50/100 tonas iš tavo paletės su brand-950 tekstas -->
-    <a href="{{ site.baseurl }}/{{ n.contacts.link[page.lang] }}" class="inline-flex items-center justify-center px-6 py-3 rounded-xl font-bold text-sm text-brand-950 bg-brand-50 hover:bg-white shadow-md hover:shadow-lg transition-all">
+    <!-- Pagrindinis mygtukas: brand-900 (šviesesnis už brand-950) -->
+    <a href="{{ site.baseurl }}/{{ n.contacts.link[page.lang] }}" class="inline-flex items-center justify-center px-6 py-3 rounded-xl font-bold text-sm text-white bg-brand-900 hover:bg-brand-800 shadow-md hover:shadow-lg transition-all border border-brand-700/60">
         {{ include.btn_text | default: n.contacts.title[page.lang] }}
     </a>
 
