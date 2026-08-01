@@ -1,23 +1,21 @@
-{% assign data = site.data.data %}
+{% assign site_data = site.data.data %}
 
 <!DOCTYPE html>
-<html lang="{{ page.lang }}" class="scroll-smooth h-[100svh] overflow-hidden">
+<html lang="{{ page.lang }}" class="scroll-smooth h-[100svh]">
 
 <head>
-
     {% include head.html %}
-    
 </head>
     
-<body class="bg-brand-950 text-slate-800 antialiased font-sans flex flex-col h-[100svh] overflow-hidden m-0">
+<body class="bg-brand-950 text-slate-800 antialiased font-sans flex flex-col h-[100svh] m-0">
     
 {% include header.html %}
 
 <!-- HERO SEKCIJA -->
-<section id="hero-slider" class="relative flex-grow flex flex-col justify-between w-full min-h-0 bg-brand-950 overflow-hidden cursor-pointer py-2">
+<section id="hero-slider" class="relative flex-grow flex flex-col justify-between w-full min-h-0 bg-brand-950 py-2">
 
-    <div class="absolute inset-0 z-0">
-        {% for slide_item in data.slides %}
+    <div class="absolute inset-0 z-0 pointer-events-none">
+        {% for slide_item in site_data.slides %}
           {% assign slide = slide_item[1] %}
           <div class="bg-slide absolute inset-0 {% if forloop.first %}opacity-100{% else %}opacity-0{% endif %} transition-opacity duration-700 ease-in-out">
               <img src="{{ slide.image }}" class="w-full h-full object-cover object-center" alt="{{ slide.title[page.lang] }}">
@@ -52,13 +50,12 @@
         
         <div class="w-full"></div>
 
-        <!-- TEKSTO DALIS: panaikintas fiksuotas aukštis, pritaikytas lankstus išsidėstymas -->
+        <!-- TEKSTO DALIS -->
         <div class="w-full max-w-xl text-left my-auto py-2 flex flex-col justify-center">
             <div class="relative w-full">
-                {% for slide_item in data.slides %}
+                {% for slide_item in site_data.slides %}
                   {% assign slide = slide_item[1] %}
                   
-                  <!-- Jei pirma skaidrė, ji rodoma iškart, kitos paslėptos per absolute, bet paties konteinerio aukštį formuojame dinamiškai arba užtikriname pakankamai vietos -->
                   <div class="slide-text transition-opacity duration-500 {% if forloop.first %}opacity-100 relative{% else %}opacity-0 pointer-events-none absolute inset-0{% endif %} flex flex-col justify-center" data-index="{{ forloop.index0 }}">
                       <div>
                           <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-bold uppercase tracking-wider bg-brand-500/15 text-brand-200 border border-brand-400/30 backdrop-blur-md mb-1 shadow-sm">
@@ -91,7 +88,7 @@
             </div>
         </div>
 
-        <!-- APATINĖ DALIS (Valdikliai ir kortelės) -->
+        <!-- APATINĖ DALIS -->
         <div class="w-full max-w-7xl pt-1 pb-1">
             
             <div class="slider-controller w-full flex justify-end lg:hidden mb-1 px-1">
@@ -116,7 +113,7 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-2 w-full">
-                {% for card in data.cards %}
+                {% for card in site_data.cards %}
                 <a href="{{ card.link[page.lang] }}" class="relative overflow-hidden p-2.5 sm:p-5 rounded-xl bg-brand-950/80 hover:bg-brand-900/90 border border-white/15 hover:border-brand-400/50 backdrop-blur-md transition-all duration-200 group shadow-xl flex flex-col justify-between">
                     <div class="relative z-10 pr-16 sm:pr-24">
                         <h3 class="text-xs sm:text-base font-bold text-white group-hover:text-brand-200 transition-colors">
@@ -143,7 +140,7 @@
 </section>
 
 {% include footer.html %}
-<script src="home.js?v=0.13"></script>
+<script src="home.js?v=0.14"></script>
 
 </body>
 </html>
