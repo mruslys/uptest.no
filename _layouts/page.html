@@ -1,27 +1,26 @@
 {% assign data = site.data.data %}
 
 <!DOCTYPE html>
-
 <html lang="{{ page.lang }}" class="scroll-smooth">
     
 <head>
     {% include head.html %}
 </head>
 
-<body class="bg-brand-950 text-slate-800 antialiased font-sans flex flex-col min-h-screen m-0">
+<body class="bg-brand-950 text-slate-200 antialiased font-sans flex flex-col min-h-screen m-0">
 
     <!-- Įtraukiamas headeris -->
-
     {% include header.html %}
 
-<!-- Subpage Hero / Ryškus Cyan Gradientas -->
-<section class="relative bg-gradient-to-r from-brand-600 via-brand-500 to-brand-700 py-16 lg:py-20 text-white shadow-inner">
+<!-- Subpage Hero / Stilingas Brand Gradientas -->
+<section class="relative bg-gradient-to-r from-brand-900 via-brand-700 to-brand-800 py-16 lg:py-20 text-white border-b border-brand-600/30 shadow-xl">
+    <div class="absolute inset-0 bg-brand-950/20 pointer-events-none"></div>
     <div class="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight drop-shadow-sm">
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight drop-shadow-md text-white">
             {{ page.title }}
         </h1>
         {% if page.subtitle %}
-        <p class="mt-4 text-lg sm:text-xl text-brand-100 font-normal max-w-2xl mx-auto">
+        <p class="mt-4 text-lg sm:text-xl text-brand-200 font-normal max-w-2xl mx-auto drop-shadow">
             {{ page.subtitle }}
         </p>
         {% endif %}
@@ -29,8 +28,8 @@
 </section>
 
     <!-- Pagrindinio teksto sekcija -->
-    <main class="flex-grow bg-white py-12 lg:py-16">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 text-slate-700 leading-relaxed">
+    <main class="flex-grow bg-brand-950 py-12 lg:py-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 text-slate-300 leading-relaxed">
             {{ content }}
 
             {% if page.gallery_folder %}
@@ -39,9 +38,8 @@
         </div>
     </main>
 
-   
     <!-- Footeris -->
     {% include footer.html %}
     
 </body>
-</html>
+</html>[cite: 5, 6]
