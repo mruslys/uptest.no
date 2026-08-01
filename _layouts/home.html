@@ -20,13 +20,17 @@
         {% for slide_item in site_data.slides %}
           {% assign slide = slide_item[1] %}
           <div class="bg-slide absolute inset-0 {% if forloop.first %}opacity-100{% else %}opacity-0{% endif %} transition-opacity duration-700 ease-in-out">
-              <img src="{{ slide.image }}" class="w-full h-full object-cover object-center" alt="{{ slide.title[page.lang] }}">
+              <!-- Pridėtas švelnus brightness/contrast pagyvinimas -->
+              <img src="{{ slide.image }}" class="w-full h-full object-cover object-center brightness-105" alt="{{ slide.title[page.lang] }}">
           </div>
         {% endfor %}
 
-        <div class="absolute inset-0 bg-gradient-to-r from-brand-950/90 via-brand-900/70 to-brand-800/40"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-brand-950/95 via-brand-900/40 to-transparent"></div>
+        <!-- Sumažintas gradientų tamsumas -->
+        <div class="absolute inset-0 bg-gradient-to-r from-brand-950/75 via-brand-900/50 to-brand-800/20"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-950/80 via-brand-900/25 to-transparent"></div>
     </div>
+
+    <!-- ... (toliau eina visi kiti elementai be pakeitimų) ... -->
 
     <!-- Desktop slider controllers -->
     <div class="slider-controller hidden lg:flex absolute right-8 top-6 z-30 items-center gap-3">
