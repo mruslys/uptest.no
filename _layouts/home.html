@@ -8,6 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ data.home.title[page.lang] }}</title>
     <base href="/uptest.no/">
+
+    {% include og.html %}
+    
     <link rel="icon" href="images/favicon.png" type="image/png">
     <link rel="stylesheet" href="fonts.css">
     {% include tailwind.html %}
