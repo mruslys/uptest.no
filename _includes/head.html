@@ -1,7 +1,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ data.home.title[page.lang] }}</title>
+    <title>{{ page.title }}</title>
+
+    <meta property="og:title" content="{% if page.og_title %}{{ page.og_title }}{% else %}{{ page.title }} | {{ site.title }}{% endif %}">
+    <meta property="og:description" content="{% if page.og_description %}{{ page.og_description }}{% else %}{{ site.description }}{% endif %}">
+    <meta property="og:image" content="{{ page.og_image | default: site.default_image | absolute_url }}">
+    <meta property="og:type" content="{{ page.og_type | default: 'website' }}">
+    <meta property="og:url" content="{{ page.url | absolute_url }}">
+
     <base href="/uptest.no/">
     <link rel="icon" href="images/favicon.png" type="image/png">
     <link rel="stylesheet" href="fonts.css">
+
     {% include tailwind.html %}
