@@ -12,7 +12,7 @@
 <!-- 1. HEADERIS -->
 {% include header.html %}
 
-<!-- 2. HERO SEKCIJA: Sumažinti paddingai vertikaliai mobiliajame (py-2 sm:py-6) -->
+<!-- 2. HERO SEKCIJA -->
 <section id="hero-slider" class="relative w-full bg-brand-950 flex-grow flex flex-col justify-between py-2 sm:py-6 lg:py-8">
 
     <!-- Fono paveiksliukai ir gradientai -->
@@ -48,7 +48,7 @@
         </div>
     </div>
 
-    <!-- Vidinis konteineris: gap-2 mobiliajame, gap-6 dideliuose ekranuose -->
+    <!-- Vidinis konteineris -->
     <div class="relative z-20 max-w-7xl mx-auto w-full px-3 sm:px-6 lg:px-8 flex-grow flex flex-col justify-between gap-2 sm:gap-6">
         
         <!-- A. RESPONSIVE ERDVĖ: Slaiderio tekstai -->
@@ -57,7 +57,6 @@
                 {% for slide_item in site_data.slides %}
                   {% assign slide = slide_item[1] %}
                   
-                  <!-- Sumažintos apatinės maržos (mb-2 mobiliajame, mb-3/4 didesniuose ekranuose) -->
                   <div class="slide-text transition-opacity duration-500 {% if forloop.first %}opacity-100 relative{% else %}opacity-0 pointer-events-none absolute inset-0{% endif %} flex flex-col justify-center" data-index="{{ forloop.index0 }}">
                       <div>
                           <span class="inline-flex items-center gap-1.5 px-3 py-0.5 sm:px-3.5 sm:py-1 rounded-full text-[11px] sm:text-sm font-bold uppercase tracking-wider bg-brand-500/15 text-brand-200 border border-brand-400/30 backdrop-blur-md mb-2 sm:mb-3 shadow-sm">
@@ -66,16 +65,18 @@
                       </div>
           
                       {% if forloop.first %}
-                        <h1 class="text-white text-lg sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-snug mb-2 sm:mb-3 drop-shadow-md">
+                        <!-- Mobiliame dydis padidintas nuo text-lg iki text-xl -->
+                        <h1 class="text-white text-xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-snug mb-2 sm:mb-3 drop-shadow-md">
                             {{ slide.title[page.lang] }}
                         </h1>
                       {% else %}
-                        <h2 class="text-white text-lg sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-snug mb-2 sm:mb-3 drop-shadow-md">
+                        <h2 class="text-white text-xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-snug mb-2 sm:mb-3 drop-shadow-md">
                             {{ slide.title[page.lang] }}
                         </h2>
                       {% endif %}
           
-                      <p class="text-slate-100 text-xs sm:text-lg font-normal max-w-xl leading-relaxed mb-3 sm:mb-4">
+                      <!-- Mobiliame subtekstas padidintas nuo text-xs iki text-sm -->
+                      <p class="text-slate-100 text-sm sm:text-lg font-normal max-w-xl leading-relaxed mb-3 sm:mb-4">
                           {{ slide.desc[page.lang] }}
                       </p>
           
