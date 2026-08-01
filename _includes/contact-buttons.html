@@ -2,8 +2,8 @@
 {% assign n = site.data.data.nav %}
 
 <div class="pt-2 flex flex-wrap items-center gap-3">
-    <!-- Pagrindinis mygtukas (tamsus fonas su baltu tekstu) -->
-    <a href="{{ site.baseurl }}/{{ n.contacts.link[page.lang] }}" class="inline-flex items-center justify-center px-6 py-3 rounded-xl font-bold text-sm text-white bg-brand-950 hover:bg-slate-900 shadow-md hover:shadow-lg transition-all">
+    <!-- Pagrindinis mygtukas (švelnesnis tamsus atspalvis) -->
+    <a href="{{ site.baseurl }}/{{ n.contacts.link[page.lang] }}" class="inline-flex items-center justify-center px-6 py-3 rounded-xl font-bold text-sm text-white bg-brand-900 hover:bg-brand-800 shadow-md hover:shadow-lg transition-all">
         {{ include.btn_text | default: n.contacts.title[page.lang] }}
     </a>
 
