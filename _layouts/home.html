@@ -54,7 +54,7 @@
 
 <header class="shadow-md w-full relative z-30 flex-shrink-0">
         
-        <!-- Kalbos ir secondary menu juosta (ŠVIESIAI PILKAS FONAS) -->
+        <!-- Kalbos ir secondary menu juosta (Šviesiai pilkas fonas) -->
         <div class="bg-slate-100 text-slate-600 text-[11px] sm:text-xs py-1.5 sm:py-2 border-b border-slate-200">
             <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex justify-between items-center">
                 
@@ -101,7 +101,7 @@
             </div>
         </div>
 
-        <!-- Pagrindinė meniu juosta su DAR PADIDINTU LOGOTIPU -->
+        <!-- Pagrindinė meniu juosta su padidintu logotipu -->
         <div class="bg-white border-b border-slate-200">
             <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
                 <div class="flex justify-between items-center h-20 sm:h-24 lg:h-28">
@@ -147,8 +147,8 @@
             </div>
         </div>
 
-        <!-- Mobilus meniu skydelis -->
-        <div id="mobile-menu-panel" class="hidden lg:hidden bg-brand-950 border-b border-brand-900 shadow-2xl absolute w-full left-0 z-50">
+        <!-- Mobilus meniu skydelis (ŠVIESUS FONAS) -->
+        <div id="mobile-menu-panel" class="hidden lg:hidden bg-white border-b border-slate-200 shadow-xl absolute w-full left-0 z-50">
             <div class="px-4 pt-3 pb-5 space-y-1.5">
                 {% for nav_item in data.nav %}
                     {% assign item = nav_item[1] %}
@@ -160,18 +160,18 @@
                         {% endif %}
                         
                         {% if item.highlight %}
-                            <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="block px-4 py-2.5 rounded-lg text-xs font-bold text-slate-950 bg-brand-400 hover:bg-brand-300 text-center">
+                            <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="block px-4 py-2.5 rounded-lg text-xs font-bold text-slate-950 bg-brand-400 hover:bg-brand-300 text-center shadow-sm">
                                 {{ item.title[page.lang] }}
                             </a>
                         {% else %}
-                            <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="block px-4 py-2.5 rounded-lg text-xs font-semibold {% if is_active %}text-brand-400 bg-brand-900{% else %}text-slate-200 hover:text-brand-300 hover:bg-brand-900/60{% endif %}">
+                            <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="block px-4 py-2.5 rounded-lg text-xs font-semibold {% if is_active %}text-brand-600 bg-brand-50 font-bold{% else %}text-slate-700 hover:text-brand-600 hover:bg-slate-50{% endif %} transition-colors">
                                 {{ item.title[page.lang] }}
                             </a>
                         {% endif %}
                     {% endunless %}
                 {% endfor %}
                 
-                <div class="border-t border-brand-900 mt-3 pt-2 space-y-1 sm:hidden">
+                <div class="border-t border-slate-200 mt-3 pt-2 space-y-1 sm:hidden">
                     {% for nav_item in data.nav %}
                         {% assign item = nav_item[1] %}
                         {% if item.secondary %}
@@ -180,7 +180,7 @@
                                 {% assign is_active = true %}
                             {% endif %}
                 
-                            <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="block px-4 py-1.5 rounded-lg text-[11px] font-medium transition-colors {% if is_active %}font-bold text-brand-400 bg-brand-900{% else %}text-slate-400 hover:text-brand-300 hover:bg-brand-900/40{% endif %}">
+                            <a href="{{ site.baseurl }}/{{ item.link[page.lang] }}" class="block px-4 py-1.5 rounded-lg text-[11px] font-medium transition-colors {% if is_active %}font-bold text-brand-600 bg-brand-50{% else %}text-slate-500 hover:text-brand-600 hover:bg-slate-50{% endif %}">
                                 {{ item.title[page.lang] }}
                             </a>
                         {% endif %}
@@ -231,7 +231,7 @@
     <!-- Vidinis konteineris -->
     <div class="relative z-20 max-w-7xl mx-auto w-full px-3 sm:px-6 lg:px-8 flex-grow flex flex-col justify-between gap-3 sm:gap-6 min-h-0">
         
-        <!-- Slaiderio tekstai (Lanksti ir adaptyvi erdvė) -->
+        <!-- Slaiderio tekstai -->
         <div class="flex-1 flex flex-col justify-center my-auto py-2 sm:py-6 lg:py-10 min-h-0">
             <div class="w-full max-w-2xl text-left relative">
                 {% for slide_item in site_data.slides %}
