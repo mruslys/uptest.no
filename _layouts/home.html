@@ -12,7 +12,8 @@
 {% include header.html %}
 
 <!-- HERO SEKCIJA -->
-<section id="hero-slider" class="relative w-full bg-brand-950 py-8 sm:py-12 lg:py-16">
+<!-- Pridėtas flex-grow, kad mobiliajame ji užpildytų visą erdvę iki footerio, o justify-between išskirstytų turinį -->
+<section id="hero-slider" class="relative w-full bg-brand-950 flex flex-col flex-grow justify-between lg:justify-start lg:gap-16 py-6 sm:py-8 lg:py-12">
 
     <!-- Fono paveiksliukai ir gradientai -->
     <div class="absolute inset-0 z-0 pointer-events-none">
@@ -48,7 +49,7 @@
     </div>
 
     <!-- PAGRINDINIS KONTEINERIS -->
-    <div class="relative z-20 max-w-7xl mx-auto w-full px-3 sm:px-6 lg:px-8 flex flex-col gap-10 lg:gap-14">
+    <div class="relative z-20 max-w-7xl mx-auto w-full px-3 sm:px-6 lg:px-8 flex flex-col justify-between lg:justify-start gap-6 lg:gap-14 flex-grow">
         
         <!-- 1. TEKSTO DALIS -->
         <div class="w-full max-w-2xl text-left flex flex-col justify-center">
@@ -89,7 +90,7 @@
         </div>
 
         <!-- 2. APATINĖ DALIS / KORTELĖS -->
-        <div class="w-full flex flex-col gap-3">
+        <div class="w-full flex flex-col gap-3 mt-auto lg:mt-0">
             
             <!-- Mobile slider controllers -->
             <div class="slider-controller w-full flex justify-end lg:hidden px-1">
