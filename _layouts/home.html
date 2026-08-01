@@ -12,7 +12,7 @@
 {% include header.html %}
 
 <!-- HERO SEKCIJA -->
-<section id="hero-slider" class="relative flex flex-col justify-between w-full bg-brand-950 py-6 sm:py-10">
+<section id="hero-slider" class="relative flex flex-col justify-between w-full bg-brand-950 py-3 sm:py-5">
 
     <div class="absolute inset-0 z-0 pointer-events-none">
         {% for slide_item in site_data.slides %}
@@ -46,10 +46,10 @@
         </div>
     </div>
 
-    <div class="relative z-20 max-w-7xl mx-auto w-full px-3 sm:px-6 lg:px-8 flex flex-col gap-6 sm:gap-10">
+    <div class="relative z-20 max-w-7xl mx-auto w-full px-3 sm:px-6 lg:px-8 flex flex-col gap-4 sm:gap-6">
         
         <!-- TEKSTO DALIS -->
-        <div class="w-full max-w-2xl text-left pt-6 sm:pt-10 flex flex-col justify-center">
+        <div class="w-full max-w-2xl text-left pt-2 sm:pt-4 flex flex-col justify-center">
             <div class="relative w-full">
                 {% for slide_item in site_data.slides %}
                   {% assign slide = slide_item[1] %}
@@ -87,7 +87,7 @@
         </div>
 
         <!-- APATINĖ DALIS -->
-        <div class="w-full max-w-7xl pb-4">
+        <div class="w-full max-w-7xl pb-1">
             
             <div class="slider-controller w-full flex justify-end lg:hidden mb-2 px-1">
                 <div class="inline-flex items-center gap-3">
