@@ -7,13 +7,14 @@
     {% include head.html %}
 </head>
     
-<!-- Puslapis yra lankstus stulpelis per visą ekraną -->
-<body class="bg-brand-950 text-slate-800 antialiased font-sans flex flex-col min-h-screen m-0">
+<!-- Naudojame min-h-[100dvh] vietoj min-h-screen, kad mobilioji naršyklė dinamiškai pritaikytų aukštį, 
+     ir pridedame pb-[env(safe-area-inset-bottom)] naujų telefonų apatinei juostai -->
+<body class="bg-brand-950 text-slate-800 antialiased font-sans flex flex-col min-h-[100dvh] pb-[env(safe-area-inset-bottom)] m-0">
     
-<!-- 1. HEADERIS: Užima tiek, kiek jam reikia -->
+<!-- 1. HEADERIS -->
 {% include header.html %}
 
-<!-- 2. LIKUSI EKRANO DALIS (Hero sekcija): Užima visą likusį plotą tarp headerio ir footerio -->
+<!-- 2. HERO SEKCIJA -->
 <section id="hero-slider" class="relative w-full bg-brand-950 flex-grow flex flex-col justify-between py-4 sm:py-6 lg:py-8">
 
     <!-- Fono paveiksliukai ir gradientai -->
@@ -29,7 +30,7 @@
         <div class="absolute inset-0 bg-gradient-to-t from-brand-950/95 via-brand-900/40 to-transparent"></div>
     </div>
 
-    <!-- Desktop slider controllers (viršutiniame kampe) -->
+    <!-- Desktop slider controllers -->
     <div class="slider-controller hidden lg:flex absolute right-8 top-6 z-30 items-center gap-3">
         <div class="text-[11px] font-bold text-white tracking-wider tabular-nums flex items-center gap-1">
             <span class="text-brand-400 current-num">01</span>
@@ -49,10 +50,10 @@
         </div>
     </div>
 
-    <!-- Vidinis konteineris, išdėstantis turinį per visą likusį aukštį -->
+    <!-- Vidinis konteineris -->
     <div class="relative z-20 max-w-7xl mx-auto w-full px-3 sm:px-6 lg:px-8 flex-grow flex flex-col justify-between gap-6">
         
-        <!-- A. RESPONSIVE ERDVĖ: Slaiderio tekstai ir mygtukai (vertikaliai lygiuoti centre) -->
+        <!-- A. RESPONSIVE ERDVĖ: Slaiderio tekstai -->
         <div class="flex-grow flex flex-col justify-center py-2">
             <div class="w-full max-w-2xl text-left relative">
                 {% for slide_item in site_data.slides %}
@@ -90,7 +91,7 @@
             </div>
         </div>
 
-        <!-- B. APATINĖ DALIS: Slaiderio kontroleriai (mobile) ir dvi apatinės kortelės (užima tiek, kiek joms reikia) -->
+        <!-- B. APATINĖ DALIS: Kontroleriai ir kortelės -->
         <div class="w-full flex flex-col gap-3">
             
             <!-- Mobile slider controllers -->
@@ -115,7 +116,7 @@
                 </div>
             </div>
 
-            <!-- Dvi apatinės kortelės -->
+            <!-- Kortelės -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 w-full">
                 {% for card in site_data.cards %}
                 <a href="{{ card.link[page.lang] }}" class="relative overflow-hidden p-4 sm:p-5 rounded-xl bg-brand-900/50 hover:bg-brand-900/80 border border-brand-500/25 hover:border-brand-400/60 backdrop-blur-md transition-all duration-200 group shadow-lg shadow-brand-950/50 flex flex-col justify-between">
@@ -143,7 +144,7 @@
     </div>
 </section>
 
-<!-- 3. FOOTERIS: Užima tiek, kiek jam reikia, ir sėdi pačioje apačioje -->
+<!-- 3. FOOTERIS -->
 {% include footer.html %}
 
 <script src="home.js?v=0.14"></script>
