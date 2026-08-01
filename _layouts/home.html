@@ -21,14 +21,14 @@
                             50:  '#f0fdfa',
                             100: '#ccfbf1',
                             200: '#99f6e4',
-                            300: '#5eead4', // Ryškus ciano/žalias akcentas
-                            400: '#2dd4bf', // Pagrindinis ryškus mygtukų ir akcentų atspalvis
+                            300: '#5eead4',
+                            400: '#2dd4bf',
                             500: '#14b8a6',
                             600: '#0d9488',
                             700: '#0f766e',
-                            800: '#0a4340', // Tamsi gili žalia remeliams ir foniniams elementams
-                            900: '#062d2b', // Tamsi gili žalia kortelėms ir valdymo skydeliams
-                            950: '#021a19', // Ypač gili tamsiai žalia fono spalva (pakeitė mėlyną/navy)
+                            800: '#0a4340',
+                            900: '#062d2b',
+                            950: '#021a19',
                         }
                     },
                     fontFamily: {
@@ -54,7 +54,7 @@
 
 <header class="shadow-md w-full relative z-30">
         
-        <!-- Kalbos ir secondary menu juosta (Tamsiai žalia) -->
+        <!-- Kalbos ir secondary menu juosta -->
         <div class="bg-brand-950 text-slate-300 text-xs py-2 border-b border-brand-900">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
                 
@@ -101,7 +101,7 @@
             </div>
         </div>
 
-        <!-- Pagrindinė meniu juosta (Švari balta) -->
+        <!-- Pagrindinė meniu juosta -->
         <div class="bg-white border-b border-slate-200">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between items-center h-20 sm:h-24">
@@ -147,7 +147,7 @@
             </div>
         </div>
 
-        <!-- Mobilus meniu skydelis (Tamsiai žalias) -->
+        <!-- Mobilus meniu skydelis -->
         <div id="mobile-menu-panel" class="hidden lg:hidden bg-brand-950 border-b border-brand-900 shadow-2xl absolute w-full left-0 z-50">
             <div class="px-4 pt-4 pb-6 space-y-2">
                 {% for nav_item in data.nav %}
@@ -192,20 +192,21 @@
     </header>
 
 <!-- 2. HERO SEKCIJA -->
-<section id="hero-slider" class="relative w-full bg-brand-950 flex-grow flex flex-col justify-between py-4 sm:py-8 lg:py-10">
+<section id="hero-slider" class="relative w-full bg-brand-950 flex-grow flex flex-col justify-between py-4 sm:py-8 lg:py-10 overflow-hidden">
 
-    <!-- Fono paveiksliukai ir tamsiai žali gradientai -->
+    <!-- Fono paveiksliukai -->
     <div class="absolute inset-0 z-0 pointer-events-none">
         {% for slide_item in site_data.slides %}
           {% assign slide = slide_item[1] %}
           <div class="bg-slide absolute inset-0 {% if forloop.first %}opacity-100{% else %}opacity-0{% endif %} transition-opacity duration-700 ease-in-out">
-              <img src="{{ slide.image }}" class="w-full h-full object-cover object-center brightness-[0.88] contrast-[1.1]" alt="{{ slide.title[page.lang] }}">
+              <!-- Paveikslėlis paliktas ryškus ir kontrastingas -->
+              <img src="{{ slide.image }}" class="w-full h-full object-cover object-center brightness-[0.95] contrast-[1.05]" alt="{{ slide.title[page.lang] }}">
           </div>
         {% endfor %}
 
-        <!-- Gradientai tekstų perskaitomumui (Tamsiai žali tonai) -->
-        <div class="absolute inset-0 bg-gradient-to-r from-brand-950/92 via-brand-950/65 to-transparent"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-brand-950 via-transparent to-brand-950/40"></div>
+        <!-- BALANSUOTAS OVERLAY: Tamsinama tik kairė pusė (tieks tekstu) + švelnus apatinis/viršutinis perėjimas -->
+        <div class="absolute inset-0 bg-gradient-to-r from-brand-950/95 via-brand-950/75 via-45% to-brand-950/10 sm:to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-950/90 via-transparent to-brand-950/30"></div>
     </div>
 
     <!-- Desktop slider controllers -->
@@ -231,7 +232,7 @@
     <!-- Vidinis konteineris -->
     <div class="relative z-20 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 flex-grow flex flex-col justify-between gap-4 sm:gap-6">
         
-        <!-- Slaiderio tekstai -->
+        <!-- Slaiderio tekstai (su papildomu drop-shadow kontrastui) -->
         <div class="flex-grow flex flex-col justify-center my-auto py-6">
             <div class="w-full max-w-2xl text-left relative">
                 {% for slide_item in site_data.slides %}
@@ -245,21 +246,21 @@
                       </div>
           
                       {% if forloop.first %}
-                        <h1 class="text-white text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-3 sm:mb-4 drop-shadow-md">
+                        <h1 class="text-white text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-3 sm:mb-4 drop-shadow-[0_2px_10px_rgba(0,0,0,0.7)]">
                             {{ slide.title[page.lang] }}
                         </h1>
                       {% else %}
-                        <h2 class="text-white text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-3 sm:mb-4 drop-shadow-md">
+                        <h2 class="text-white text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-3 sm:mb-4 drop-shadow-[0_2px_10px_rgba(0,0,0,0.7)]">
                             {{ slide.title[page.lang] }}
                         </h2>
                       {% endif %}
           
-                      <p class="text-slate-200 text-sm sm:text-lg font-normal max-w-xl leading-relaxed mb-4 sm:mb-6">
+                      <p class="text-slate-100 text-sm sm:text-lg font-medium max-w-xl leading-relaxed mb-4 sm:mb-6 drop-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
                           {{ slide.desc[page.lang] }}
                       </p>
           
                       <div>
-                          <a href="{{ slide.link[page.lang] }}" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-bold text-slate-950 bg-brand-400 hover:bg-brand-300 transition-all shadow-lg shadow-brand-500/20 hover:shadow-brand-400/40 hover:-translate-y-0.5">
+                          <a href="{{ slide.link[page.lang] }}" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-bold text-slate-950 bg-brand-400 hover:bg-brand-300 transition-all shadow-lg shadow-black/40 hover:-translate-y-0.5">
                               {{ slide.btn_text[page.lang] }}
                               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
                           </a>
@@ -294,7 +295,7 @@
                 </div>
             </div>
 
-            <!-- Kortelės (Tamsiai žalios) -->
+            <!-- Kortelės -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 w-full">
                 {% for card in site_data.cards %}
                 <a href="{{ card.link[page.lang] }}" class="relative overflow-hidden p-4 sm:p-5 rounded-xl bg-brand-900/85 hover:bg-brand-900 border border-brand-800 hover:border-brand-400/60 backdrop-blur-md transition-all duration-300 group shadow-xl flex flex-col justify-between">
@@ -322,7 +323,7 @@
     </div>
 </section>
 
-<!-- 3. FOOTERIS (Pakeistas į tamsiai žalią brand-950) -->
+<!-- 3. FOOTERIS -->
 <footer class="bg-brand-950 py-5 relative z-30 border-t border-brand-900 text-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-3 text-center sm:text-left">
         <p class="text-xs text-slate-400 font-normal">
