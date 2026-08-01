@@ -27,7 +27,7 @@
     </div>
 
     <!-- Desktop slider controllers -->
-    <div class="slider-controller hidden lg:flex absolute right-8 top-4 z-30 items-center gap-3">
+    <div class="slider-controller hidden lg:flex absolute right-8 top-4 z-30 items-center gap-3 bg-brand-900/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-brand-500/20 shadow-lg">
         <div class="text-[11px] font-bold text-white tracking-wider tabular-nums flex items-center gap-1">
             <span class="text-brand-400 current-num">01</span>
             <span class="text-slate-400">/</span>
@@ -37,10 +37,10 @@
             <div class="slide-progress h-full bg-brand-400 w-0"></div>
         </div>
         <div class="flex items-center gap-1">
-            <button class="prev-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-md hover:bg-white/10" aria-label="Previous slide">
+            <button class="prev-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-md hover:bg-brand-500/20" aria-label="Previous slide">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
             </button>
-            <button class="next-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-md hover:bg-white/10" aria-label="Next slide">
+            <button class="next-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-md hover:bg-brand-500/20" aria-label="Next slide">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
             </button>
         </div>
@@ -92,7 +92,7 @@
         <div class="w-full max-w-7xl pt-1 pb-1">
             
             <div class="slider-controller w-full flex justify-end lg:hidden mb-1 px-1">
-                <div class="inline-flex items-center gap-3">
+                <div class="inline-flex items-center gap-3 bg-brand-900/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-brand-500/20 shadow-lg">
                     <div class="text-[11px] font-bold text-white tracking-wider tabular-nums flex items-center gap-1">
                         <span class="text-brand-400 current-num">01</span>
                         <span class="text-slate-400">/</span>
@@ -102,10 +102,10 @@
                         <div class="slide-progress h-full bg-brand-400 w-0"></div>
                     </div>
                     <div class="flex items-center gap-1">
-                        <button class="prev-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-md hover:bg-white/10" aria-label="Previous slide">
+                        <button class="prev-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-md hover:bg-brand-500/20" aria-label="Previous slide">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
                         </button>
-                        <button class="next-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-md hover:bg-white/10" aria-label="Next slide">
+                        <button class="next-slide-btn text-slate-300 hover:text-white transition-colors p-1 cursor-pointer rounded-md hover:bg-brand-500/20" aria-label="Next slide">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                         </button>
                     </div>
@@ -114,21 +114,21 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5 w-full">
                 {% for card in site_data.cards %}
-                <a href="{{ card.link[page.lang] }}" class="relative overflow-hidden p-3 sm:p-5 rounded-xl bg-gradient-to-br from-brand-600 via-brand-600 to-brand-500 hover:from-brand-500 hover:to-brand-400 border border-brand-400/50 hover:border-white/60 transition-all duration-200 group shadow-lg shadow-brand-600/20 flex flex-col justify-between">
+                <a href="{{ card.link[page.lang] }}" class="relative overflow-hidden p-3 sm:p-5 rounded-xl bg-brand-900/50 hover:bg-brand-900/80 border border-brand-500/25 hover:border-brand-400/60 backdrop-blur-md transition-all duration-200 group shadow-lg shadow-brand-950/50 flex flex-col justify-between">
                     <div class="relative z-10 pr-20 sm:pr-28">
-                        <h3 class="text-sm sm:text-lg font-bold text-white group-hover:text-brand-100 transition-colors">
+                        <h3 class="text-sm sm:text-lg font-bold text-white group-hover:text-brand-300 transition-colors">
                             {{ card.title[page.lang] }}
                         </h3>
-                        <p class="text-xs sm:text-sm text-brand-100 line-clamp-2 mt-1">
+                        <p class="text-xs sm:text-sm text-slate-300 line-clamp-2 mt-1">
                             {{ card.desc[page.lang] }}
                         </p>
-                        <div class="mt-2 flex items-center gap-1 text-xs sm:text-sm font-semibold text-white group-hover:text-brand-100 transition-colors">
+                        <div class="mt-2 flex items-center gap-1 text-xs sm:text-sm font-semibold text-brand-400 group-hover:text-brand-300 transition-colors">
                             {{ card.btn_text[page.lang] }} 
                             <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                         </div>
                     </div>
-                    <div class="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-brand-700/30 group-hover:bg-brand-700/50 transition-colors flex items-center justify-center border-l border-brand-400/30">
-                        <img src="{{ site.baseurl }}/{{ card.image }}" alt="{{ card.title[page.lang] }}" class="w-12 h-12 sm:w-24 sm:h-24 opacity-95 group-hover:scale-110 transition-transform object-contain">
+                    <div class="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-brand-950/40 group-hover:bg-brand-900/60 transition-colors flex items-center justify-center border-l border-brand-500/20">
+                        <img src="{{ site.baseurl }}/{{ card.image }}" alt="{{ card.title[page.lang] }}" class="w-12 h-12 sm:w-24 sm:h-24 opacity-90 group-hover:scale-110 transition-transform object-contain">
                     </div>
                 </a>
                 {% endfor %}
