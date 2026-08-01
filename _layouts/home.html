@@ -121,10 +121,10 @@
                 {% for card in site_data.cards %}
                 <a href="{{ card.link[page.lang] }}" class="relative overflow-hidden p-3.5 sm:p-5 rounded-xl bg-brand-900/50 hover:bg-brand-900/80 border border-brand-500/25 hover:border-brand-400/60 backdrop-blur-md transition-all duration-200 group shadow-lg shadow-brand-950/50 flex flex-col justify-between">
                     <div class="relative z-10 pr-16 sm:pr-28">
-                        <h3 class="text-xs sm:text-lg font-bold text-white group-hover:text-brand-300 transition-colors">
+                        <h3 class="text-sm sm:text-lg font-bold text-white group-hover:text-brand-300 transition-colors">
                             {{ card.title[page.lang] }}
                         </h3>
-                        <p class="text-[11px] sm:text-sm text-slate-300 line-clamp-2 mt-0.5 sm:mt-1">
+                        <p class="text-xs sm:text-sm text-slate-200 line-clamp-2 mt-0.5 sm:mt-1">
                             {{ card.desc[page.lang] }}
                         </p>
                         <div class="mt-1.5 sm:mt-2 flex items-center gap-1 text-[11px] sm:text-sm font-semibold text-brand-400 group-hover:text-brand-300 transition-colors">
