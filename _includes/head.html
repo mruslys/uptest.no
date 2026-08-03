@@ -3,7 +3,11 @@
 
     <!-- Standartinis Meta Pavadinimas -->
     <title>{% if page.meta_title %}{{ page.meta_title }}{% else %}{{ page.title }}{% endif %}</title>
-    
+
+    {% if page.og_description %}
+    <meta name="description" content="{{ page.og_description }}">
+    {% endif %}
+
     <!-- Open Graph / Social Media Žymos -->
     <meta property="og:title" content="{% if page.og_title %}{{ page.og_title }}{% else %}{{ page.title }} | {{ site.title }}{% endif %}">
     <meta property="og:description" content="{{ page.og_description }}">
