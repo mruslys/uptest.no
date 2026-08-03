@@ -14,7 +14,7 @@ languages:
 common:
   en:
     language: "Language"
-    company: "Uptest, Ltd"
+    company: "Uptest, UAB"
     rights: "All rights reserved."
     rebuilt_by: "Rebuilt by"
     old_version: "Old version"
@@ -157,7 +157,7 @@ cards:
     title:
       lt: "Pramoninis alpinizmas"
       en: "Rope Access"
-      "no": "Tauarbeid"
+      "no": "Tilgangsteknikk"
     desc:
       lt: "Profesionalūs darbų aukštyje sprendimai, inspekcijos ir pramoniniai darbai."
       en: "Professional rope access solutions, inspections, and industrial works."
@@ -268,12 +268,12 @@ slides:
       "no": "Utleie av utstyr"
     title:
       en: "NDT Equipment Rental"
-      lt: "NK įrangos nuoma"
+      lt: "Neardomosios kontrolės įranga"
       "no": "Utleie av NDT-utstyr"
     desc:
       en: "Reliable non-destructive testing equipment available for short- and long-term rental."
       lt: "Patikima neardomosios kontrolės įranga trumpalaikei ir ilgalaikei nuomai bet kokio masto patikros projektams."
-      "no": "Pålitelig utstyr for ikke-destruktiv prøving tilgjengelig for kort- og langsiktig leie for å støtte inspeksjonsprosjekter i alle størrelser."
+      "no": "Pålitelig NDT-utstyr tilgjengelig for kort- og langsiktig leie til inspeksjonsprosjekter in alle størrelser."
     btn_text:
       en: "Learn More"
       lt: "Sužinoti daugiau"
