@@ -4,13 +4,13 @@
     <!-- Standartinis Meta Pavadinimas -->
     <title>{% if page.meta_title %}{{ page.meta_title }}{% else %}{{ page.title }}{% endif %}</title>
 
-    {% if page.og_description %}
-    <meta name="description" content="{{ page.og_description }}">
+    {% if page.meta_description %}
+    <meta name="description" content="{{ page.meta_description }}">
     {% endif %}
 
     <!-- Open Graph / Social Media Žymos -->
     <meta property="og:title" content="{% if page.og_title %}{{ page.og_title }}{% else %}{{ page.title }} | {{ site.title }}{% endif %}">
-    <meta property="og:description" content="{{ page.og_description }}">
+    <meta property="og:description" content="{{ page.meta_description }}">
     <meta property="og:image" content="{{ page.og_image | absolute_url }}">
     <meta property="og:url" content="{{ page.url | absolute_url }}">
     <meta property="og:type" content="{{ page.og_type | default: 'website' }}">
@@ -19,7 +19,7 @@
     <!-- Twitter / X Kortelės (papildomai naudinga turėti šalia OG) -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{% if page.og_title %}{{ page.og_title }}{% else %}{{ page.title }} | {{ site.title }}{% endif %}">
-    <meta name="twitter:description" content="{{ page.og_description }}">
+    <meta name="twitter:description" content="{{ page.meta_description }}">
     <meta name="twitter:image" content="{{ page.og_image | absolute_url }}">
 
     <base href="{{ '/' | relative_url }}">
