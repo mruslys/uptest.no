@@ -65,7 +65,7 @@ home:
   title:
     en: "Uptest | NDT & Rope Access Inspections"
     lt: "Uptest | Neardomoji kontrolė ir darbai aukštyje"
-    "no": "Uptest | NDT & Tilgangsteknikk Kontroll"
+    "no": "Uptest | NDT & Tilkomstteknikk Kontroll"
     
 nav:
   about:
@@ -92,11 +92,11 @@ nav:
     title:
       en: "Rope Access"
       lt: "Darbai aukštyje"
-      "no": "Tilgangsteknikk"
+      "no": "Tilkomstteknikk"
     link:
       en: "rope-access/"
       lt: "lt/darbai-aukstyje/"
-      "no": "no/tilgangsteknikk/"
+      "no": "no/tilkomstteknikk/"
 
   equipment:
     title:
@@ -157,15 +157,15 @@ cards:
     title:
       lt: "Pramoninis alpinizmas"
       en: "Rope Access"
-      "no": "Tilgangsteknikk"
+      "no": "Tilkomstteknikk"
     desc:
       lt: "Profesionalūs darbų aukštyje sprendimai, inspekcijos ir pramoniniai darbai."
       en: "Professional rope access solutions, inspections, and industrial works."
-      "no": "Profesjonelle tilgangsteknikkløsninger, inspeksjoner og industrielt arbeid."
+      "no": "Profesjonelle tilkomstteknikkløsninger, inspeksjoner og industrielt arbeid."
     link:
       en: "rope-access/"
       lt: "lt/darbai-aukstyje/"
-      "no": "no/tilgangsteknikk/"
+      "no": "no/tilkomstteknikk/"
     btn_text:
       lt: "Plačiau"
       en: "Learn more"
@@ -204,7 +204,7 @@ slides:
     desc: 
       en: "Delivering reliable non-destructive testing and rope access solutions backed by years of international offshore experience."
       lt: "Atliekame neardomosios kontrolės ir darbų aukštyje paslaugas, remdamiesi ilgamete tarptautine patirtimi jūriniuose ir pramonės projektuose."
-      "no": "Leverer pålitelige tjenester innen ikke-destruktiv prøving og tilgangsteknikk, støttet av mange års internasjonal offshoreerfaring."
+      "no": "Leverer pålitelige tjenester innen ikke-destruktiv prøving og tilkomstteknikk, støttet av mange års internasjonal offshoreerfaring."
     btn_text: 
       en: "About Us"
       lt: "Apie mus"
@@ -246,7 +246,7 @@ slides:
     title:
       en: "Industrial Rope Access"
       lt: "Darbai aukštyje"
-      "no": "Industriell tilgangsteknikk"
+      "no": "Industriell tilkomstteknikk"
     desc:
       en: "Certified high-altitude inspection and maintenance solutions tailored for challenging environments."
       lt: "Sertifikuota patikra, techninė priežiūra ir įvairūs darbai aukštyje bei sudėtingomis sąlygomis."
@@ -258,7 +258,7 @@ slides:
     link:
       en: "rope-access/"
       lt: "lt/darbai-aukstyje/"
-      "no": "no/tilgangsteknikk/"
+      "no": "no/tilkomstteknikk/"
     image: "images/uptest-neardomoji-kontrole-5.jpg"
       
   equipment:
